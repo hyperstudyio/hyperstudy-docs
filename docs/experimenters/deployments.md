@@ -101,6 +101,22 @@ Use the search bar to filter by deployment or experiment name, and click column 
 
 Each deployment includes inline session tracking. Click on a deployment card or expand a table row to see real-time session monitoring.
 
+### Participant Pipeline
+
+At the top of the tracking view, a pipeline visualization bar shows where all participants currently are in the experiment flow:
+
+```
+Consent → Instructions → Waiting → Matched → In Experiment → Questionnaire → Completed
+```
+
+Each stage displays a real-time count of participants at that point. Stages with active participants are highlighted, making it easy to see at a glance where participants are concentrated. For example, if three people are in the waiting room and two are mid-experiment, the **Waiting** and **In Experiment** stages will both be highlighted with their respective counts.
+
+The pipeline updates in real-time — as participants move through the experiment, the counts shift across stages automatically.
+
+### Filtering Completed Sessions
+
+Below the pipeline, a toggle button lets you show or hide completed sessions. The button label includes the count of completed sessions (e.g., "Show completed (12)"). By default, completed sessions are hidden to keep the table focused on active sessions that may need attention.
+
 ### Session Table
 
 The session tracking view shows all sessions for that deployment:
@@ -113,6 +129,8 @@ The session tracking view shows all sessions for that deployment:
 | **Current State** | Which experiment state participants are in (e.g., "Intro (1/5)") |
 | **Component** | Type of component currently displayed |
 | **Time in State** | How long participants have been in the current state |
+| **Alert** | Stuck indicator badge and/or participant message count badge (see [Messaging](./messaging.md)) |
+| **Actions** | Context-sensitive controls: Advance, End, Msg, Cancel, or Cleanup depending on session status |
 
 ### Status Badges
 
@@ -126,11 +144,23 @@ The session tracking view shows all sessions for that deployment:
 
 ### Session Controls
 
-For each active session, you have intervention controls:
+The **Actions** column shows different controls depending on the session's status:
+
+#### Active Sessions
 
 - **Advance**: Move all participants to the next experiment state. Use when a participant is stuck or you need to skip a state during testing.
-- **Reset**: Return the session to the first state. Use for restarting after issues. A confirmation dialog appears since this clears current progress.
-- **End**: Terminate the session and show participants the completion screen. Use for immediate stops. This action cannot be undone.
+- **End**: Terminate the session and show participants the completion screen. This action cannot be undone.
+- **Msg**: Open a compose modal to send a message to all participants in this room. See [Experimenter-Participant Messaging](./messaging.md) for details.
+
+If participants have sent help messages, a **View msgs** button also appears, opening the message thread for that room.
+
+#### Pre-Experiment Sessions (Consent, Instructions, Waiting)
+
+- **Cancel**: Remove the participant from the waiting pipeline. A confirmation dialog appears. Use this when a participant appears to have abandoned the consent or instruction flow and you want to free up their slot.
+
+#### Stale / Orphaned Sessions
+
+- **Cleanup**: Mark the session as abandoned in the database. A confirmation dialog appears. Use this for sessions that are stuck (inactive for over 10 minutes) where the participant has likely disconnected or left. This cleans up the session without affecting other active sessions.
 
 ### Identifying Issues
 
@@ -249,6 +279,8 @@ Set realistic target participant counts:
 - Keep the deployment dashboard open during active data collection
 - Watch for stuck sessions and intervene when necessary
 - Review completed sessions promptly to catch data quality issues
+- If you have [participant messaging](./messaging.md) enabled, monitor the **Alert** column for incoming help requests and respond promptly
+- Use the participant pipeline bar to spot bottlenecks (e.g., many participants stuck in Waiting may indicate a matching issue)
 
 ### Data Organization
 
@@ -258,6 +290,7 @@ Set realistic target participant counts:
 
 ## Next Steps
 
+- [Experimenter-Participant Messaging](./messaging.md) - Send messages to participants and receive help requests
 - [Recruitment Settings](./recruitment/settings.md) - Configure how participants join your deployments
 - [Prolific Integration](./recruitment/prolific-integration.md) - Set up paid recruitment through Prolific
 - [Permissions & Sharing](./permissions.md) - Control access to deployment data

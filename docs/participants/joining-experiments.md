@@ -159,6 +159,15 @@ Once the experiment begins:
 
 The experiment will consist of different states or phases, each with specific activities or tasks to complete.
 
+### Communicating with the Research Team
+
+Some experiments include a built-in messaging system that lets you communicate with the research team during the experiment:
+
+- **Help button**: If enabled by the experimenter, a floating **Help** button appears in the bottom-right corner of the screen. Click it to open a message form where you can type a question or report an issue. The research team will see your message in real-time.
+- **Experimenter messages**: The research team may send you messages during the experiment. These appear as a banner at the top of your screen, labeled **Experimenter**. Banners dismiss automatically after 10 seconds, or you can close them early by clicking the close button.
+
+Not all experiments have messaging enabled — if you don't see a Help button, the experimenter has not activated this feature. In that case, refer to the contact information in your invitation if you need assistance.
+
 ## Leaving an Experiment
 
 ### Normal Completion
@@ -186,7 +195,7 @@ If you absolutely must leave early:
 If you encounter technical problems:
 
 1. Try refreshing the page if the interface stops responding
-2. Use the chat or help function if available
+2. Use the **Help** button (bottom-right corner) to message the research team, if available
 3. Check your internet connection
 4. If you can't continue, contact the researcher using the information in your invitation
 
