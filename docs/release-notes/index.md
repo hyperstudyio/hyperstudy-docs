@@ -8,6 +8,22 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.31
+
+Released: 2026-03-04
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix PlatformAdminDashboard test to account for Plan Quotas tab (10fb06d0)
+- Fix monthly reset missing livekitMinutesThisMonth and add Plan Quotas admin UI (ed1858ce)
+- Fix LiveKit recording event visibility and timing precision (1ce976f8)
+- Fix participant disconnect and Prolific completion bugs (f974e453)
+- Fix each_key_duplicate error in StateListWithGroups (559bdbdb)
+
+---
+
 ## v0.6.30
 
 Released: 2026-03-03
@@ -34,24 +50,6 @@ Released: 2026-03-02
 
 - Fix cluster scaling: PDB deadlock, anti-affinity, HPAs, and dev environment (a2c14f46)
 - Add stimulus metadata to component responses and data management table (921e5fd4)
-
----
-
-## v0.6.28
-
-Released: 2026-03-01
-
-## What's Changed
-
-## Changes since last production release
-
-- Create shared RefreshButton component, remove dead code, data-driven nav (4c73ed70)
-- Improve stimulus display: boolean toggle, media browser, right/below layouts (f09de6c7)
-- Add inline stimulus image display to input components (410bf741)
-- Fix delete button removing group instead of selected state within group (5d2746a7)
-- Fix video/audio tracks not toggling on videochat visibility state transitions (33308693)
-- Add configurable encoding preset for LiveKit recording egress (8e3e4069)
-- Fix Kernel Flow event timestamp ordering for correct duration calculation (f6070c80)
 
 ---
 
