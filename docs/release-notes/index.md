@@ -8,6 +8,30 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.35
+
+Released: 2026-03-12
+
+## What's Changed
+
+## Changes since last production release
+
+- Add Escape key support to close custom modals (b523d503)
+- Add write/admin scopes to API key generation (afabdf9d)
+- Fix backend Docker build missing shared/ directory and roles format in test (faa35f70)
+- Fix emulator tests for component type validation (9f7d2037)
+- Fix  alias resolution in Docker build and CI tests (d886858b)
+- Add per-component JSON Schema validation (Phase 4) (a152ef73)
+- Add V3 experiment CRUD routes with API key authentication (f80f2331)
+- Fix experiment import rejecting valid component types and add schema-driven validation (ac1cc714)
+- Fix submit button visibility on MultipleChoice, Ranking, and RapidRate components (6d33e80a)
+- Clean up HLS video playback technical debt (f8d49c0b)
+- Fix CollaboratorCursors infinite effect loop and toFixed type errors (032355f1)
+- Add multi-layer video error recovery to prevent experiment freeze (34ce4784)
+- Fix EventProcessor state lookup mismatch causing confused component names (6fea3b34)
+
+---
+
 ## v0.6.34
 
 Released: 2026-03-11
@@ -98,23 +122,6 @@ Released: 2026-03-10
 - Fix sparse rating modal race condition and reliability bugs (048a6fba)
 - Fix LiveKit video not showing after collapse/uncollapse (ac6bb17b)
 - Revert v0.6.32 commits to restore v0.6.31 stability (9dcbefac)
-
----
-
-## v0.6.32
-
-Released: 2026-03-05
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix non-Prolific participants showing COMPLETED_NO_CODE completion status (c1a07c4e)
-- Merge branch 'worktree-rosy-sleeping-pascal' into dev (640e7a62)
-- Merge branch 'worktree-peppy-forging-umbrella' into dev (9f696358)
-- Fix Prolific participant stuck state and completion code bugs (1b268280)
-- Fix questionnaire data recording reliability for non-text components (bc471004)
-- Fix recording events missing from CSV export and recording duration overshoot (6f407701)
 
 ---
 
