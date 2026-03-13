@@ -466,7 +466,7 @@ If data seems inconsistent:
 
 ## Next Steps
 
-- [Data Management Interface Guide](../../experimenters/data-management-interface.md) - Learn to use the new data interface
+- [Data Management Guide](../../experimenters/data-management.md) - Learn to use the data interface
 - [API Access Guide](../../experimenters/api-access/overview.md) - Programmatic data access with Python, JavaScript, or R
   {/* - [API Reference](../../developers/api/data-v2.md) - Detailed API documentation */}
   {/* - [Migration Guide](../../developers/migration/data-collection-v2.md) - For custom integrations */}

@@ -116,53 +116,15 @@ Members can be added individually or in bulk via CSV import.
 
 ## Sharing Resources with Groups
 
-HyperStudy uses a unified Permission Manager for sharing experiments, media, and data with groups.
+HyperStudy uses a unified Permission Manager for sharing experiments, media, and data with groups. To share any resource with a group:
 
-### Sharing Experiments
+1. Open the resource's **Permissions** tab (or info panel for media)
+2. Click **Add Group** in the Grant Access section
+3. Select the group and toggle desired permissions (View, Edit, Duplicate, Export)
 
-To share an experiment with a group:
+Group members will immediately see the shared resource in their dashboard. For folder-based sharing, set permissions at the folder level and all contents inherit them automatically.
 
-1. Go to the experiment in Experiment Designer
-2. Open the **Permissions** tab
-3. In the **Grant Access** section, click **Add Group**
-4. Select the group from the dropdown
-5. Toggle permissions using the icons:
-   - **View** (eye) - Can see the experiment
-   - **Edit** (pencil) - Can modify the experiment
-   - **Duplicate** (copy) - Can create a copy
-   - **Manage Access** (gear) - Can change permissions
-
-Group members will immediately see the experiment in their dashboard.
-
-### Sharing Media
-
-To share images or videos with a group:
-
-1. In the Media Library, select the item
-2. Click **Permissions** in the info panel
-3. Click **Add Group** in the Grant Access section
-4. Select the group and toggle desired permissions
-
-### Sharing Data
-
-To share experiment data with a group:
-
-1. Go to **Data Management**
-2. Select the experiment
-3. Click the **Permissions** tab
-4. Click **Add Group** and select the group
-5. Toggle **View** and/or **Export** permissions
-
-### Folder-Based Sharing
-
-For efficient resource management:
-
-1. Create a folder structure that mirrors your group projects
-2. Set group permissions at the folder level
-3. All contents automatically inherit these permissions
-4. New items added to folders get appropriate permissions
-
-This minimizes manual permission management.
+For the full Permission Manager walkthrough, see [Permissions & Sharing](./permissions.md#using-the-permission-manager).
 
 ## Collaborative Workflows
 

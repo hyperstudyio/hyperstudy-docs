@@ -75,30 +75,9 @@ This is useful for:
 
 ## Time-Limited Access
 
-All cross-organization shares support expiration dates for enhanced security and compliance.
+All cross-organization shares support expiration dates. After adding an external user or organization, click the **calendar icon** next to their entry to set an expiration date. Access automatically revokes at midnight (UTC) on that date.
 
-### Setting an Expiration Date
-
-1. After adding an external user or organization, find them in the permissions list
-2. Click the **calendar icon** next to their entry
-3. Select an expiration date
-4. Access automatically revokes on that date at midnight (UTC)
-
-### Common Expiration Patterns
-
-| Scenario | Suggested Duration |
-|----------|-------------------|
-| One-time review | 1-2 weeks |
-| Active collaboration | 3-6 months |
-| Grant period | Match grant end date |
-| Course collaboration | End of semester |
-| Indefinite | Leave expiration blank |
-
-### Expiration Notifications
-
-- Users receive a notification 7 days before access expires
-- Owners receive a summary of expiring permissions weekly
-- Expired permissions are logged in the audit trail
+For expiration recommendations and notification details, see [Time-Limited Access](./permissions.md#time-limited-access) in the Permissions guide.
 
 ## The "Shared With Me" Panel
 
@@ -148,36 +127,7 @@ This separation is intentional for:
 
 ## Audit Trail and Compliance
 
-All cross-organization activities are logged for compliance with research regulations.
-
-### What Gets Logged
-
-- When access was granted
-- Who granted the access
-- What permissions were given
-- Expiration dates set
-- When access was used
-- When access expired or was revoked
-
-### Accessing Audit Logs
-
-Organization administrators can view audit logs:
-
-1. Go to **Settings > Organization > Audit Log**
-2. Filter by:
-   - Resource type (experiments, data, media)
-   - Action type (share, access, modify, revoke)
-   - Time period
-   - External organization
-3. Export logs for compliance documentation
-
-### Compliance Features
-
-| Regulation | Supported Feature |
-|------------|-------------------|
-| HIPAA | Access logging, expiration dates, role-based access |
-| FERPA | Data isolation, explicit permissions, audit trails |
-| GDPR | Time-limited access, access logging, data separation |
+All cross-organization activities are logged for compliance with research regulations (HIPAA, FERPA, GDPR). For details on what gets logged and how to access audit logs, see [Audit Trail](./permissions.md#audit-trail) in the Permissions guide.
 
 ## Best Practices for Multi-Site Studies
 

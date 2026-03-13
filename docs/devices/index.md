@@ -91,6 +91,34 @@ A high-speed video-based eye tracker from SR Research, connected via Ethernet th
 
 ---
 
+### Pupil Labs Neon
+
+A lightweight, mobile eye tracker from Pupil Labs. Connects to HyperStudy via the Bridge using the Neon's REST API and Lab Streaming Layer (LSL) for real-time gaze streaming.
+
+**Key Features:**
+- Real-time gaze streaming at up to 200 Hz
+- Automatic device discovery via LSL
+- Event annotations synchronized with experiment timeline
+- 9-point screen-space calibration
+
+[View Pupil Labs Neon Documentation →](/devices/pupil-neon)
+
+---
+
+### USB Triggers
+
+Direct USB trigger devices connected via the browser's WebUSB API. Supports Adafruit, Arduino, and other compatible microcontrollers for sending trigger signals without the Bridge.
+
+**Key Features:**
+- Direct browser-to-device communication via WebUSB
+- Supports Adafruit and Arduino devices
+- Configurable vendor ID and trigger commands
+- No Bridge required
+
+[View USB Triggers Documentation →](/devices/usb-triggers)
+
+---
+
 ## Typical Setup
 
 ### For Neural Recording Experiments

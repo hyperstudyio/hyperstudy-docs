@@ -81,6 +81,7 @@ module.exports = {
                     'experimenters/experiment-design/components/continuous-rating',
                     'experimenters/experiment-design/components/sparse-rating',
                     'experimenters/experiment-design/components/scanner-pulse-recorder',
+                    'experimenters/experiment-design/components/gaze-overlay',
                   ],
                 },
               ],
@@ -118,7 +119,6 @@ module.exports = {
           label: 'Data Management',
           items: [
             'experimenters/data-management',
-            'experimenters/data-management-interface',
             'experimenters/data-management/permissions',
           ],
         },
@@ -214,6 +214,9 @@ module.exports = {
         'devices/hyperstudy-bridge',
         'devices/hyperstudy-ttl',
         'devices/hyperstudy-gige',
+        'devices/eyelink',
+        'devices/pupil-neon',
+        'devices/usb-triggers',
       ],
     },
     {

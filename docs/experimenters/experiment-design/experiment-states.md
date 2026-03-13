@@ -21,74 +21,7 @@ Think of states like slides in a presentation - participants move through them i
 
 ## Experiment States vs. Pre-Experiment Stages
 
-It's important to distinguish between **experiment states** (which you design) and **pre-experiment stages** (which are automatic).
-
-### Pre-Experiment Stages (Automatic)
-
-**Before participants reach your experiment states**, they go through these automatic stages:
-
-```
-1. Lobby (Landing & Authentication)
-   ├── Participant clicks experiment link
-   ├── Authenticates via Firebase
-   └── Session created
-
-2. Consent Form (Required Gate #1)
-   ├── Consent content displayed
-   ├── Participant agrees or declines
-   ├── Agreement timestamped
-   └── BLOCKS progression if declined
-
-3. Instructions (Required Gate #2)
-   ├── Instruction pages displayed
-   ├── Comprehension checks (if enabled)
-   ├── Validation and scoring
-   └── BLOCKS progression if failed
-
-4. Waiting Room (Matching)
-   ├── Queue for matching (multi-participant)
-   ├── Role assignment
-   ├── Room creation
-   └── OR bypass (single-participant)
-
-5. Experiment Setup (Device & Media)
-   ├── Device permissions and testing
-   ├── Media preloading
-   ├── LiveKit connection
-   └── Ready signal
-
-───────────────────────────────────────────────
-↓ Participant now enters YOUR experiment states
-───────────────────────────────────────────────
-```
-
-### Your Experiment States (Designed by You)
-
-**After setup completes**, participants enter the **experiment states** you design:
-
-```
-State 1: Welcome
-State 2: Training
-State 3: Main Task Block 1
-State 4: Break
-State 5: Main Task Block 2
-State 6: Demographics
-State 7: Completion
-```
-
-**Key Differences:**
-
-| Aspect | Pre-Experiment Stages | Experiment States |
-|--------|----------------------|-------------------|
-| **Who creates** | Automatic (system) | You (experimenter) |
-| **When occurs** | Before experiment | During experiment |
-| **Configuration** | Settings/tabs in designer | States panel in designer |
-| **Can skip?** | No (required for all) | Yes (you control flow) |
-| **Purpose** | Preparation & compliance | Research tasks & data collection |
-
-:::tip Complete Lifecycle
-For the complete participant journey including all stages, see the [Participant Flow Guide](./participant-flow.md).
-:::
+Before participants reach your experiment states, they go through automatic pre-experiment stages (authentication, consent, instructions, waiting room, device setup). These are configured via separate tabs in the designer, not through the States panel. For the complete participant journey including all stages, see the [Participant Flow Guide](./participant-flow.md).
 
 ### State Anatomy
 

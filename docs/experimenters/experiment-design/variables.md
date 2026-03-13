@@ -321,6 +321,15 @@ console.log("Participant response:", userResponse);
 
 View the logs in the browser console during testing.
 
+## Variable Reference Validation
+
+The Experiment Designer automatically validates variable references in component text fields. When you type `{variableName}` in a text field:
+
+- **Valid references** (variable exists) appear highlighted in green
+- **Invalid references** (variable not defined) appear highlighted in red with a warning
+
+This helps catch typos and missing variable definitions before running your experiment. Validation is debounced so it doesn't interfere with typing.
+
 ## Best Practices
 
 1. **Plan Variables Ahead**: Design your variable structure before building

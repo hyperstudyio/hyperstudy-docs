@@ -123,17 +123,39 @@ Only the first few and last few characters are shown. This is for security - you
 
 Scopes control what data your API key can access. Choose the minimum scopes needed for your use case.
 
-### Data Access Scopes
+### Read Scopes
 
 | Scope | Description | What You Can Access |
 |-------|-------------|---------------------|
 | `read:events` | Read event data | Participant interactions, component events, state transitions |
 | `read:recordings` | Read recordings | Video/audio recordings from LiveKit sessions |
 | `read:chat` | Read chat messages | Text chat messages between participants |
+| `read:videochat` | Read video chat data | Video chat session metadata and connection events |
 | `read:ratings` | Read rating data | Both continuous and sparse rating data |
 | `read:sync` | Read sync metrics | Video synchronization quality metrics |
 | `read:participants` | Read participant data | Participant metadata and session information |
 | `read:components` | Read component metadata | Experiment component configurations |
+| `read:experiments` | Read experiment data | Experiment designs and configurations |
+
+### Write Scopes
+
+| Scope | Description | What You Can Do |
+|-------|-------------|-----------------|
+| `write:events` | Write event data | Record events programmatically |
+| `write:experiments` | Write experiment data | Create or modify experiments via API |
+
+### Delete Scopes
+
+| Scope | Description | What You Can Do |
+|-------|-------------|-----------------|
+| `delete:experiments` | Delete experiments | Remove experiments and associated data |
+
+### Admin Scopes
+
+| Scope | Description | What You Can Do |
+|-------|-------------|-----------------|
+| `admin:api_keys` | Manage API keys | Create, revoke, and manage API keys for other users |
+| `admin:users` | Manage users | View and manage user accounts |
 
 ### Wildcard Scopes
 
@@ -146,19 +168,27 @@ Scopes control what data your API key can access. Choose the minimum scopes need
 
 **For Data Analysis** (most common):
 ```
-✓ read:events
-✓ read:recordings
-✓ read:ratings
+read:events, read:recordings, read:ratings
 ```
 
-**For Monitoring**:
+**For Complete Data Export**:
 ```
-✓ read:events
+read:*  (Read All Data)
 ```
 
-**For Complete Export**:
+**For Experiment Management**:
 ```
-✓ read:*  (Read All Data)
+read:experiments, write:experiments
+```
+
+**For Monitoring Only**:
+```
+read:events
+```
+
+**For Platform Administration**:
+```
+admin:api_keys, admin:users
 ```
 
 **Security Tip**: Only grant scopes you actually need. You can always edit the key later to add more scopes.

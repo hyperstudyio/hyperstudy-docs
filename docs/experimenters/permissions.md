@@ -337,6 +337,17 @@ Organization administrators can access audit logs:
 | FERPA | Data isolation, explicit permissions, audit trails |
 | GDPR | Time-limited access, access logging, data separation |
 
+## Read-Only Mode
+
+When a user has **View** permission but not **Edit** permission on a resource, the interface displays in **read-only mode**:
+
+- The Experiment Designer shows the full design but all editing controls are disabled
+- The Data Manager allows viewing data but modification actions are hidden
+- The Media Manager shows media files but upload/delete controls are disabled
+- Deployments show status and session data but configuration controls are hidden
+
+A read-only notice banner appears at the top of the page to clearly indicate the user cannot make changes. This ensures viewers can explore resources fully without risk of accidental modification.
+
 ## Best Practices
 
 ### Security

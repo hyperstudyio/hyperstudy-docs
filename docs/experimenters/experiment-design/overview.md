@@ -139,30 +139,11 @@ Before using the designer, plan your experiment:
 
 ### 3. Building States
 
-1. Add states using the "Add State" button
-2. Name each state descriptively
-3. Arrange states in sequential order or create groups
-4. Select the focus component for each state from the extensive component library
-5. Configure component-specific properties:
-   - For media: URLs, autoplay settings, synchronization
-   - For ratings: scales, labels, required responses
-   - For communication: permissions, recording settings
+Add states, name them descriptively, and select a focus component for each one. See [States and Flow Control](./experiment-states.md) for detailed guidance.
 
 ### 4. Setting Up Global Components
 
-1. Navigate to the "Global Components" section
-2. Enable desired global components:
-   - Video Chat for real-time participant interaction
-   - Text Chat for asynchronous communication
-   - Continuous/Sparse Rating for ongoing data collection
-3. Configure component properties:
-   - Recording settings
-   - Visibility rules
-   - Role-based permissions
-4. Use the Global Components Matrix to control visibility:
-   - Select which states show which global components
-   - Configure component behavior per state
-   - Set up synchronized experiences across participants
+Enable global components (Video Chat, Text Chat, Continuous/Sparse Rating, etc.) and use the visibility matrix to control which states show them. See [Component Overview](./components/index.md) for the full component reference.
 
 ![Global Components Configuration](/img/experimenters/experiment-global-components.png)
 _Global Components configuration showing the matrix view for state-by-state visibility control_
