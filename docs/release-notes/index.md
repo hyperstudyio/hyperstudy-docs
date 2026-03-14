@@ -8,6 +8,18 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.39
+
+Released: 2026-03-14
+
+## What's Changed
+
+## Changes since last production release
+
+- Allow cross-origin access to OpenAPI spec endpoint (88782ba2)
+
+---
+
 ## v0.6.38
 
 Released: 2026-03-14
@@ -40,19 +52,6 @@ Released: 2026-03-14
 - Suppress remote audio playback when videochat is hidden with recordWhenHidden (f102e286)
 - Update landing page with accurate feature descriptions and accessibility improvements (82fe0acd)
 - Add complete OpenAPI 3.1.1 spec and Scalar docs UI for V3 API (87c44d8e)
-
----
-
-## v0.6.36
-
-Released: 2026-03-13
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix ghost states from duplicate state IDs in experiment designer (662a8220)
-- Fix Escape key in API key modals by using window-level handler (cbe9a0f9)
 
 ---
 
