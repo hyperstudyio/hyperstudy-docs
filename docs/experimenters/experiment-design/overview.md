@@ -7,9 +7,13 @@ sidebar_position: 1
 
 The HyperStudy platform provides a powerful and flexible system for designing interactive experiments. This guide explains the core concepts and workflow for creating experiments.
 
+![Component types organized by category: Stimulus, Response, and Communication](/img/diagrams/component-types.svg)
+
 ## The Experiment Designer
 
 The Experiment Designer is a comprehensive interface for creating and configuring experiments. It provides tabs for managing all aspects of your experiment design, from basic settings to complex state flows.
+
+![Experiment designer with settings tabs](/img/experimenters/experiment-designer.png)
 
 ![Experiment Creation Interface](/img/experimenters/create-experiment-main.png)
 _The experiment creation interface with tabs for General settings, Roles, Variables, Permissions, Recruitment, Consent, and Instructions_

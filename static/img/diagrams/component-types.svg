@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="800" height="320">
+  <rect width="800" height="320" rx="12" fill="#121212"/>
+
+  <!-- Column 1: Stimulus -->
+  <text x="140" y="35" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#4caf50">Stimulus</text>
+  <line x1="60" y1="45" x2="220" y2="45" stroke="#4caf50" stroke-width="1" opacity="0.3"/>
+
+  <rect x="40" y="60" width="200" height="42" rx="6" fill="#1c1c1c" stroke="#4caf50" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="140" y="86" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#e0e0e0">Video Player</text>
+
+  <rect x="40" y="112" width="200" height="42" rx="6" fill="#1c1c1c" stroke="#4caf50" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="140" y="138" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#e0e0e0">Image Display</text>
+
+  <rect x="40" y="164" width="200" height="42" rx="6" fill="#1c1c1c" stroke="#4caf50" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="140" y="190" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#e0e0e0">Text Display</text>
+
+  <rect x="40" y="216" width="200" height="42" rx="6" fill="#1c1c1c" stroke="#4caf50" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="140" y="242" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#e0e0e0">Code Execution</text>
+
+  <!-- Column 2: Response -->
+  <text x="400" y="35" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#a5d6a7">Response</text>
+  <line x1="300" y1="45" x2="500" y2="45" stroke="#a5d6a7" stroke-width="1" opacity="0.3"/>
+
+  <rect x="300" y="60" width="200" height="42" rx="6" fill="#1c1c1c" stroke="#a5d6a7" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="400" y="86" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#e0e0e0">Continuous Rating</text>
+
+  <rect x="300" y="112" width="200" height="42" rx="6" fill="#1c1c1c" stroke="#a5d6a7" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="400" y="138" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#e0e0e0">Multiple Choice</text>
+
+  <rect x="300" y="164" width="200" height="42" rx="6" fill="#1c1c1c" stroke="#a5d6a7" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="400" y="190" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#e0e0e0">Likert / VAS Scale</text>
+
+  <rect x="300" y="216" width="200" height="42" rx="6" fill="#1c1c1c" stroke="#a5d6a7" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="400" y="242" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#e0e0e0">Text Input</text>
+
+  <rect x="300" y="268" width="200" height="42" rx="6" fill="#1c1c1c" stroke="#a5d6a7" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="400" y="294" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#e0e0e0">Audio Recording</text>
+
+  <!-- Column 3: Communication -->
+  <text x="660" y="35" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#2196f3">Communication</text>
+  <line x1="560" y1="45" x2="760" y2="45" stroke="#2196f3" stroke-width="1" opacity="0.3"/>
+
+  <rect x="560" y="60" width="200" height="42" rx="6" fill="#2196f3" fill-opacity="0.08" stroke="#2196f3" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="660" y="86" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#e0e0e0">Video Chat</text>
+
+  <rect x="560" y="112" width="200" height="42" rx="6" fill="#1c1c1c" stroke="#2196f3" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="660" y="138" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#e0e0e0">Text Chat</text>
+
+  <rect x="560" y="164" width="200" height="42" rx="6" fill="#1c1c1c" stroke="#2196f3" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="660" y="190" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#e0e0e0">Sparse Rating</text>
+
+  <rect x="560" y="216" width="200" height="42" rx="6" fill="#1c1c1c" stroke="#333333" stroke-width="1"/>
+  <text x="660" y="242" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#e0e0e0">Trigger</text>
+</svg>

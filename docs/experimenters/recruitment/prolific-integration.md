@@ -7,6 +7,8 @@ description: Recruit participants from Prolific directly within HyperStudy
 
 HyperStudy's Prolific integration allows you to seamlessly recruit research participants from the Prolific platform while leveraging HyperStudy's powerful experiment features. Prolific studies are configured at the **deployment** level, so each [deployment](../deployments.md) can have its own Prolific study. This guide covers everything you need to know about setting up and managing Prolific studies.
 
+![API key management page for configuring Prolific credentials](/img/experimenters/settings-api-keys.png)
+
 ## Overview
 
 The Prolific integration enables:

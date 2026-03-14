@@ -7,6 +7,8 @@ sidebar_position: 4
 
 Roles are a powerful feature in the HyperStudy platform that allow you to create different experiences for different participants within the same experiment. This guide explains how to define, configure, and manage roles effectively.
 
+![Roles tab showing participant role management](/img/experimenters/experiment-roles.png)
+
 ## What are Roles?
 
 Roles are participant categories that determine:

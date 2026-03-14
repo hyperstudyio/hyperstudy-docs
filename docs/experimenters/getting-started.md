@@ -7,6 +7,8 @@ sidebar_position: 1
 
 Welcome to the HyperStudy platform. This guide will walk you through the basics of setting up and designing experiments for participant interactions.
 
+![Experiment lifecycle: Design, Deploy, Run, Collect, Export](/img/diagrams/experiment-lifecycle.svg)
+
 ## What is HyperStudy?
 
 HyperStudy is a platform designed for researchers conducting social interaction experiments with synchronized media viewing and real-time video chat. It allows you to:
@@ -44,6 +46,7 @@ _Experimenter registration and login screen_
 
 Once your account is approved, you'll have access to the Experimenter Dashboard.
 
+![Experimenter dashboard showing experiments list](/img/experimenters/experimenter-dashboard.png)
 
 The dashboard includes:
 

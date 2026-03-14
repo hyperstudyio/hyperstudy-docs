@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="800" height="220">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4caf50" opacity="0.5"/>
+    </marker>
+  </defs>
+  <rect width="800" height="220" rx="12" fill="#121212"/>
+
+  <!-- Upload -->
+  <rect x="30" y="50" width="140" height="90" rx="8" fill="#1c1c1c" stroke="#333333" stroke-width="1"/>
+  <text x="100" y="88" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#e0e0e0">Upload</text>
+  <text x="100" y="110" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">Video, image, or audio</text>
+  <text x="100" y="125" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">direct or URL import</text>
+
+  <!-- Arrow -->
+  <line x1="180" y1="95" x2="218" y2="95" stroke="#4caf50" stroke-width="1.2" opacity="0.5" marker-end="url(#arr)"/>
+
+  <!-- Transcode -->
+  <rect x="228" y="50" width="150" height="90" rx="8" fill="#1c1c1c" stroke="#4caf50" stroke-width="1.2"/>
+  <text x="303" y="82" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#e0e0e0">Transcode</text>
+  <text x="303" y="104" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" fill="#4caf50">HLS Adaptive</text>
+  <text x="303" y="125" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">AWS MediaConvert</text>
+
+  <!-- Arrow -->
+  <line x1="388" y1="95" x2="426" y2="95" stroke="#4caf50" stroke-width="1.2" opacity="0.5" marker-end="url(#arr)"/>
+
+  <!-- CDN -->
+  <rect x="436" y="50" width="140" height="90" rx="8" fill="#1c1c1c" stroke="#333333" stroke-width="1"/>
+  <text x="506" y="82" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#e0e0e0">CDN</text>
+  <text x="506" y="104" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" fill="#b0b0b0">CloudFront</text>
+  <text x="506" y="125" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">Encrypted delivery</text>
+
+  <!-- Arrow -->
+  <line x1="586" y1="95" x2="624" y2="95" stroke="#4caf50" stroke-width="1.2" opacity="0.5" marker-end="url(#arr)"/>
+
+  <!-- Playback -->
+  <rect x="634" y="50" width="140" height="90" rx="8" fill="#2196f3" fill-opacity="0.1" stroke="#2196f3" stroke-width="1.2"/>
+  <text x="704" y="82" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#90caf9">Playback</text>
+  <text x="704" y="104" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" fill="#b0b0b0">Synchronized</text>
+  <text x="704" y="125" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">across participants</text>
+
+  <!-- Bottom note -->
+  <text x="400" y="185" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">Folder-based organization with access control and permission management</text>
+</svg>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 180" width="800" height="180">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#999999" opacity="0.5"/>
+    </marker>
+    <marker id="arr-g" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4caf50"/>
+    </marker>
+  </defs>
+  <rect width="800" height="180" rx="12" fill="#121212"/>
+
+  <!-- User -->
+  <rect x="20" y="50" width="110" height="60" rx="8" fill="#1c1c1c" stroke="#333333" stroke-width="1"/>
+  <text x="75" y="78" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#e0e0e0">User</text>
+  <text x="75" y="96" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#999999">Authenticated</text>
+
+  <line x1="135" y1="80" x2="161" y2="80" stroke="#999999" stroke-width="1" opacity="0.5" marker-end="url(#arr)"/>
+
+  <!-- Organization -->
+  <rect x="170" y="50" width="120" height="60" rx="8" fill="#1c1c1c" stroke="#4caf50" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="230" y="78" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#e0e0e0">Organization</text>
+  <text x="230" y="96" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#999999">Membership</text>
+
+  <line x1="295" y1="80" x2="321" y2="80" stroke="#999999" stroke-width="1" opacity="0.5" marker-end="url(#arr)"/>
+
+  <!-- Role -->
+  <rect x="330" y="50" width="100" height="60" rx="8" fill="#1c1c1c" stroke="#4caf50" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="380" y="78" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#e0e0e0">Role</text>
+  <text x="380" y="96" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#999999">Permission level</text>
+
+  <line x1="435" y1="80" x2="461" y2="80" stroke="#999999" stroke-width="1" opacity="0.5" marker-end="url(#arr)"/>
+
+  <!-- Resource -->
+  <rect x="470" y="50" width="110" height="60" rx="8" fill="#1c1c1c" stroke="#4caf50" stroke-width="1" stroke-opacity="0.6"/>
+  <text x="525" y="78" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#e0e0e0">Resource</text>
+  <text x="525" y="96" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#999999">Access check</text>
+
+  <line x1="585" y1="80" x2="621" y2="80" stroke="#4caf50" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+  <!-- Granted -->
+  <rect x="630" y="50" width="150" height="60" rx="8" fill="#4caf50" fill-opacity="0.15" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="705" y="78" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#4caf50">Access Granted</text>
+  <text x="705" y="96" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#a5d6a7">Action permitted</text>
+
+  <!-- Bottom label -->
+  <text x="400" y="150" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">Each step validates progressively — any failure returns "Access Denied"</text>
+</svg>

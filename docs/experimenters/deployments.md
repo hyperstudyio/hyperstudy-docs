@@ -7,6 +7,8 @@ sidebar_position: 5
 
 Deployments are how you collect data with your experiments. A deployment is an independent data collection instance that links to an experiment design, allowing you to run the same experiment multiple times for different cohorts, sites, or time periods while keeping data organized and ownership clear.
 
+![Deployment list with status and participant counts](/img/experimenters/deployments-dashboard.png)
+
 ## Why Deployments?
 
 In earlier versions of HyperStudy, recruitment and data collection were tied directly to an experiment. Deployments decouple these concerns:

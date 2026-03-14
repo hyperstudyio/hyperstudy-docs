@@ -7,6 +7,8 @@ sidebar_position: 9
 
 Clear, comprehensive instructions are essential for successful experiments. HyperStudy provides flexible ways to present instructions to participants at different stages of your experiment, ensuring they understand tasks and procedures.
 
+![Instructions editor with live preview](/img/experimenters/experiment-instructions-config.png)
+
 ## Overview
 
 The instruction system in HyperStudy allows you to:

@@ -7,6 +7,8 @@ sidebar_position: 8
 
 Consent forms are a critical component of ethical research. HyperStudy provides built-in support for digital informed consent, ensuring participants understand and agree to the study procedures before beginning your experiment.
 
+![Consent form configuration with markdown editor](/img/experimenters/experiment-consent-config.png)
+
 ## Overview
 
 The consent form system in HyperStudy:

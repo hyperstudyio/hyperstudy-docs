@@ -7,6 +7,8 @@ sidebar_position: 3
 
 This guide explains how to join experiments on the HyperStudy platform. As a participant, you'll typically receive an invitation to take part in an experiment, which you can join at the scheduled time or sometimes at your convenience.
 
+![Participant dashboard with available experiments](/img/participants/participant-dashboard.png)
+
 ## Finding Available Experiments
 
 There are several ways you might be invited to participate in an experiment:

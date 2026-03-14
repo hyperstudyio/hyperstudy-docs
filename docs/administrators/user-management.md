@@ -7,6 +7,8 @@ sidebar_position: 2
 
 As an administrator, you have full control over user accounts, permissions, and roles. This guide covers all aspects of user management in the HyperStudy platform.
 
+![User management table](/img/administrators/admin-user-management.png)
+
 ## User Roles Overview
 
 The platform has three primary user roles, each with different permissions:

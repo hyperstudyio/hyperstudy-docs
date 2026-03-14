@@ -7,6 +7,8 @@ sidebar_position: 5
 
 Platform administrators have elevated access across all organizations for support, debugging, and system management. This guide explains platform admin capabilities and responsibilities.
 
+![Platform admin overview with stats](/img/administrators/admin-dashboard.png)
+
 ## Platform Admin vs Organization Admin
 
 HyperStudy has two levels of administrative access:

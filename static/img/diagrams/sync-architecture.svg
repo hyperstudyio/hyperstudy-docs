@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" width="800" height="340">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#999999"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2196f3"/>
+    </marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4caf50" opacity="0.5"/>
+    </marker>
+  </defs>
+  <rect width="800" height="340" rx="12" fill="#121212"/>
+
+  <!-- Host -->
+  <rect x="40" y="40" width="130" height="70" rx="8" fill="#4caf50" fill-opacity="0.15" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="105" y="70" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#4caf50">Host</text>
+  <text x="105" y="90" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#a5d6a7">Controls playback</text>
+
+  <!-- Arrow to Kalman -->
+  <line x1="180" y1="75" x2="228" y2="75" stroke="#999999" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="204" y="67" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#999999">time updates</text>
+
+  <!-- Kalman Filter -->
+  <rect x="238" y="40" width="160" height="70" rx="8" fill="#2196f3" fill-opacity="0.1" stroke="#2196f3" stroke-width="1.5"/>
+  <text x="318" y="70" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#90caf9">Kalman Filter</text>
+  <text x="318" y="90" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#b0b0b0">Predicts timing</text>
+
+  <!-- Arrow to PID -->
+  <line x1="408" y1="75" x2="456" y2="75" stroke="#2196f3" stroke-width="1.2" marker-end="url(#arr-blue)"/>
+
+  <!-- PID Controller -->
+  <rect x="466" y="40" width="160" height="70" rx="8" fill="#2196f3" fill-opacity="0.1" stroke="#2196f3" stroke-width="1.5"/>
+  <text x="546" y="70" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#90caf9">PID Controller</text>
+  <text x="546" y="90" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#b0b0b0">Adjusts playback rate</text>
+
+  <!-- Arrow down to viewers -->
+  <line x1="546" y1="120" x2="546" y2="158" stroke="#999999" stroke-width="1.2" marker-end="url(#arr)"/>
+
+  <!-- Viewers -->
+  <rect x="40" y="165" width="130" height="70" rx="8" fill="#1c1c1c" stroke="#333333" stroke-width="1"/>
+  <text x="105" y="195" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#e0e0e0">Viewers</text>
+  <text x="105" y="215" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">Follow host timing</text>
+
+  <!-- Viewer nodes (multiple participant indicators) -->
+  <circle cx="480" cy="195" r="18" fill="#1c1c1c" stroke="#4caf50" stroke-width="1.2"/>
+  <text x="480" y="199" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#a5d6a7">P1</text>
+  <circle cx="530" cy="195" r="18" fill="#1c1c1c" stroke="#4caf50" stroke-width="1.2"/>
+  <text x="530" y="199" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#a5d6a7">P2</text>
+  <circle cx="580" cy="195" r="18" fill="#1c1c1c" stroke="#4caf50" stroke-width="1.2"/>
+  <text x="580" y="199" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#a5d6a7">P3</text>
+  <circle cx="630" cy="195" r="18" fill="#1c1c1c" stroke="#333333" stroke-width="1" stroke-dasharray="3"/>
+  <text x="630" y="199" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">Pn</text>
+
+  <!-- Feedback loop -->
+  <path d="M 460 200 L 180 200" stroke="#4caf50" stroke-width="1" opacity="0.4" fill="none" marker-end="url(#arr-green)"/>
+  <text x="320" y="220" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#999999">sync metrics feedback</text>
+
+  <!-- Metrics bar -->
+  <rect x="40" y="265" width="720" height="50" rx="8" fill="#1c1c1c" stroke="#333333" stroke-width="1"/>
+  <text x="160" y="293" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" fill="#b0b0b0">Latency</text>
+  <text x="160" y="308" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#4caf50">&lt;50ms</text>
+  <line x1="280" y1="275" x2="280" y2="305" stroke="#333333" stroke-width="1"/>
+  <text x="400" y="293" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" fill="#b0b0b0">Drift Accuracy</text>
+  <text x="400" y="308" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#4caf50">±16ms</text>
+  <line x1="520" y1="275" x2="520" y2="305" stroke="#333333" stroke-width="1"/>
+  <text x="640" y="293" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" fill="#b0b0b0">Precision</text>
+  <text x="640" y="308" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#2196f3">Sub-frame</text>
+</svg>

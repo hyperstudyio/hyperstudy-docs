@@ -7,6 +7,8 @@ sidebar_position: 1
 
 Understanding the complete participant journey through your experiment is essential for designing effective studies. This guide explains each stage participants experience, from initial access through experiment completion.
 
+![Participant configurations: Single, Dyadic, and Multi-person experiments](/img/diagrams/participant-topology.svg)
+
 ## Overview
 
 Every HyperStudy experiment follows a structured flow designed to ensure ethical compliance, proper setup, and smooth execution:

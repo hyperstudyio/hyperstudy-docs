@@ -7,6 +7,12 @@ sidebar_position: 6
 
 HyperStudy provides a unified permission system for controlling access to experiments, media, deployments, and data. This guide explains how permissions work and how to share resources with collaborators.
 
+![Access control flow: User to Organization to Role to Resource to Access Granted](/img/diagrams/access-flow.svg)
+
+![Visibility levels from Private to Organization to Group to Public](/img/diagrams/visibility-levels.svg)
+
+![Team members with roles and invite options](/img/experimenters/settings-members.png)
+
 ## Overview
 
 The permission system allows you to:

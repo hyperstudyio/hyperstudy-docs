@@ -7,6 +7,10 @@ sidebar_position: 5
 
 HyperStudy provides comprehensive tools for accessing, managing, and downloading your experiment data. You can use the graphical interface for quick viewing and downloads, or access data programmatically through the [API](./api-access/overview.md) for automated analysis.
 
+![Data flow from collection through API to export formats](/img/diagrams/data-flow.svg)
+
+![Data management view with deployment list](/img/experimenters/data-management.png)
+
 ## Accessing the Data Dashboard
 
 ### For Experimenters

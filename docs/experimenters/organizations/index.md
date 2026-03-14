@@ -7,6 +7,8 @@ sidebar_position: 1
 
 Organizations are the foundation of team collaboration in HyperStudy. They provide a way to manage team members, share experiments, track usage, and control access to resources.
 
+![Organization roles: Owner, Admin, Member, Guest with decreasing access](/img/diagrams/org-hierarchy.svg)
+
 ## What Are Organizations?
 
 An organization is a workspace where you and your team can:

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 160" width="800" height="160">
+  <rect width="800" height="160" rx="12" fill="#121212"/>
+
+  <!-- Private -->
+  <rect x="30" y="30" width="170" height="75" rx="8" fill="#1c1c1c" stroke="#333333" stroke-width="1.5"/>
+  <text x="115" y="60" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#999999">Private</text>
+  <text x="115" y="82" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">Only you</text>
+
+  <!-- Connector -->
+  <rect x="205" y="62" width="20" height="6" rx="3" fill="#333333"/>
+
+  <!-- Organization -->
+  <rect x="230" y="30" width="170" height="75" rx="8" fill="#4caf50" fill-opacity="0.06" stroke="#4caf50" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="315" y="60" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#a5d6a7">Organization</text>
+  <text x="315" y="82" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">All org members</text>
+
+  <!-- Connector -->
+  <rect x="405" y="62" width="20" height="6" rx="3" fill="#333333"/>
+
+  <!-- Group -->
+  <rect x="430" y="30" width="170" height="75" rx="8" fill="#2196f3" fill-opacity="0.06" stroke="#2196f3" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="515" y="60" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#90caf9">Group</text>
+  <text x="515" y="82" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">Specific teams</text>
+
+  <!-- Connector -->
+  <rect x="605" y="62" width="20" height="6" rx="3" fill="#333333"/>
+
+  <!-- Public -->
+  <rect x="630" y="30" width="140" height="75" rx="8" fill="#4caf50" fill-opacity="0.12" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="700" y="60" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#4caf50">Public</text>
+  <text x="700" y="82" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#a5d6a7">All experimenters</text>
+
+  <!-- Spectrum label -->
+  <line x1="50" y1="125" x2="750" y2="125" stroke="#333333" stroke-width="1"/>
+  <text x="50" y="145" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#999999">Restricted</text>
+  <text x="750" y="145" text-anchor="end" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#4caf50">Open</text>
+</svg>

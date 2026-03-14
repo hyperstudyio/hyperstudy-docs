@@ -7,7 +7,9 @@ sidebar_position: 6
 
 The HyperStudy platform provides a comprehensive media management system for organizing, uploading, and using videos and images in your experiments. The system includes folder organization, tagging, and sophisticated permission controls for sharing media across research teams.
 
-![Video Management Interface](/img/experimenters/media-videos.png)
+![Media pipeline: Upload, Transcode to HLS, CDN delivery, Synchronized playback](/img/diagrams/media-pipeline.svg)
+
+![Video library with folders and HLS status](/img/experimenters/media-videos.png)
 *Video management interface showing folder structure and video library with URLs and metadata*
 
 ![Image Management Interface](/img/experimenters/media-images.png)

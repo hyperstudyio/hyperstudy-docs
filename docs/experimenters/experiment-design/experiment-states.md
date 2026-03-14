@@ -7,6 +7,10 @@ sidebar_position: 2
 
 States are the fundamental building blocks of your experiment in HyperStudy. Each state represents a distinct phase or screen that participants experience. This guide provides comprehensive examples and patterns for building effective experiment flows.
 
+![Experiment state flow showing transitions between states with global components](/img/diagrams/state-flow.svg)
+
+![State editor with component configuration](/img/experimenters/experiment-state-editor.png)
+
 ## Understanding States
 
 ### What is a State?

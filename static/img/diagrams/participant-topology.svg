@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300">
+  <rect width="800" height="300" rx="12" fill="#121212"/>
+
+  <!-- Single Participant -->
+  <text x="130" y="35" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#e0e0e0">Single</text>
+  <text x="130" y="52" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">Individual sessions</text>
+
+  <rect x="55" y="100" width="50" height="50" rx="25" fill="#1c1c1c" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="80" y="130" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#a5d6a7">P</text>
+
+  <line x1="110" y1="125" x2="148" y2="125" stroke="#999999" stroke-width="1" opacity="0.5"/>
+
+  <rect x="155" y="105" width="50" height="40" rx="6" fill="#252525" stroke="#333333" stroke-width="1"/>
+  <text x="180" y="130" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#999999">Server</text>
+
+  <!-- Vertical separator -->
+  <line x1="270" y1="30" x2="270" y2="270" stroke="#333333" stroke-width="1" opacity="0.3"/>
+
+  <!-- Dyadic -->
+  <text x="410" y="35" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#e0e0e0">Dyadic</text>
+  <text x="410" y="52" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">Paired interaction</text>
+
+  <rect x="315" y="90" width="50" height="50" rx="25" fill="#1c1c1c" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="340" y="120" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#a5d6a7">P1</text>
+
+  <rect x="455" y="90" width="50" height="50" rx="25" fill="#1c1c1c" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="480" y="120" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#a5d6a7">P2</text>
+
+  <!-- Video chat connection -->
+  <line x1="370" y1="115" x2="450" y2="115" stroke="#2196f3" stroke-width="1.5" opacity="0.6"/>
+  <text x="410" y="108" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#90caf9">video chat</text>
+
+  <!-- Server below -->
+  <rect x="385" y="170" width="50" height="40" rx="6" fill="#252525" stroke="#333333" stroke-width="1"/>
+  <text x="410" y="195" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#999999">Server</text>
+
+  <line x1="350" y1="145" x2="390" y2="170" stroke="#999999" stroke-width="1" opacity="0.4"/>
+  <line x1="470" y1="145" x2="430" y2="170" stroke="#999999" stroke-width="1" opacity="0.4"/>
+
+  <!-- Vertical separator -->
+  <line x1="540" y1="30" x2="540" y2="270" stroke="#333333" stroke-width="1" opacity="0.3"/>
+
+  <!-- Multi-person -->
+  <text x="670" y="35" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#e0e0e0">Multi-person</text>
+  <text x="670" y="52" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#999999">Group interaction</text>
+
+  <!-- 4 participants in a diamond -->
+  <rect x="645" y="72" width="44" height="44" rx="22" fill="#1c1c1c" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="667" y="99" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#a5d6a7">P1</text>
+
+  <rect x="727" y="120" width="44" height="44" rx="22" fill="#1c1c1c" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="749" y="147" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#a5d6a7">P2</text>
+
+  <rect x="645" y="168" width="44" height="44" rx="22" fill="#1c1c1c" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="667" y="195" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#a5d6a7">P3</text>
+
+  <rect x="563" y="120" width="44" height="44" rx="22" fill="#1c1c1c" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="585" y="147" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#a5d6a7">P4</text>
+
+  <!-- Mesh connections -->
+  <line x1="667" y1="118" x2="727" y2="130" stroke="#2196f3" stroke-width="1" opacity="0.3"/>
+  <line x1="749" y1="168" x2="689" y2="178" stroke="#2196f3" stroke-width="1" opacity="0.3"/>
+  <line x1="645" y1="180" x2="600" y2="160" stroke="#2196f3" stroke-width="1" opacity="0.3"/>
+  <line x1="585" y1="125" x2="650" y2="100" stroke="#2196f3" stroke-width="1" opacity="0.3"/>
+  <line x1="612" y1="145" x2="722" y2="145" stroke="#2196f3" stroke-width="1" opacity="0.15"/>
+  <line x1="667" y1="120" x2="667" y2="165" stroke="#2196f3" stroke-width="1" opacity="0.15"/>
+
+  <!-- Server center -->
+  <rect x="643" y="127" width="40" height="30" rx="6" fill="#252525" stroke="#333333" stroke-width="1"/>
+  <text x="663" y="146" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#999999">Server</text>
+
+  <!-- Labels at bottom -->
+  <text x="130" y="260" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#999999">Self-paced or timed</text>
+  <text x="410" y="250" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#999999">Synchronized media +</text>
+  <text x="410" y="264" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#999999">real-time communication</text>
+  <text x="670" y="250" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#999999">N participants with</text>
+  <text x="670" y="264" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#999999">role-based views</text>
+</svg>

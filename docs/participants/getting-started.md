@@ -58,6 +58,7 @@ _Participant registration and login screen_
 
 After logging in, you'll see your participant dashboard:
 
+![Participant dashboard showing available experiments](/img/participants/participant-dashboard.png)
 
 The dashboard shows:
 

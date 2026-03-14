@@ -7,6 +7,12 @@ sidebar_position: 11
 
 The Trigger component enables hardware synchronization for experiments, particularly useful for neuroimaging studies (fMRI, EEG) and psychophysiology research. It can either send triggers to external equipment or wait to receive triggers from external devices like MRI scanners.
 
+![HyperStudy TTL device in 3D-printed enclosure with BNC connector](/img/experimenters/ttl-device.jpg)
+
+*The HyperStudy TTL device delivers electrically isolated sub-millisecond TTL pulses via BNC output, powered by an Adafruit Feather RP2040 with a custom FeatherWing PCB.*
+
+![HyperStudy TTL FeatherWing PCB with Adafruit Feather RP2040 and optoisolator](/img/experimenters/ttl-device-board.jpg)
+
 ## Key Features
 
 - **Send Mode**: Send keyboard or TTL triggers to external equipment

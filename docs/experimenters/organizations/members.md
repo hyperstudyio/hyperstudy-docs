@@ -7,6 +7,8 @@ sidebar_position: 2
 
 Organization admins and owners can invite team members, assign roles, and manage access to experiments and data.
 
+![Team members with roles and invite options](/img/experimenters/settings-members.png)
+
 ## Organization Roles
 
 HyperStudy uses four roles to control access within organizations:
