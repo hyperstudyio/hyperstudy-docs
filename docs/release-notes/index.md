@@ -8,6 +8,24 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.37
+
+Released: 2026-03-14
+
+## What's Changed
+
+## Changes since last production release
+
+- Improve Consent tab UI consistency and reduce editor-preview code duplication (0c49aaac)
+- Add fresh production screenshots and TTL device photos to landing page (532eb146)
+- Fix video wrapping at end of playback in sync mode (fd184dd5)
+- Fix fit-to-screen view modes by implementing strategy-specific scaling and layout collapse (c72d3e5b)
+- Suppress remote audio playback when videochat is hidden with recordWhenHidden (f102e286)
+- Update landing page with accurate feature descriptions and accessibility improvements (82fe0acd)
+- Add complete OpenAPI 3.1.1 spec and Scalar docs UI for V3 API (87c44d8e)
+
+---
+
 ## v0.6.36
 
 Released: 2026-03-13
@@ -42,25 +60,6 @@ Released: 2026-03-12
 - Fix CollaboratorCursors infinite effect loop and toFixed type errors (032355f1)
 - Add multi-layer video error recovery to prevent experiment freeze (34ce4784)
 - Fix EventProcessor state lookup mismatch causing confused component names (6fea3b34)
-
----
-
-## v0.6.34
-
-Released: 2026-03-11
-
-## What's Changed
-
-## Changes since last production release
-
-- Fix recordWhenHidden videochat recording unreliability (b67c1e1e)
-- Remove dead Firebase upload path and clean up webhook handler (0bb6bd4b)
-- Fix role-specific configs storing full copies instead of deltas (de72d7c3)
-- Fix CountdownTimer not ticking and add countdown support to LikertScale (4ad7b8e1)
-- Fix duplicate component.response events in questionnaire and instructions contexts (731f5f9b)
-- Fix recording offset race condition and missing recording events (0bb21476)
-- Fix room participant count using subcollection data instead of drifted denormalized counter (e5b83cac)
-- Fix completion code recording for non-Prolific participants (12622c26)
 
 ---
 
