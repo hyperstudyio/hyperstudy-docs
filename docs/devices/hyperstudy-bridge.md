@@ -3,6 +3,8 @@ sidebar_position: 2
 title: HyperStudy Bridge
 ---
 
+import BridgeDownload from '@site/src/components/BridgeDownload';
+
 # HyperStudy Bridge
 
 A unified, high-performance desktop application for bridging HyperStudy web experiments with research hardware devices.
@@ -20,7 +22,7 @@ The Bridge runs locally on your research computer and creates a WebSocket server
 - **Auto-Reconnection**: Resilient connection management with automatic recovery
 - **Real-Time Monitoring**: Live status dashboard for all connected devices
 - **Secure**: Local-only connections with sandboxed architecture
-- **Cross-Platform**: macOS (primary), with Windows and Linux support planned
+- **Cross-Platform**: macOS, Windows, and Linux
 
 ## Supported Devices
 
@@ -36,35 +38,27 @@ _*Requires the [SR Research EyeLink Developers Kit](/devices/eyelink#installing-
 
 ## Installation
 
-### macOS
+Download the latest release for your platform:
 
-1. **Download the DMG**
-   - Visit the [GitHub Releases page](https://github.com/hyperstudyio/hyperstudy-bridge/releases/latest)
-   - Download the appropriate `.dmg` for your Mac:
-     - **Apple Silicon (M1/M2/M3)**: `HyperStudy-Bridge_x.x.x_aarch64.dmg`
-     - **Intel**: `HyperStudy-Bridge_x.x.x_x64.dmg`
+<BridgeDownload />
 
-2. **Install the Application**
-   - Open the downloaded DMG file
-   - Drag HyperStudy Bridge to your Applications folder
-   - Eject the DMG
+### Post-Install Steps
 
-3. **First Launch**
-   - Open HyperStudy Bridge from your Applications folder
-   - If macOS shows a security warning, right-click the app and select "Open"
-   - The app is signed and notarized by Apple for security
-
-4. **Grant Permissions** (if prompted)
+**macOS:**
+1. Open the downloaded DMG file and drag HyperStudy Bridge to your Applications folder
+2. On first launch, if macOS shows a security warning, right-click the app and select "Open"
+3. The app is signed and notarized by Apple for security
+4. Grant permissions when prompted:
    - **Serial Port Access**: Required for TTL device communication
    - **Network Access**: Required for device connections
 
-### Windows (Coming Soon)
+**Windows:**
+1. Run the downloaded MSI installer
+2. Windows may show a SmartScreen warning on first run — click "More info" then "Run anyway"
 
-Windows installer will be available in future releases.
-
-### Linux (Coming Soon)
-
-Linux AppImage will be available in future releases.
+**Linux:**
+1. Make the AppImage executable: `chmod +x HyperStudy-Bridge-*.AppImage`
+2. Run the AppImage directly: `./HyperStudy-Bridge-*.AppImage`
 
 ## Configuration
 
@@ -427,10 +421,6 @@ npm run tauri build
 
 **Released:** 2026-02-14
 
-## 🎉 HyperStudy Bridge v0.8.15
-
-^[[1m# Changelog for v0.8.15^[[0m
-
 **Changes since v0.8.14**
 
 ## 🐛 Bug Fixes
@@ -481,10 +471,6 @@ chmod +x HyperStudy-Bridge-*.AppImage
 ### v0.8.14
 
 **Released:** 2026-02-14
-
-## 🎉 HyperStudy Bridge v0.8.14
-
-^[[1m# Changelog for v0.8.14^[[0m
 
 **Changes since v0.8.13**
 
