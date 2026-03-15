@@ -58,7 +58,7 @@ HyperStudy TriggerComponent → HyperStudy Bridge → RP2040 Firmware → TTL Ou
 
 2. **Clone the Repository**
    ```bash
-   git clone https://github.com/ljchang/hyperstudy-ttl.git
+   git clone https://github.com/hyperstudyio/hyperstudy-ttl.git
    cd hyperstudy-ttl
    ```
 
@@ -156,7 +156,7 @@ Component Values:
 
 ### Detailed Optocoupler Wiring
 
-For step-by-step assembly instructions with photos, see [OPTOCOUPLER_WIRING.md](https://github.com/ljchang/hyperstudy-ttl/blob/main/OPTOCOUPLER_WIRING.md) in the repository.
+For step-by-step assembly instructions with photos, see [OPTOCOUPLER_WIRING.md](https://github.com/hyperstudyio/hyperstudy-ttl/blob/main/OPTOCOUPLER_WIRING.md) in the repository.
 
 **Key Points:**
 - The optocoupler provides galvanic isolation between the RP2040 and external equipment
@@ -335,9 +335,9 @@ The Bridge also logs its own internal latency (stage ①) for each command.
 
 ## Resources
 
-- **GitHub Repository**: [ljchang/hyperstudy-ttl](https://github.com/ljchang/hyperstudy-ttl)
-- **Installation Guide**: [INSTALLATION.md](https://github.com/ljchang/hyperstudy-ttl/blob/main/INSTALLATION.md)
-- **Optocoupler Wiring**: [OPTOCOUPLER_WIRING.md](https://github.com/ljchang/hyperstudy-ttl/blob/main/OPTOCOUPLER_WIRING.md)
+- **GitHub Repository**: [hyperstudyio/hyperstudy-ttl](https://github.com/hyperstudyio/hyperstudy-ttl)
+- **Installation Guide**: [INSTALLATION.md](https://github.com/hyperstudyio/hyperstudy-ttl/blob/main/INSTALLATION.md)
+- **Optocoupler Wiring**: [OPTOCOUPLER_WIRING.md](https://github.com/hyperstudyio/hyperstudy-ttl/blob/main/OPTOCOUPLER_WIRING.md)
 - **Related**: [HyperStudy Bridge](/devices/hyperstudy-bridge), [Kernel Integration](/experimenters/experiment-design/kernel-integration)
 
 ---

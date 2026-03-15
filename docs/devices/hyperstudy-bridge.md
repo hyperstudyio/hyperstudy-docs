@@ -39,7 +39,7 @@ _*Requires the [SR Research EyeLink Developers Kit](/devices/eyelink#installing-
 ### macOS
 
 1. **Download the DMG**
-   - Visit the [GitHub Releases page](https://github.com/ljchang/hyperstudy-bridge/releases/latest)
+   - Visit the [GitHub Releases page](https://github.com/hyperstudyio/hyperstudy-bridge/releases/latest)
    - Download the appropriate `.dmg` for your Mac:
      - **Apple Silicon (M1/M2/M3)**: `HyperStudy-Bridge_x.x.x_aarch64.dmg`
      - **Intel**: `HyperStudy-Bridge_x.x.x_x64.dmg`
@@ -260,7 +260,7 @@ For developers who want to build from source:
 
 ```bash
 # Clone the repository
-git clone https://github.com/ljchang/hyperstudy-bridge.git
+git clone https://github.com/hyperstudyio/hyperstudy-bridge.git
 cd hyperstudy-bridge
 
 # Install dependencies
@@ -275,7 +275,7 @@ npm run tauri build
 
 ## Resources
 
-- **GitHub Repository**: [ljchang/hyperstudy-bridge](https://github.com/ljchang/hyperstudy-bridge)
+- **GitHub Repository**: [hyperstudyio/hyperstudy-bridge](https://github.com/hyperstudyio/hyperstudy-bridge)
 - **API Documentation**: See repository `/docs/api/` folder
 - **Related**: [Kernel Integration Guide](/experimenters/experiment-design/kernel-integration)
 
@@ -446,7 +446,7 @@ npm run tauri build
 
 ---
 
-**Full Changelog**: https://github.com/ljchang/hyperstudy-bridge/compare/v0.8.14...v0.8.15
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-bridge/compare/v0.8.14...v0.8.15
 
 ---
 
@@ -505,7 +505,7 @@ chmod +x HyperStudy-Bridge-*.AppImage
 
 ---
 
-**Full Changelog**: https://github.com/ljchang/hyperstudy-bridge/compare/v0.8.13...v0.8.14
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-bridge/compare/v0.8.13...v0.8.14
 
 ---
 

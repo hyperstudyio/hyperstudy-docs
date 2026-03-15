@@ -195,5 +195,5 @@ Participants can skip setup if allowed by the experimenter's configuration.
 ## Resources
 
 - **Pupil Labs Documentation**: [docs.pupil-labs.com](https://docs.pupil-labs.com/)
-- **HyperStudy Bridge**: [GitHub Repository](https://github.com/ljchang/hyperstudy-bridge)
+- **HyperStudy Bridge**: [GitHub Repository](https://github.com/hyperstudyio/hyperstudy-bridge)
 - **Gaze Overlay Component**: [Gaze Overlay Documentation](/experimenters/experiment-design/components/gaze-overlay)

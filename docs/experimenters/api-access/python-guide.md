@@ -293,7 +293,7 @@ print(result)  # {'status': 'success', 'version': '3.0.0', ...}
 
 ## Next Steps
 
-- **Full SDK source code**: [github.com/ljchang/hyperstudy-pythonsdk](https://github.com/ljchang/hyperstudy-pythonsdk)
+- **Full SDK source code**: [github.com/hyperstudyio/hyperstudy-pythonsdk](https://github.com/hyperstudyio/hyperstudy-pythonsdk)
 - **Interactive API reference**: [API Reference](/api-reference) -- browse all endpoints
 - **Other languages**: [JavaScript](./javascript-guide.md) | [R](./r-guide.md)
 - **Understand all endpoints**: [Data Types & Endpoints](./data-types.md)

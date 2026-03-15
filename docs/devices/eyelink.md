@@ -232,4 +232,4 @@ If you just installed the SDK, try restarting the Bridge application.
 
 - **SR Research Support**: [www.sr-research.com/support](https://www.sr-research.com/support) — SDK downloads, manuals, and forums
 - **EyeLink Programmer's Guide**: Included with the EyeLink Developers Kit installation
-- **HyperStudy Bridge**: [GitHub Repository](https://github.com/ljchang/hyperstudy-bridge)
+- **HyperStudy Bridge**: [GitHub Repository](https://github.com/hyperstudyio/hyperstudy-bridge)

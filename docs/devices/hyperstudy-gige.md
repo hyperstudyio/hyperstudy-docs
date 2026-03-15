@@ -31,12 +31,12 @@ The GigE Virtual Camera application bridges the gap between professional GigE Vi
 
 ### Download
 
-**[Download the latest release →](https://github.com/ljchang/hyperstudy-gige/releases/latest)**
+**[Download the latest release →](https://github.com/hyperstudyio/hyperstudy-gige/releases/latest)**
 
 ### Step-by-Step Installation
 
 1. **Download the DMG**
-   - Go to the [Releases page](https://github.com/ljchang/hyperstudy-gige/releases)
+   - Go to the [Releases page](https://github.com/hyperstudyio/hyperstudy-gige/releases)
    - Download the latest `GigEVirtualCamera-vX.X.X.dmg` file
    - The app is fully signed and notarized by Apple
 
@@ -274,7 +274,7 @@ For developers who want to build from source:
 
 ```bash
 # Clone the repository
-git clone https://github.com/ljchang/hyperstudy-gige.git
+git clone https://github.com/hyperstudyio/hyperstudy-gige.git
 cd hyperstudy-gige
 
 # Install dependencies
@@ -286,13 +286,13 @@ open GigEVirtualCamera.xcodeproj
 # Build and run (Cmd+R)
 ```
 
-For detailed build instructions including code signing for distribution, see [BUILDING.md](https://github.com/ljchang/hyperstudy-gige/blob/main/BUILDING.md).
+For detailed build instructions including code signing for distribution, see [BUILDING.md](https://github.com/hyperstudyio/hyperstudy-gige/blob/main/BUILDING.md).
 
 ## Resources
 
-- **GitHub Repository**: [ljchang/hyperstudy-gige](https://github.com/ljchang/hyperstudy-gige)
-- **Build Instructions**: [BUILDING.md](https://github.com/ljchang/hyperstudy-gige/blob/main/BUILDING.md)
-- **Contributing Guide**: [CONTRIBUTING.md](https://github.com/ljchang/hyperstudy-gige/blob/main/CONTRIBUTING.md)
+- **GitHub Repository**: [hyperstudyio/hyperstudy-gige](https://github.com/hyperstudyio/hyperstudy-gige)
+- **Build Instructions**: [BUILDING.md](https://github.com/hyperstudyio/hyperstudy-gige/blob/main/BUILDING.md)
+- **Contributing Guide**: [CONTRIBUTING.md](https://github.com/hyperstudyio/hyperstudy-gige/blob/main/CONTRIBUTING.md)
 - **Aravis Project**: [github.com/AravisProject/aravis](https://github.com/AravisProject/aravis)
 - **Apple CMIO Documentation**: [Creating a Camera Extension](https://developer.apple.com/documentation/coremediaio/creating_a_camera_extension_with_core_media_i_o)
 

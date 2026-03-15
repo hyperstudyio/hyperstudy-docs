@@ -581,7 +581,7 @@ events = hs.get_events("experiment-id")          # pandas DataFrame
 events = hs.get_events("experiment-id", output="polars")  # polars DataFrame
 ```
 
-See the [Python Guide](./python-guide.md) for full documentation, or visit the [SDK repository on GitHub](https://github.com/ljchang/hyperstudy-pythonsdk).
+See the [Python Guide](./python-guide.md) for full documentation, or visit the [SDK repository on GitHub](https://github.com/hyperstudyio/hyperstudy-pythonsdk).
 
 ## Additional Resources
 

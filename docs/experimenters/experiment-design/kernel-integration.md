@@ -26,7 +26,7 @@ Before using Kernel Flow2 integration, the **HyperStudy Bridge** desktop applica
 #### Installation Steps
 
 1. **Download the HyperStudy Bridge**
-   - Visit the [HyperStudy Bridge GitHub releases page](https://github.com/ljchang/hyperstudy-bridge/releases)
+   - Visit the [HyperStudy Bridge GitHub releases page](https://github.com/hyperstudyio/hyperstudy-bridge/releases)
    - Download the appropriate installer for your operating system:
      - **Windows**: `HyperStudy-Bridge_x.x.x_x64_en-US.msi`
      - **macOS**: `HyperStudy-Bridge_x.x.x_x64.dmg`
@@ -291,4 +291,4 @@ The integration communicates with the HyperStudy Bridge via WebSocket on port 90
 - **BioPac**: AcqKnowledge integration
 - **LSL**: Lab Streaming Layer protocol
 
-For bridge development and device integration details, see the [HyperStudy Bridge repository](https://github.com/ljchang/hyperstudy-bridge).
+For bridge development and device integration details, see the [HyperStudy Bridge repository](https://github.com/hyperstudyio/hyperstudy-bridge).
