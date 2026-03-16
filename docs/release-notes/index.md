@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.40
+
+Released: 2026-03-16
+
+## What's Changed
+
+## Changes since last production release
+
+- Update GitHub repo URLs from ljchang to hyperstudyio org (694c47da)
+- Add Terms of Service, Privacy Policy, and legal agreement infrastructure (3170c94f)
+
+---
+
 ## v0.6.39
 
 Released: 2026-03-14
@@ -34,24 +47,6 @@ Released: 2026-03-14
 - Update landing page feature cards with fresh screenshots and layout fix (a94bf414)
 - Fix permission removal JSON error and add server-side user enrichment (b2a2ee7e)
 - Fix blank API v3 docs page by allowing Scalar CDN in CSP for docs route (9f3832d2)
-
----
-
-## v0.6.37
-
-Released: 2026-03-14
-
-## What's Changed
-
-## Changes since last production release
-
-- Improve Consent tab UI consistency and reduce editor-preview code duplication (0c49aaac)
-- Add fresh production screenshots and TTL device photos to landing page (532eb146)
-- Fix video wrapping at end of playback in sync mode (fd184dd5)
-- Fix fit-to-screen view modes by implementing strategy-specific scaling and layout collapse (c72d3e5b)
-- Suppress remote audio playback when videochat is hidden with recordWhenHidden (f102e286)
-- Update landing page with accurate feature descriptions and accessibility improvements (82fe0acd)
-- Add complete OpenAPI 3.1.1 spec and Scalar docs UI for V3 API (87c44d8e)
 
 ---
 
