@@ -8,6 +8,24 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.41
+
+Released: 2026-03-18
+
+## What's Changed
+
+## Changes since last production release
+
+- Fix tests for video sync throttling and buffering grace timer (580d843d)
+- Fix Firefox CPU spike during HLS video sync (d9f50f56)
+- Fix syncParametersManager tests for 2-state Kalman filter (b890df67)
+- Fix designer server to reassign duplicate state IDs instead of dropping them (c9b2dbfb)
+- Improve sync engine: 2-state Kalman, PID pause awareness, derivative filter (4201e3ca)
+- Fix video sync lifecycle issues: ended replay, slow calibration, stale state (d9db5cd8)
+- Fix sync metrics tab not showing for non-host participants (e0245cc1)
+
+---
+
 ## v0.6.40
 
 Released: 2026-03-16
@@ -30,23 +48,6 @@ Released: 2026-03-14
 ## Changes since last production release
 
 - Allow cross-origin access to OpenAPI spec endpoint (88782ba2)
-
----
-
-## v0.6.38
-
-Released: 2026-03-14
-
-## What's Changed
-
-## Changes since last production release
-
-- Rename Compliance card to Collaboration and reorder deployment screenshots (f8943e22)
-- Add experiment tracker and Prolific configuration screenshots to landing page (de415c81)
-- Fix unifiedPermissionService test failure with optional chaining on response.headers (dec87fe7)
-- Update landing page feature cards with fresh screenshots and layout fix (a94bf414)
-- Fix permission removal JSON error and add server-side user enrichment (b2a2ee7e)
-- Fix blank API v3 docs page by allowing Scalar CDN in CSP for docs route (9f3832d2)
 
 ---
 
