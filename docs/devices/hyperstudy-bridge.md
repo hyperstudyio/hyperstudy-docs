@@ -279,6 +279,30 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.8.25
+
+**Released:** 2026-03-21
+
+## What's Changed
+
+### New Features
+- **In-app auto-updates**: The app now checks for updates on launch and can download and install them without leaving the app
+- **Native menu bar**: macOS app menu with About, Check for Updates, Edit (Cmd+C/V/X), and Window submenus; Help menu on Windows/Linux
+- **Toast notifications**: New toast notification system for update status, download progress, and success/error feedback
+
+### Technical
+- Integrated `tauri-plugin-updater` and `tauri-plugin-process` for self-updating and relaunch
+- Added updater artifact generation (`.tar.gz`, `.msi.zip`, `.sig`) to all platform build workflows
+- Added `latest.json` manifest generation to release pipeline using `jq`
+- Fixed `tauri.conf.json` version discrepancy (was 0.8.4, now synced)
+- Now tracking `Cargo.lock` for reproducible builds
+- Updated release process to include `tauri.conf.json` as third version file
+
+> **Note**: This is the first release with updater support. Future updates will be installable directly from the app. This version must be installed manually.
+
+---
+
+
 ### v0.8.24
 
 **Released:** 2026-02-25
