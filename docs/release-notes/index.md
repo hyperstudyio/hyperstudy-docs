@@ -8,6 +8,30 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.43
+
+Released: 2026-04-01
+
+## What's Changed
+
+## Changes since last production release
+
+- feat: add Client Diagnostics tab to data management viewer (61e214a8)
+- fix: prevent Prometheus OOM cascade with Recreate strategy and higher memory limit (4d7ccc47)
+- docs: add client diagnostics and clock sync design spec and implementation plan (959e453d)
+- fix: XSS escape client diagnostics, extract shared render, add stop guard and throttle (d76de46a)
+- feat: add diagnostics update endpoint for window size at experiment start (97b7a7eb)
+- feat: apply clock offset correction to client-sourced event onsets (b377b581)
+- Replace fragile EventBridge HLS trigger with backend-initiated transcoding (61252ef6)
+- feat: enrich participants with diagnostics and add Client Info UI column (277aa002)
+- feat: add clock sync socket handlers and ExperimentRunner integration (f3b94284)
+- feat: capture and store client diagnostics at session creation (3fbe726f)
+- feat: add clock sync service using Cristian's algorithm with EMA smoothing (a166e2ee)
+- feat: add client diagnostics collection service with UA parsing (b0bcae16)
+- Add media pause/resume onset times to processed sparse ratings (02264972)
+
+---
+
 ## v0.6.42
 
 Released: 2026-03-19
@@ -36,19 +60,6 @@ Released: 2026-03-18
 - Improve sync engine: 2-state Kalman, PID pause awareness, derivative filter (4201e3ca)
 - Fix video sync lifecycle issues: ended replay, slow calibration, stale state (d9db5cd8)
 - Fix sync metrics tab not showing for non-host participants (e0245cc1)
-
----
-
-## v0.6.40
-
-Released: 2026-03-16
-
-## What's Changed
-
-## Changes since last production release
-
-- Update GitHub repo URLs from ljchang to hyperstudyio org (694c47da)
-- Add Terms of Service, Privacy Policy, and legal agreement infrastructure (3170c94f)
 
 ---
 
