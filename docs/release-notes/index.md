@@ -8,6 +8,24 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.52
+
+Released: 2026-04-07
+
+## What's Changed
+
+## Changes since last production release
+
+- chore: replace bundled Python client with SDK pointer, document SDK repo in CLAUDE.md (33cac147)
+- fix: preserve video elements in DOM when settings panels open (d4ba719b)
+- fix: prevent video URL expiration and silent experiment restart in long sessions (4ebe0100)
+- feat: record media buffering start/end events for cleaned duration analysis (d6a9804d)
+- feat: add v3 deployment routes, surface query warnings, and rewrite Python API client (27f44c0e)
+- fix: move lab branding from experiment content area to header bar (d92bb2d4)
+- fix: normalize experiment createdAt types and remove fieldEditHistory (14f0accf)
+
+---
+
 ## v0.6.51
 
 Released: 2026-04-06
@@ -46,18 +64,6 @@ Released: 2026-04-02
 - fix: reset mock socket connected state in afterEach to prevent stale connection timeout (1d3e15be)
 - fix: move hasSignaledReady to module scope so setupSocketListeners can access it (e6e23112)
 - fix: resolve socket reconnection race condition causing participants to get stuck on sync screen (95a423fa)
-
----
-
-## v0.6.49
-
-Released: 2026-04-02
-
-## What's Changed
-
-## Changes since last production release
-
-- fix: move diagnostics and clock sync emit to actual initialization path (a6506a96)
 
 ---
 
