@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.53
+
+Released: 2026-04-07
+
+## What's Changed
+
+## Changes since last production release
+
+- feat: resolve deploymentId from room on events, show deployment ID in detail view (30f39b76)
+- fix: correct sparse rating onset timing and media pause/resume matching (01a97f6b)
+
+---
+
 ## v0.6.52
 
 Released: 2026-04-07
@@ -48,22 +61,6 @@ Released: 2026-04-06
 - fix: replace setTimeout-based sparse rating scheduling with video time checking (4ed08398)
 - fix: update Firestore emulator port from 8080 to 8085 (6a15f7e3)
 - Fix disconnect handling gaps and device setup bugs causing participants to get stuck (e1386dcb)
-
----
-
-## v0.6.50
-
-Released: 2026-04-02
-
-## What's Changed
-
-## Changes since last production release
-
-- fix: revert awaited teardown to synchronous disconnect to fix CI unhandled rejection (5ff8cefe)
-- fix: revert createSimpleMockSocket to original form to avoid global test side effects (971113a2)
-- fix: reset mock socket connected state in afterEach to prevent stale connection timeout (1d3e15be)
-- fix: move hasSignaledReady to module scope so setupSocketListeners can access it (e6e23112)
-- fix: resolve socket reconnection race condition causing participants to get stuck on sync screen (95a423fa)
 
 ---
 
