@@ -8,6 +8,18 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.55
+
+Released: 2026-04-10
+
+## What's Changed
+
+## Changes since last production release
+
+- fix: remove org branding from experiment runner, left-align in waiting room (fbabace0)
+
+---
+
 ## v0.6.54
 
 Released: 2026-04-08
@@ -31,24 +43,6 @@ Released: 2026-04-07
 
 - feat: resolve deploymentId from room on events, show deployment ID in detail view (30f39b76)
 - fix: correct sparse rating onset timing and media pause/resume matching (01a97f6b)
-
----
-
-## v0.6.52
-
-Released: 2026-04-07
-
-## What's Changed
-
-## Changes since last production release
-
-- chore: replace bundled Python client with SDK pointer, document SDK repo in CLAUDE.md (33cac147)
-- fix: preserve video elements in DOM when settings panels open (d4ba719b)
-- fix: prevent video URL expiration and silent experiment restart in long sessions (4ebe0100)
-- feat: record media buffering start/end events for cleaned duration analysis (d6a9804d)
-- feat: add v3 deployment routes, surface query warnings, and rewrite Python API client (27f44c0e)
-- fix: move lab branding from experiment content area to header bar (d92bb2d4)
-- fix: normalize experiment createdAt types and remove fieldEditHistory (14f0accf)
 
 ---
 
