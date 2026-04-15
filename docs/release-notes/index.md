@@ -8,6 +8,23 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.58
+
+Released: 2026-04-15
+
+## What's Changed
+
+## Changes since last production release
+
+- fix: end experiment immediately on leave and add questionnaire escape hatch (41f5dc87)
+- test: expand emulator stateManager mock with new matching primitives (85fe8c04)
+- docs: add waiting-room matching architecture doc (17881cb2)
+- fix: scalable waiting-room matching for burst Prolific recruitment (066a4b32)
+- fix: exclude fieldEditHistory when duplicating experiments (ae2c9237)
+- fix: don't stomp ShowVideo startTime seek with empty sync cache on fresh join (30ac6a2c)
+
+---
+
 ## v0.6.57
 
 Released: 2026-04-15
@@ -37,18 +54,6 @@ Released: 2026-04-14
 - fix: preserve pre-disconnect playback state across rejoin window (4b092985)
 - fix: server-authoritative host, fast reconnect, and camera recovery (2eafd68d)
 - fix: unified rejoin contract with per-participant disconnect timers (a1d27375)
-
----
-
-## v0.6.55
-
-Released: 2026-04-10
-
-## What's Changed
-
-## Changes since last production release
-
-- fix: remove org branding from experiment runner, left-align in waiting room (fbabace0)
 
 ---
 
