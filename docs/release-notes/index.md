@@ -8,6 +8,18 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.61
+
+Released: 2026-04-17
+
+## What's Changed
+
+## Changes since last production release
+
+- chore: untrack auto-generated design-tokens.source.json (6a375a3c)
+
+---
+
 ## v0.6.60
 
 Released: 2026-04-17
@@ -35,23 +47,6 @@ Released: 2026-04-17
 - storybook: add Trigger component stories (29f4d2a8)
 - feat: add TTL lifecycle pulses toggle to experiment designer (6e31d2fc)
 - storybook: add overlay + questionnaire stories, refresh component variants (7038197e)
-
----
-
-## v0.6.58
-
-Released: 2026-04-15
-
-## What's Changed
-
-## Changes since last production release
-
-- fix: end experiment immediately on leave and add questionnaire escape hatch (41f5dc87)
-- test: expand emulator stateManager mock with new matching primitives (85fe8c04)
-- docs: add waiting-room matching architecture doc (17881cb2)
-- fix: scalable waiting-room matching for burst Prolific recruitment (066a4b32)
-- fix: exclude fieldEditHistory when duplicating experiments (ae2c9237)
-- fix: don't stomp ShowVideo startTime seek with empty sync cache on fresh join (30ac6a2c)
 
 ---
 
