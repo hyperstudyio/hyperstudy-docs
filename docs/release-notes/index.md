@@ -8,6 +8,31 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.65
+
+Released: 2026-05-01
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(private-enrollment): don't show 'failed to cancel' when cancel succeeded (bc70df60)
+- chore(backfill-recording-metadata): only backfill rooms whose file still exists (4c3cef44)
+- chore(backfill-recording-metadata): add MP4 box duration as precision tier (33994e55)
+- chore(scripts): backfill recording metadata for damaged rooms (96c03788)
+- fix(livekit-webhooks): exempt egress events from pod-ownership skip (49602c6a)
+- fix(sparse-rating): clear pause flag in V2 bridge to unblock /sync resume (97f9d9a8)
+- fix(completion-route): visible text on completion + error screens (e934ed84)
+- fix(state-manager): skip 3-segment legacy keys in waiting:* scan (3ed533ce)
+- revert(traefik): drop DO LB PROXY protocol + hostname annotations (11b4326c)
+- fix(rate-limit): preserve real client IP end-to-end + Redis-backed limiters (627ac899)
+- test(participant-flow): add tests for /questionnaire and /completion routes (f7679631)
+- fix(participant-flow): address code-review findings on completion route (59213426)
+- fix(participant-flow): unify sync engine + promote questionnaire/completion to routes (fd347af9)
+- fix(component-config): expose textStyle controls in nested + RapidRate editors (e2cb7145)
+
+---
+
 ## v0.6.64
 
 Released: 2026-04-27
@@ -153,18 +178,6 @@ Released: 2026-04-24
 - feat(experiment-engine): add six store interfaces with null implementations (VariableStore, StimulusPoolStore, SharedDataStore, ConsentStore, DataEventStore, ComponentRegistryStore) (e972f332)
 - feat(experiment-engine): scaffold package with Engine class, EVENTS constants, and API version export (99ed1e7a)
 - fix: align server disconnect timeout with client socket.io retry budget (79fa7c68)
-
----
-
-## v0.6.62
-
-Released: 2026-04-17
-
-## What's Changed
-
-## Changes since last production release
-
-- storybook: rename Code/JavaScript story export to match docs ID (e3da0d07)
 
 ---
 
