@@ -299,6 +299,48 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.0.15
+
+**Released:** 2026-05-02
+
+# GigE Virtual Camera v1.0.15
+
+macOS application for creating virtual cameras from GigE Vision cameras.
+
+## Installation
+
+1. Download the DMG file below
+2. Open the DMG and drag GigEVirtualCamera.app to Applications
+3. Launch the application
+4. Grant system extension permission in System Settings → Privacy & Security
+5. Connect to your GigE camera
+
+## Requirements
+
+- macOS 12.3 or later
+- Apple Silicon Mac (arm64)
+- GigE Vision camera (or use built-in test camera)
+
+## What's New
+
+See CHANGELOG.md for detailed changes.
+
+## Support
+
+For issues and feature requests, please visit the GitHub Issues page.
+
+
+## What's Changed
+* Fix: stamp release version from git tag into Info.plists by @ljchang in https://github.com/hyperstudyio/hyperstudy-gige/pull/1
+
+## New Contributors
+* @ljchang made their first contribution in https://github.com/hyperstudyio/hyperstudy-gige/pull/1
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.0.14...v1.0.15
+
+---
+
+
 ### v1.0.16
 
 **Released:** 2026-05-02
