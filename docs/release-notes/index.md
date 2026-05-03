@@ -8,6 +8,21 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.69
+
+Released: 2026-05-03
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(completion): isProlific reflects this RUN, not experiment capability (5edb5cea)
+- fix(completion): require prolificPid before rendering ProlificCompletion (f98b4a90)
+- fix(sparse-rating): trust serverOriginated play, bypass pause-flag race (891ef26c)
+- fix(livekit-recording): reduce A/V startup gap and pin high-quality audio encoding (63d1c0b2)
+
+---
+
 ## v0.6.68
 
 Released: 2026-05-02
@@ -30,18 +45,6 @@ Released: 2026-05-01
 ## Changes since last production release
 
 - fix(sparse-rating): clear pause flag synchronously in V1 resume handler (9a633b0b)
-
----
-
-## v0.6.66
-
-Released: 2026-05-01
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(session-recorder): strip undefined fields before Firestore writes (9204f1b5)
 
 ---
 
