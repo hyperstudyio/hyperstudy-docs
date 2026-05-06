@@ -8,6 +8,21 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.71
+
+Released: 2026-05-06
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(experiment-load): cache experiment_stats lookup too (51116237)
+- fix(experiment-load): coalesce concurrent cache misses into one fetch (5ac14a93)
+- fix(experiment-load): cache permission decisions + owner info (b09b2404)
+- chore(load-tests): add periodic burst-test scripts + README (e71e289a)
+
+---
+
 ## v0.6.70
 
 Released: 2026-05-06
@@ -38,19 +53,6 @@ Released: 2026-05-03
 - fix(completion): require prolificPid before rendering ProlificCompletion (f98b4a90)
 - fix(sparse-rating): trust serverOriginated play, bypass pause-flag race (891ef26c)
 - fix(livekit-recording): reduce A/V startup gap and pin high-quality audio encoding (63d1c0b2)
-
----
-
-## v0.6.68
-
-Released: 2026-05-02
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(invite-member-modal): replace bind:group with explicit checked+onchange so role selection actually persists (40a44ac3)
-- fix(experiment-manager): drain all pages of org+shared experiments instead of dropping the tail (d8b5975b)
 
 ---
 
