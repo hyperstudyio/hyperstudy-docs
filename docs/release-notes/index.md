@@ -8,6 +8,24 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.70
+
+Released: 2026-05-06
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(sparse-rating): persist previousRatings across remounts (afbbdbe5)
+- chore(sparse-rating): drop tombstone comments + add cleanupRoom call (7c7df527)
+- fix(sparse-rating): don't auto-complete on socket disconnect (e62217c5)
+- fix(sparse-rating): restore single-subject resume + refresh recovery (d1ebfdc8)
+- fix(lb-firewall): restrict Traefik LB inbound 80/443 to Cloudflare CIDRs (7d45fd65)
+- fix(experiment-load): per-pod cache + debounced background variable sync (a82eb364)
+- fix(ip-trust-chain): CIDR-based trust proxy + Traefik forwardedHeaders.trustedIPs (299b69f1)
+
+---
+
 ## v0.6.69
 
 Released: 2026-05-03
@@ -33,18 +51,6 @@ Released: 2026-05-02
 
 - fix(invite-member-modal): replace bind:group with explicit checked+onchange so role selection actually persists (40a44ac3)
 - fix(experiment-manager): drain all pages of org+shared experiments instead of dropping the tail (d8b5975b)
-
----
-
-## v0.6.67
-
-Released: 2026-05-01
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(sparse-rating): clear pause flag synchronously in V1 resume handler (9a633b0b)
 
 ---
 
