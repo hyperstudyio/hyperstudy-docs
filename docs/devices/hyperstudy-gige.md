@@ -303,32 +303,36 @@ For detailed build instructions including code signing for distribution, see [BU
 
 **Released:** 2026-05-23
 
+## What's Changed
+* fix(ui): pin window to fixed 960x680, drop 400px width clamp
+
 **Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.2...v1.1.3
 
 ---
-
 
 ### v1.1.2
 
 **Released:** 2026-05-23
 
+## What's Changed
+* ui: two-column layout with always-on preview
+* fix(release): drop static boilerplate from generated release body
+
 **Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.1...v1.1.2
 
 ---
-
 
 ### v1.1.1
 
 **Released:** 2026-05-23
 
 ## What's Changed
-* fix(release): grant actions:write for docs-sync dispatch by @ljchang in https://github.com/hyperstudyio/hyperstudy-gige/pull/6
-
+* Reliability fixes + diagnostics drawer
+* fix(release): grant actions:write so docs-sync dispatch isn't 403 (#6)
 
 **Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.0...v1.1.1
 
 ---
-
 
 ### v1.1.0
 
