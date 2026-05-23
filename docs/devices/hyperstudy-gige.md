@@ -299,6 +299,20 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.1.7
+
+**Released:** 2026-05-23
+
+## What's Changed
+
+* chore(build): use version-agnostic /opt/homebrew/opt/* symlinks for deps
+* fix(preview): cap NSImage retention with coalesced main-thread updates
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.6...v1.1.7
+
+---
+
+
 ### v1.1.6
 
 **Released:** 2026-05-23
