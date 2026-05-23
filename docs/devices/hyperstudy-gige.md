@@ -299,6 +299,19 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.1.6
+
+**Released:** 2026-05-23
+
+## What's Changed
+
+* chore(logging): drop redundant per-second frame logs from AravisBridge
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.5...v1.1.6
+
+---
+
+
 ### v1.1.5
 
 **Released:** 2026-05-23
