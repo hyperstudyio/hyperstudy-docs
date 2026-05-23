@@ -299,6 +299,19 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.1.5
+
+**Released:** 2026-05-23
+
+## What's Changed
+
+* fix(ui): diagnostics freeze + state-aware preview empty state
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.4...v1.1.5
+
+---
+
+
 ### v1.1.4
 
 **Released:** 2026-05-23
