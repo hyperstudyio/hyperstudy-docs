@@ -299,6 +299,19 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.1.8
+
+**Released:** 2026-05-24
+
+## What's Changed
+
+* fix(ui): drop step: from exposure slider to avoid 99k-tick-mark freeze
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.7...v1.1.8
+
+---
+
+
 ### v1.1.7
 
 **Released:** 2026-05-23
