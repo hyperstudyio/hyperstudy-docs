@@ -299,6 +299,19 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.1.9
+
+**Released:** 2026-05-24
+
+## What's Changed
+
+* fix(diagnostics): grant user-selected read-write so save dialog appears
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.8...v1.1.9
+
+---
+
+
 ### v1.1.8
 
 **Released:** 2026-05-24
