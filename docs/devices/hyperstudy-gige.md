@@ -299,6 +299,19 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.1.10
+
+**Released:** 2026-05-25
+
+## What's Changed
+
+* fix(ui): suppress false stall banner when no consumer is attached
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.9...v1.1.10
+
+---
+
+
 ### v1.1.9
 
 **Released:** 2026-05-24
