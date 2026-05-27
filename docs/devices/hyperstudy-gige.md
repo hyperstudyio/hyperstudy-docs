@@ -299,6 +299,19 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.1.13
+
+**Released:** 2026-05-27
+
+## What's Changed
+
+* fix(diagnostics): stop per-frame log/IPC churn from sink drain
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.12...v1.1.13
+
+---
+
+
 ### v1.1.12
 
 **Released:** 2026-05-27
