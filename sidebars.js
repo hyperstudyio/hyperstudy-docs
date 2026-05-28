@@ -133,6 +133,7 @@ module.exports = {
             'experimenters/api-access/api-keys',
             'experimenters/api-access/data-types',
             'experimenters/api-access/python-guide',
+            'experimenters/api-access/experiment-authoring',
             'experimenters/api-access/javascript-guide',
             'experimenters/api-access/r-guide',
           ],

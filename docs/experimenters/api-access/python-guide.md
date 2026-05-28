@@ -226,6 +226,10 @@ print(f"Video events: {len(video_events)}")
 
 ## Experiment Management
 
+:::info Programmatic authoring
+For building experiment definitions in code — states, components, roles, schedule — see the [Experiment Authoring API guide](./experiment-authoring.md). It covers the typed `Experiment(...)` builder, component factory helpers, and dry-run validation.
+:::
+
 ```python
 # List your experiments
 experiments = hs.list_experiments()
