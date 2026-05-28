@@ -136,6 +136,11 @@ module.exports = {
             'experimenters/api-access/experiment-authoring',
             'experimenters/api-access/javascript-guide',
             'experimenters/api-access/r-guide',
+            {
+              type: 'link',
+              label: 'API Reference (interactive)',
+              href: '/api-reference',
+            },
           ],
         },
       ],

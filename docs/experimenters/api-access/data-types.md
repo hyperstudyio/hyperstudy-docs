@@ -1,207 +1,100 @@
 ---
 id: data-types
-title: Data Types & Endpoints
+title: Data Types Overview
 slug: /experimenters/api-access/data-types
 sidebar_position: 3
 ---
 
-# Data Types & Endpoints
+# Data Types Overview
 
-This guide explains the data types available through the HyperStudy API and when to use each one. For full endpoint details, parameters, and response schemas, see the **[Interactive API Reference](/api-reference)**.
+This page explains the data types HyperStudy collects and when to use each one. For endpoint URLs, request parameters, response schemas, and a "Try it" UI, use the **[interactive API Reference](/api-reference)**.
 
-## Endpoint Structure
+## Scopes
 
-All data endpoints follow this pattern:
+Every data type can be queried at three scope levels — pick the smallest scope that fits your analysis:
 
-```
-/api/v3/data/{dataType}/{scope}/{scopeId}
-```
+| Scope | When to use |
+|---|---|
+| `experiment` | Comparing across sessions, computing aggregate metrics, exporting a full dataset |
+| `room` | Analyzing a single session — most multi-participant analyses live here |
+| `participant` | Inspecting one person's behavior within one session |
 
-### Scopes
+The participant scope requires a `roomId` query parameter to disambiguate which session.
 
-Every data type supports three scope levels:
+## Available data types
 
-| Scope | Description | Example |
-|-------|-------------|---------|
-| `experiment` | All data across every session | `/data/events/experiment/{experimentId}` |
-| `room` | Data for a single session | `/data/events/room/{roomId}` |
-| `participant` | Data for one participant | `/data/events/participant/{participantId}?roomId={roomId}` |
-
-### Common Query Parameters
-
-Most endpoints accept these query parameters:
-
-| Parameter | Type | Description | Default |
-|-----------|------|-------------|---------|
-| `startTime` | ISO 8601 | Filter records after this time | — |
-| `endTime` | ISO 8601 | Filter records before this time | — |
-| `limit` | number | Max records per page | 1000 |
-| `offset` | number | Skip records for pagination | 0 |
-| `sort` | string | Sort field | `timestamp` |
-| `order` | string | Sort order (`asc`, `desc`) | `asc` |
-| `format` | string | Response format (`json`, `csv`, `ndjson`) | `json` |
-
-## Available Data Types
-
-### 1. Events
+### Events
 
 **Scope**: `read:events`
 
-All participant interactions, component completions, state transitions, and media events. This is the primary data type for behavioral analysis.
+Every participant interaction, component completion, state transition, and media event. The primary data type for behavioral analysis. Includes enriched `content` fields, state names, participant roles, and response payloads. Filter by `category` (`component`, `state`, `media`) to narrow down.
 
-**Key fields**: `onset` (ms from experiment start), `eventType`, `category`, `componentType`, `content` (enriched descriptions), `stateName`, `participantRole`, `response`
+**Batch recording**: `POST /data/events/batch` accepts up to 100 events per request (requires `write:events`).
 
-**Unique parameter**: `category` — filter by event category (e.g., `component`, `state`, `media`)
-
-**Batch recording**: `POST /data/events/batch` allows recording up to 100 events per request (requires `write:events` scope).
-
-### 2. Recordings
+### Recordings
 
 **Scope**: `read:recordings`
 
-Video and audio recordings from LiveKit video chat sessions. Each recording includes a signed download URL and metadata about format, resolution, and timing.
+Video and audio recordings from LiveKit video chat sessions. Each record includes a signed download URL, the offset from experiment start, and metadata (duration, file size, format, resolution).
 
-**Key fields**: `downloadUrl` (signed, temporary), `videoOffset` (ms from experiment start), `duration`, `fileSize`, `status`, `format`, `resolution`
-
-### 3. Video Chat
+### Video chat
 
 **Scope**: `read:videochat`
 
-LiveKit video chat connection data and session metadata. Useful for analyzing video chat participation patterns.
+LiveKit connection data and session metadata — useful for analyzing video chat participation patterns separately from the recordings themselves.
 
-### 4. Text Chat
+### Text chat
 
 **Scope**: `read:chat`
 
-Chat messages sent through the text chat component. Includes sender information, message content, and timing.
+Messages sent through the text chat component, with sender and timing.
 
-### 5. Ratings
+### Ratings
 
 **Scope**: `read:ratings`
 
-Rating data is split into two sub-types:
+Two sub-types served from distinct endpoints:
 
-**Continuous Ratings** (`/data/ratings/continuous/...`)
-High-frequency rating data from continuous rating components. Data points are recorded every 100-500ms, making this ideal for time-series analysis of emotional responses, engagement, or valence.
+- **Continuous ratings** — high-frequency samples (every 100–500 ms) from continuous rating components. Use for time-series analysis of valence, engagement, or arousal.
+- **Sparse ratings** — discrete responses from VAS, Likert, multiple choice, and other rating components. Each record includes the value, response time, and scale metadata.
 
-**Sparse Ratings** (`/data/ratings/sparse/...`)
-Individual rating responses from VAS scales, Likert scales, and other discrete rating components. Each record includes the response value, response time, and scale metadata.
-
-### 6. Sync Metrics
+### Sync metrics
 
 **Scope**: `read:sync`
 
-Video synchronization quality data for multi-participant experiments. Only available when experiments use synchronized media playback.
+Video synchronization quality data for multi-participant experiments with synchronized media. Includes time drift, playback rate, sync quality, and latency. Only populated when an experiment uses sync sockets.
 
-**Key fields**: `timeDrift` (ms from host), `playbackRate`, `syncQuality` (0-1), `latency`
-
-**Unique parameter**: `aggregationWindow` — aggregate metrics over a time window in milliseconds
-
-### 7. Components
+### Components
 
 **Scope**: `read:components`
 
-Component response data including configurations and variable snapshots at display time. Useful for understanding what each participant saw and how they responded.
+Component-level response data including configurations and variable snapshots at display time. Useful for understanding what each participant saw and how they responded. Filter by `componentType`, `completed`, or `stateId`.
 
-**Unique parameters**: `componentType` (e.g., `ShowVideo`, `TextInput`), `completed` (boolean), `stateId`
+### Participants
 
-### 8. Participants
+**Scope**: `read:events` (uses the events scope)
 
-**Scope**: `read:events` (uses events scope)
+Participant metadata and session information. Available at `experiment` and `room` scopes only — not at participant scope. Includes `completionCode` (`SUCCESS`, `TIMEOUT`, `TECHNICAL`, `NOCONSENT`, `ABANDONED`, `IN_PROGRESS`, `COMPLETED_NO_CODE`) and supports sorting by join/completion time.
 
-Participant metadata and session information. Available at experiment and room scopes only (not individual participant scope).
+### Rooms
 
-**Unique parameters**: `completionCode` (enum: `SUCCESS`, `TIMEOUT`, `TECHNICAL`, `NOCONSENT`, `ABANDONED`, `IN_PROGRESS`, `COMPLETED_NO_CODE`), `deploymentId`
+**Scope**: `read:events` (uses the events scope)
 
-**Unique sort fields**: `joinedAt`, `completedAt`, `id`, `email`, `role`, `status`, `completionCode`
+Room/session metadata for an experiment, enriched with deployment names and participant counts. Returns up to 5,000 rooms.
 
-### 9. Rooms
-
-**Scope**: `read:events` (uses events scope)
-
-Room/session metadata for an experiment. Enriched with deployment names and participant counts. Returns up to 5,000 rooms.
-
-### 10. Data Access Check
+### Data access check
 
 **No scope required** (authentication only)
 
-Check whether you have view and/or export permissions for a specific experiment before fetching data.
+`GET /data/check-access/experiment/{experimentId}` returns `{ canView, canExport }` so you can probe permissions before making heavier requests.
 
-```
-GET /data/check-access/experiment/{experimentId}
-```
+## Experiment management
 
-Returns `{ canView: boolean, canExport: boolean }`.
+The API also exposes full CRUD for experiment definitions (`read:experiments`, `write:experiments`, `delete:experiments` scopes). For programmatic experiment authoring with the Python SDK's typed builder, see the [Experiment Authoring guide](./experiment-authoring.md). For the raw endpoint surface, see the [API Reference](/api-reference).
 
-## Experiment Management
+## Next steps
 
-In addition to data endpoints, the API provides full CRUD operations for experiments:
-
-| Operation | Method | Path | Scope |
-|-----------|--------|------|-------|
-| List experiments | GET | `/experiments` | `read:experiments` |
-| Get experiment | GET | `/experiments/{id}` | `read:experiments` |
-| Get config | GET | `/experiments/{id}/config` | `read:experiments` |
-| Export | GET | `/experiments/{id}/export` | `read:experiments` |
-| Create | POST | `/experiments` | `write:experiments` |
-| Update | PUT | `/experiments/{id}` | `write:experiments` |
-| Validate | POST | `/experiments/validate` | `write:experiments` |
-| Delete | DELETE | `/experiments/{id}` | `delete:experiments` |
-
-See the [API Reference](/api-reference) for full request/response schemas.
-
-## Common Patterns
-
-### Fetching All Data for a Participant
-
-```python
-import requests
-
-BASE_URL = 'https://api.hyperstudy.io/api/v3'
-headers = {'X-API-Key': API_KEY}
-
-participant_id = 'user_xyz789'
-room_id = 'room_abc123'
-
-data_types = ['events', 'recordings', 'chat', 'ratings/continuous', 'sync']
-all_data = {}
-
-for data_type in data_types:
-    response = requests.get(
-        f'{BASE_URL}/data/{data_type}/participant/{participant_id}',
-        headers=headers,
-        params={'roomId': room_id}
-    )
-
-    if response.ok:
-        result = response.json()
-        all_data[data_type] = result['data']
-        print(f"{data_type}: {len(result['data'])} records")
-```
-
-### Exporting as CSV
-
-```python
-# Request CSV format directly from the API
-response = requests.get(
-    f'{BASE_URL}/data/events/room/room_abc123',
-    headers=headers,
-    params={'format': 'csv'}
-)
-
-# Save to file
-with open('events.csv', 'w') as f:
-    f.write(response.text)
-
-# Or load directly into pandas
-import pandas as pd
-from io import StringIO
-
-df = pd.read_csv(StringIO(response.text))
-```
-
-## Next Steps
-
-- **Interactive reference**: [API Reference](/api-reference) — try endpoints live
-- **Start coding**: [Python Guide](./python-guide.md) | [JavaScript Guide](./javascript-guide.md) | [R Guide](./r-guide.md)
-- **Get an API Key**: [API Key Management](./api-keys.md)
+- **[API Reference](/api-reference)** — endpoint URLs, query parameters, request/response schemas, "Try it" UI
+- **[Python Guide](./python-guide.md)** | **[JavaScript Guide](./javascript-guide.md)** | **[R Guide](./r-guide.md)** — language-specific code examples
+- **[Experiment Authoring](./experiment-authoring.md)** — build experiments programmatically
+- **[API Key Management](./api-keys.md)** — generate keys and manage scopes
