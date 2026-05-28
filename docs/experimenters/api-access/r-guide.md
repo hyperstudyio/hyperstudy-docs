@@ -570,6 +570,91 @@ df <- client$to_dataframe(events)
 summary(df)
 ```
 
+## Experiment Management
+
+The v3 API exposes full CRUD for experiment definitions. Build the payload as a named list and pass it to `httr`'s `POST` / `PUT`.
+
+### List, get, delete
+
+```r
+library(httr)
+library(jsonlite)
+
+api_key <- Sys.getenv("HYPERSTUDY_API_KEY")
+headers <- add_headers("X-API-Key" = api_key)
+base <- "https://api.hyperstudy.io/api/v3"
+
+# List
+res <- GET(paste0(base, "/experiments"), headers, query = list(limit = 50))
+experiments <- content(res, "parsed")$data
+
+# Get one
+res <- GET(paste0(base, "/experiments/exp_abc123"), headers)
+exp <- content(res, "parsed")$data[[1]]
+
+# Delete (soft-delete)
+DELETE(
+  paste0(base, "/experiments/exp_abc123?skipDataCheck=true"),
+  headers
+)
+```
+
+### Create / update
+
+```r
+payload <- list(
+  name = "My new study",
+  description = "Created from R",
+  requiredParticipants = 1,
+  states = list(
+    list(
+      id = "intro",
+      focusComponent = list(
+        type = "showtext",
+        config = list(text = "Welcome")
+      )
+    )
+  )
+)
+
+res <- POST(
+  paste0(base, "/experiments"),
+  headers,
+  body = payload,
+  encode = "json"
+)
+created <- content(res, "parsed")$data[[1]]
+
+# Update
+PUT(
+  paste0(base, "/experiments/", created$id),
+  headers,
+  body = list(name = "Renamed"),
+  encode = "json"
+)
+```
+
+### Validate before creating
+
+`POST /experiments/validate` runs the same checks as `create_experiment` without persisting. Useful for catching shape errors before they cause `POST /experiments` to 400.
+
+```r
+res <- POST(
+  paste0(base, "/experiments/validate"),
+  headers,
+  body = payload,
+  encode = "json"
+)
+result <- content(res, "parsed")$data[[1]]
+
+if (!isTRUE(result$valid)) {
+  message("Validation errors:")
+  print(result$errors)
+}
+```
+
+For the full set of fields an experiment definition supports, see the [interactive API Reference](/api-reference). The reference R client at [backend/src/api/v3/examples/r/client.R](https://github.com/hyperstudyio/hyperstudy/blob/main/backend/src/api/v3/examples/r/client.R) wraps these endpoints in an R6 class with retries and error handling.
+
 ## Error Handling
 
 ### Robust Error Handling Pattern

@@ -496,6 +496,79 @@ const events = await client.getEvents('room', 'your-room-id');
 console.log(`Retrieved ${events.length} events`);
 ```
 
+## Experiment Management
+
+The v3 API exposes full CRUD for experiment definitions. Endpoints accept and return JSON; build the payload as a plain object.
+
+### List, get, delete
+
+```javascript
+const headers = { 'X-API-Key': process.env.HYPERSTUDY_API_KEY };
+const BASE = 'https://api.hyperstudy.io/api/v3';
+
+// List
+const list = await fetch(`${BASE}/experiments?limit=50`, { headers })
+  .then(r => r.json());
+console.log(list.data);
+
+// Get one
+const exp = await fetch(`${BASE}/experiments/exp_abc123`, { headers })
+  .then(r => r.json());
+
+// Delete (soft-delete)
+await fetch(`${BASE}/experiments/exp_abc123?skipDataCheck=true`, {
+  method: 'DELETE',
+  headers,
+});
+```
+
+### Create / update
+
+```javascript
+const payload = {
+  name: 'My new study',
+  description: 'Created from JS',
+  requiredParticipants: 1,
+  states: [
+    {
+      id: 'intro',
+      focusComponent: { type: 'showtext', config: { text: 'Welcome' } },
+    },
+  ],
+};
+
+const created = await fetch(`${BASE}/experiments`, {
+  method: 'POST',
+  headers: { ...headers, 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload),
+}).then(r => r.json());
+
+// Update
+await fetch(`${BASE}/experiments/${created.data[0].id}`, {
+  method: 'PUT',
+  headers: { ...headers, 'Content-Type': 'application/json' },
+  body: JSON.stringify({ name: 'Renamed' }),
+});
+```
+
+### Validate before creating
+
+`POST /experiments/validate` runs the same checks as `create_experiment` without persisting. Use it in CI to catch breaking schema changes early.
+
+```javascript
+const result = await fetch(`${BASE}/experiments/validate`, {
+  method: 'POST',
+  headers: { ...headers, 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload),
+}).then(r => r.json());
+
+if (!result.data[0].valid) {
+  console.error('Validation errors:', result.data[0].errors);
+}
+```
+
+For the full set of fields an experiment definition supports, see the [interactive API Reference](/api-reference). The reference JavaScript client at [backend/src/api/v3/examples/javascript/client.js](https://github.com/hyperstudyio/hyperstudy/blob/main/backend/src/api/v3/examples/javascript/client.js) wraps these endpoints in a class with retries and error handling.
+
 ## Error Handling
 
 ### Robust Error Handling Pattern
