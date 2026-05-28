@@ -299,6 +299,19 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.1.16
+
+**Released:** 2026-05-28
+
+## What's Changed
+
+* fix(reliability): add targeted dead-sink recovery
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.15...v1.1.16
+
+---
+
+
 ### v1.1.15
 
 **Released:** 2026-05-28
