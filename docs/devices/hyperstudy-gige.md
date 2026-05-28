@@ -299,6 +299,19 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.1.14
+
+**Released:** 2026-05-28
+
+## What's Changed
+
+* fix(reliability): MRC camera reliability + diagnostics fidelity
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.13...v1.1.14
+
+---
+
+
 ### v1.1.13
 
 **Released:** 2026-05-27
