@@ -299,6 +299,29 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.1.17
+
+**Released:** 2026-05-29
+
+## What's Changed
+
+* refactor: review follow-ups — drop redundant connect retry, dead StreamState write, dead accessors
+* fix(app): network changes don't touch the stream; control errors non-fatal
+* fix(app): continuous capture+push; drop handshake; single reconnect path
+* fix(app): delete stall watchdog + dead-sink recovery; keep PTS tripwire
+* fix(app): deterministic sink connect-poll; remove forceRediscovery
+* fix(extension): delete StreamState app-group handshake
+* docs(extension): document single-producer source timeline + clamp role
+* fix(extension): self-re-arming sink consume loop; drop error-budget teardown
+* docs: use unsigned compile as the build gate (signed build is CI/user-run)
+* docs: implementation plan for sink-streaming rebuild
+* docs: spec for sink-streaming rebuild to CMIO reference model
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.16...v1.1.17
+
+---
+
+
 ### v1.1.16
 
 **Released:** 2026-05-28
