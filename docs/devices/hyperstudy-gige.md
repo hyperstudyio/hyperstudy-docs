@@ -299,6 +299,19 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.1.20
+
+**Released:** 2026-06-01
+
+## What's Changed
+
+* fix(camera): release GigE stream before camera + guard concurrent connects
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.19...v1.1.20
+
+---
+
+
 ### v1.1.19
 
 **Released:** 2026-05-31
