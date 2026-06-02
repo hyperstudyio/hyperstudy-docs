@@ -112,7 +112,16 @@ function processFile(filePath) {
   const content = fs.readFileSync(filePath, "utf8");
   const lines = content.split("\n");
 
-  let inReleaseNotes = false;
+  // Files under docs/release-notes/ are entirely auto-synced from upstream
+  // release bodies (no hand-authored JSX) but do NOT carry the
+  // RELEASE_NOTES_START/END markers the device pages use. Treat the whole file
+  // as release notes so bare `<` (e.g. `experimenter<->participant`, `<100us`)
+  // gets escaped — otherwise MDX parses `<` as a JSX tag and the build fails.
+  // Marker-gated behavior is preserved for all other docs so intentional JSX
+  // components elsewhere are left untouched.
+  const wholeFileIsReleaseNotes = filePath.split(path.sep).includes("release-notes");
+
+  let inReleaseNotes = wholeFileIsReleaseNotes;
   let inCodeFence = false;
   let changed = false;
 
