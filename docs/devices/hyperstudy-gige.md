@@ -299,6 +299,19 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.1.21
+
+**Released:** 2026-06-02
+
+## What's Changed
+
+* diag(stream): surface Aravis GVSP stats in export; drop inert stall-watchdog code
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.20...v1.1.21
+
+---
+
+
 ### v1.1.20
 
 **Released:** 2026-06-01
