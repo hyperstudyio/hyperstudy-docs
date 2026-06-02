@@ -98,12 +98,16 @@ function escapeLine(line) {
       // Replace `<` that is NOT:
       //  - part of an HTML comment (<!-- or -->)
       //  - already escaped as &lt;
-      return part.text.replace(/<(?!!--|&lt;)/g, (match, offset, str) => {
-        // Check if this `<` is already part of `&lt;` by looking behind
-        // (the regex won't catch &lt; since it starts with &, not <, so
-        // we only need to avoid <!-- which the negative lookahead handles)
-        return "&lt;";
-      });
+      return part.text
+        // `<` -> &lt; (MDX reads a bare `<` as the start of a JSX tag). The
+        // negative lookahead leaves `<!--` comments and already-escaped
+        // `&lt;` untouched.
+        .replace(/<(?!!--|&lt;)/g, "&lt;")
+        // `{`/`}` -> numeric entities. MDX reads a bare `{` as a JS
+        // expression, e.g. `command{pause}` compiles to a reference to
+        // `pause` -> "ReferenceError: pause is not defined" at SSG render.
+        .replace(/\{/g, "&#123;")
+        .replace(/\}/g, "&#125;");
     })
     .join("");
 }
@@ -150,8 +154,8 @@ function processFile(filePath) {
     // Skip lines inside fenced code blocks
     if (inCodeFence) continue;
 
-    // Skip lines that don't contain `<` at all
-    if (!line.includes("<")) continue;
+    // Skip lines with no MDX-significant character at all
+    if (!line.includes("<") && !line.includes("{") && !line.includes("}")) continue;
 
     // Skip pure HTML comment lines
     if (/^\s*<!--.*-->\s*$/.test(line)) continue;
