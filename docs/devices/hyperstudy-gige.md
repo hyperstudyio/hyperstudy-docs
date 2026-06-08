@@ -299,6 +299,19 @@ For detailed build instructions including code signing for distribution, see [BU
 
 <!-- RELEASE_NOTES_START -->
 
+### v1.1.23
+
+**Released:** 2026-06-08
+
+## What's Changed
+
+* fix(stream): auto re-establish GVSP stream on physical link drop
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-gige/compare/v1.1.22...v1.1.23
+
+---
+
+
 ### v1.1.22
 
 **Released:** 2026-06-07
