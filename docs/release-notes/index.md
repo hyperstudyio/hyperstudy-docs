@@ -8,6 +8,52 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.78
+
+Released: 2026-06-11
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(api): shape-check the APIError duck-type before exposing error details (00c203e8)
+- feat(preview): Preview action in experiments table + designer view-only button (109de95d)
+- feat(preview): open preview access to anyone with experiment access (b027b1f2)
+- fix(preview): preview panes never navigate to questionnaire/completion — pin completion routing (14276323)
+- fix(preview): registry throws when redis unavailable; skip room lookup in config for preview (ad25d7b8)
+- docs(monitor): correct setState/advanceState dispatch-path docstrings (e08f551a)
+- fix(preview): idle sweep evicts engine sessions for expired preview rooms; gate legacy end call (8b79d2a0)
+- docs(preview): tighten openPreview persistence comment (dc2de017)
+- test(preview): e2e two-pane preview flow (89444143)
+- fix(preview): accept preview_ room ids in experiment socket connect (0ce26acc)
+- feat(preview): designer Preview button for v2 experiments (4a5d350b)
+- fix(preview): delete room on SPA unmount and launch failure; restart loading state; lock select when complete (9641a7e9)
+- feat(preview): multi-pane preview shell route with flow-control bar (e2143813)
+- fix(monitor): drop dead error branch — rejections ride onError; clear stale errors on control sends (b39ba61e)
+- feat(monitor): setState/advanceState observer commands (5eda7d88)
+- feat(preview): explicit previewToken entry path in the experiment route (e4c27406)
+- fix(preview): don't clobber shared sessionStorage from preview contexts; validate adopted tokens (781e331c)
+- feat(preview): previewService + first-class in-memory preview tokens in participantServiceV4 (4c16723a)
+- fix(preview): fail launch on pod-assignment failure, cap panes, reject API-key auth (b6d9b41e)
+- feat(preview): v4 preview launch/teardown endpoints (3df23466)
+- feat(preview): v4 session endpoints accept-and-discard for preview tokens (00f4ec8c)
+- feat(preview): sessionAuth recognizes pvw_ preview tokens via the Redis registry (058d9a26)
+- fix(preview): gate abandon path, bind preview tokens to room+role, pin fail-closed auth (17cf7523)
+- feat(preview): v2 WS auth + observer authz + side-effect gates for preview rooms (70730620)
+- feat(monitor): surface engine rejections of observer flow control; pin cross-room scoping (af466da6)
+- feat(monitor): observer set-state/advance-state flow control (closes deferred advance-state) (d86831de)
+- fix(runtime): also cancel state timers on experiment.completed; pin same-state re-entry (88208c46)
+- fix(runtime): cancel stale state timers when a transition leaves a TIMED state (91ade0d7)
+- fix(engine): reset SYNCHRONIZED barrier on every state entry — stale completions across flow-control jumps (3d59329f)
+- feat(engine): set-state and advance-state flow-control events (6ffdcc70)
+- fix(preview): registry review fixes — TTL assertions, parse guard, cap comment (8764cc19)
+- feat(preview): Redis-backed preview session registry (759cd001)
+- docs: V2 experiment preview implementation plan (af4b2bee)
+- docs: V2 experiment preview design spec (089189e2)
+- chore(monitoring): Firestore read-rate runaway alert (policy-as-code) (542b978b)
+
+---
+
 ## v0.6.77
 
 Released: 2026-06-11
@@ -45,21 +91,6 @@ Released: 2026-06-10
 - feat(media): forceHlsJs config option to pin the HLS.js pipeline (1e8b24ee)
 - fix(auth): IPv6-safe rate-limit key for resend-verification limiter (1b5e5a43)
 - fix(cors): allow PATCH — required by API v4 participant session routes (f4a7715d)
-
----
-
-## v0.6.75
-
-Released: 2026-06-10
-
-## What's Changed
-
-## Changes since last production release
-
-- test(media): condition-based wait for lazy hls.js load in claim-path test (a495ea87)
-- fix(media): fail loud on unloaded hls.js in sync helpers; log V1 source-init rejections (70521a2b)
-- fix(v2): media-attach failure must not kill ShowVideoComponentV2 playback subscriptions (5df51501)
-- fix(media): share one lazy hls.js singleton between hlsPlayer and mediaPreloader (2566833f)
 
 ---
 
