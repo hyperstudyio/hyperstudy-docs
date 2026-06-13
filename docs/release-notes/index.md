@@ -8,6 +8,34 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.80
+
+Released: 2026-06-13
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(tab-state): review fixes — route-scoped keys, logout clear, designer restore guards (384f6019)
+- feat(dashboard): restore per-tab state for 5 minutes when switching tabs (49161754)
+- feat(frontend): tab-state snapshot store with TTL eviction (d748ad20)
+- docs: design spec for dashboard tab state restore (5-min TTL) (8276f065)
+- chore(deps): bump livekit-client to 2.19.2 and livekit-server-sdk to 2.15.4 (a7a936b9)
+- fix(permissions): address review findings on effective-permissions batch path (dc654bd2)
+- refactor(frontend): summary view for experiment list consumers; remove permission N+1 module (d7f5e4a8)
+- perf(deployments-table): batch effective permissions instead of draining all experiments (ba0442f9)
+- perf(experiments-table): drop per-experiment permission N+1, use summary view (aaef8f18)
+- feat(frontend): batch effective-permissions fetch util + view=summary store param (ffe50d8f)
+- feat(permissions): badge logic reads server-resolved effective data permissions (1d323e57)
+- feat(permissions): batch effective data permissions endpoint for table badges (126b5bdd)
+- feat(experiments): embed effective data permissions and support view=summary in v3 list endpoints (a4cfd758)
+- feat(experiments): summary projection + effective data permission enrichment helpers (f7fbaf65)
+- feat(permissions): batch-resolve effective data permissions per user (112a089a)
+- docs: implementation plan for table loading perf (d27a86ec)
+- docs: design spec for table loading perf (server-resolved data permissions + summary projection) (a84cb09f)
+
+---
+
 ## v0.6.78
 
 Released: 2026-06-11
@@ -66,31 +94,6 @@ Released: 2026-06-11
 - fix(metrics): harden platform-metrics cache per code review (97c334a9)
 - test(metrics): clear platform-metrics cache between emulator test cases (bcafeea8)
 - perf(metrics): TTL-cache platform metrics — stop ~40M Firestore reads/day from gauge refresh (2f7ee253)
-
----
-
-## v0.6.76
-
-Released: 2026-06-10
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(sessions): endExperiment orphan sweep — end sessions of participants pruned from the room map (e0994238)
-- feat(cleanup): runaway-recording watchdog + stale live-session expiry (fe5acb69)
-- fix(prolific): route dead-room sessions to a completion code, not back into the experiment (903a5d48)
-- fix(participant): restore terminal-status guards on dashboard auto-reconnect (1a922612)
-- chore(recording): backfill script for StopEgress-misclassified recordings (22c504df)
-- fix(recording): EGRESS_COMPLETE egresses are never aborts — restore duration/offset enrichment (d3dccc96)
-- fix(e2e): remote-mode V1 coverage requires its own experiment id (5a1dc7d7)
-- feat(e2e): V1-runner parity scenario + viewer mid-video refresh rejoin (173f0ca8)
-- fix(e2e): review follow-ups — stale 8085 ports, codec-aware project skip (fa114f3b)
-- feat(e2e): two-window multi-participant V2 video-sync test (real browser) (62eed381)
-- fix(emulator): align Firestore emulator port with firebase.json (8085) (dd316a63)
-- feat(media): forceHlsJs config option to pin the HLS.js pipeline (1e8b24ee)
-- fix(auth): IPv6-safe rate-limit key for resend-verification limiter (1b5e5a43)
-- fix(cors): allow PATCH — required by API v4 participant session routes (f4a7715d)
 
 ---
 
