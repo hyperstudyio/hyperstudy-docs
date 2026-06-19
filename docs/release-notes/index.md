@@ -8,6 +8,37 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.82
+
+Released: 2026-06-19
+
+## What's Changed
+
+## Changes since last production release
+
+- Merge fix/data-participant-stale-guard: guard participant-data load against stale responses (f70358dec)
+- fix(data): guard participant-data load against stale responses (9b0897d5f)
+- Merge branch 'fix/pupil-gaze-already-connected' into dev-integration (a3e3e4b72)
+- Merge branch 'feature/pupil-independent-calibration' into dev-integration (4b9b66195)
+- Merge branch 'fix/leave-experiment-confirmation' into dev-integration (3dcb8b7fc)
+- Merge branch 'fix/v2-preview-trigger-autoadvance' into dev-integration (b652b0d27)
+- Merge branch 'feature/account-menu-platform-admin' into dev-integration (ee4eac99a)
+- fix(experiment): guard reconnection-overlay leave against double-click re-entrancy (d9bb969a4)
+- fix(experiment): confirm before leaving from the reconnection overlay (b928aff77)
+- docs(experiment): narrow leave-confirmation spec to overlay-only + add plan (b62f39f93)
+- docs(experiment): spec for leave-experiment confirmation guard (b1e4eb9f6)
+- feat(experiment): thread pupil calibrationEnabled through DeviceSetupManager + V1/V2 runners (6056a8a6e)
+- feat(pupil): allow calibration without the gaze overlay (calibrationEnabled), record transform on completion (ed899fab3)
+- feat(pupil): record calibration transform to dataset (recordCalibrationToDataset) (b77eff5d9)
+- feat(designer): opt-in 'Enable gaze calibration' for Pupil, nest require-calibration under it (efa11ffa7)
+- docs: implementation plan for independent (opt-in) Pupil gaze calibration (9010c9f63)
+- docs: design spec for independent (opt-in) Pupil gaze calibration (8009a5d33)
+- fix(experiment): auto-advance TTL/Pupil triggers in V2 preview (a57f926bc)
+- feat(admin): use shared AccountMenu in platform admin dashboard (ee5e85989)
+- fix(devices): recycle a stale Neon gaze inlet on "already connected" (1a69a33ea)
+
+---
+
 ## v0.6.81
 
 Released: 2026-06-19
@@ -120,52 +151,6 @@ Released: 2026-06-13
 - feat(permissions): batch-resolve effective data permissions per user (112a089a)
 - docs: implementation plan for table loading perf (d27a86ec)
 - docs: design spec for table loading perf (server-resolved data permissions + summary projection) (a84cb09f)
-
----
-
-## v0.6.78
-
-Released: 2026-06-11
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(api): shape-check the APIError duck-type before exposing error details (00c203e8)
-- feat(preview): Preview action in experiments table + designer view-only button (109de95d)
-- feat(preview): open preview access to anyone with experiment access (b027b1f2)
-- fix(preview): preview panes never navigate to questionnaire/completion — pin completion routing (14276323)
-- fix(preview): registry throws when redis unavailable; skip room lookup in config for preview (ad25d7b8)
-- docs(monitor): correct setState/advanceState dispatch-path docstrings (e08f551a)
-- fix(preview): idle sweep evicts engine sessions for expired preview rooms; gate legacy end call (8b79d2a0)
-- docs(preview): tighten openPreview persistence comment (dc2de017)
-- test(preview): e2e two-pane preview flow (89444143)
-- fix(preview): accept preview_ room ids in experiment socket connect (0ce26acc)
-- feat(preview): designer Preview button for v2 experiments (4a5d350b)
-- fix(preview): delete room on SPA unmount and launch failure; restart loading state; lock select when complete (9641a7e9)
-- feat(preview): multi-pane preview shell route with flow-control bar (e2143813)
-- fix(monitor): drop dead error branch — rejections ride onError; clear stale errors on control sends (b39ba61e)
-- feat(monitor): setState/advanceState observer commands (5eda7d88)
-- feat(preview): explicit previewToken entry path in the experiment route (e4c27406)
-- fix(preview): don't clobber shared sessionStorage from preview contexts; validate adopted tokens (781e331c)
-- feat(preview): previewService + first-class in-memory preview tokens in participantServiceV4 (4c16723a)
-- fix(preview): fail launch on pod-assignment failure, cap panes, reject API-key auth (b6d9b41e)
-- feat(preview): v4 preview launch/teardown endpoints (3df23466)
-- feat(preview): v4 session endpoints accept-and-discard for preview tokens (00f4ec8c)
-- feat(preview): sessionAuth recognizes pvw_ preview tokens via the Redis registry (058d9a26)
-- fix(preview): gate abandon path, bind preview tokens to room+role, pin fail-closed auth (17cf7523)
-- feat(preview): v2 WS auth + observer authz + side-effect gates for preview rooms (70730620)
-- feat(monitor): surface engine rejections of observer flow control; pin cross-room scoping (af466da6)
-- feat(monitor): observer set-state/advance-state flow control (closes deferred advance-state) (d86831de)
-- fix(runtime): also cancel state timers on experiment.completed; pin same-state re-entry (88208c46)
-- fix(runtime): cancel stale state timers when a transition leaves a TIMED state (91ade0d7)
-- fix(engine): reset SYNCHRONIZED barrier on every state entry — stale completions across flow-control jumps (3d59329f)
-- feat(engine): set-state and advance-state flow-control events (6ffdcc70)
-- fix(preview): registry review fixes — TTL assertions, parse guard, cap comment (8764cc19)
-- feat(preview): Redis-backed preview session registry (759cd001)
-- docs: V2 experiment preview implementation plan (af4b2bee)
-- docs: V2 experiment preview design spec (089189e2)
-- chore(monitoring): Firestore read-rate runaway alert (policy-as-code) (542b978b)
 
 ---
 
