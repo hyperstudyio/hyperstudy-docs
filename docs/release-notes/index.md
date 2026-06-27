@@ -8,6 +8,44 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.6.85
+
+Released: 2026-06-27
+
+## What's Changed
+
+## Changes since last production release
+
+- feat(v2): float controls as overlay so the stimulus fills the viewport (9339b3222)
+- docs(v2): implementation plan for full-window stimulus (a9aaf51a4)
+- docs(v2): reframe full-window spec as full-screen stimulus (not an accuracy fix) (d52e74ab0)
+- docs(v2): spec for full-window stimulus in the V2 runner (0be2c3661)
+- fix(pupil-setup): gate Validate on overlay-off + recordEnabled (56a7fd7f5)
+- feat(eyetracking): flat per-target CSV in data export (56016fc9e)
+- feat(eyetracking): expandable per-target detail in Eye Tracking tab (9949baf24)
+- feat(eyetracking): include perPoint on calibration records (f41d133f8)
+- feat(eyetracking): per-point residuals for calibrate + index/gaze on perPoint (9cc5a8bfa)
+- docs(eyetracking): implementation plan for richer per-target calibration data (8b1dc097c)
+- docs(eyetracking): spec for richer per-target calibration/validation data (25466fad6)
+- fix(pupil): hard calibration gate + Leave Experiment escape during device setup (73466e268)
+- fix(pupil): early experimentStarted flag, notePupilRecordingStopped, accurate teardown comment (fd360847b)
+- fix(pupil): pre-start-only teardown stop; proper gaze teardown; 2-tick staleness (4ecac7f47)
+- fix(pupil): reconnection-safe Neon recording teardown in both runners (d83a0d59a)
+- fix(pupil): freshness-based gaze liveness, record-only Validate, fast-path connection check (e96a0b6d9)
+- fix(pupil): never-trap on disconnect, teardown ordering, orphan stop, overlay-first start (791652eae)
+- fix(pupil): move Validate button outside gazeStatus=connected block; add log-only tests (5d0576960)
+- feat(pupil): add Validate to device setup; continuous recording for calibrate/validate (a411123f4)
+- feat(devices): thread pupil.record as recordEnabled into PupilNeonSetup (b31ff92d3)
+- feat(devices): recordValidationToDataset writes pupil-validation events (a1b0dc347)
+- feat(devices): stop orphaned Pupil recording on abandon (both runners) (9942de6e3)
+- refactor(devices): extract ensurePupilRecordingStarted for early (setup) recording start (e637fb40a)
+- docs(pupil): implementation plan for device-setup calibrate + validate (ae4523707)
+- docs(pupil): spec for device-setup calibrate + validate (continuous-recording model) (294c57815)
+- fix(pupil): never-trap device-setup calibration when gaze isn't streaming (a796c07ab)
+- fix(waiting-room): resolve room deploymentId authoritatively to prevent orphaned data (421a9b202)
+
+---
+
 ## v0.6.84
 
 Released: 2026-06-25
@@ -166,37 +204,6 @@ Released: 2026-06-23
 - docs: implementation plan for frontend instant-feel navigation (89e27425d)
 - docs: implementation plan for backend Lever 1 query-latency cuts (c3aae0bd1)
 - docs: design spec for instant-feel navigation (Phase 1) (41df9f315)
-
----
-
-## v0.6.82
-
-Released: 2026-06-19
-
-## What's Changed
-
-## Changes since last production release
-
-- Merge fix/data-participant-stale-guard: guard participant-data load against stale responses (f70358dec)
-- fix(data): guard participant-data load against stale responses (9b0897d5f)
-- Merge branch 'fix/pupil-gaze-already-connected' into dev-integration (a3e3e4b72)
-- Merge branch 'feature/pupil-independent-calibration' into dev-integration (4b9b66195)
-- Merge branch 'fix/leave-experiment-confirmation' into dev-integration (3dcb8b7fc)
-- Merge branch 'fix/v2-preview-trigger-autoadvance' into dev-integration (b652b0d27)
-- Merge branch 'feature/account-menu-platform-admin' into dev-integration (ee4eac99a)
-- fix(experiment): guard reconnection-overlay leave against double-click re-entrancy (d9bb969a4)
-- fix(experiment): confirm before leaving from the reconnection overlay (b928aff77)
-- docs(experiment): narrow leave-confirmation spec to overlay-only + add plan (b62f39f93)
-- docs(experiment): spec for leave-experiment confirmation guard (b1e4eb9f6)
-- feat(experiment): thread pupil calibrationEnabled through DeviceSetupManager + V1/V2 runners (6056a8a6e)
-- feat(pupil): allow calibration without the gaze overlay (calibrationEnabled), record transform on completion (ed899fab3)
-- feat(pupil): record calibration transform to dataset (recordCalibrationToDataset) (b77eff5d9)
-- feat(designer): opt-in 'Enable gaze calibration' for Pupil, nest require-calibration under it (efa11ffa7)
-- docs: implementation plan for independent (opt-in) Pupil gaze calibration (9010c9f63)
-- docs: design spec for independent (opt-in) Pupil gaze calibration (8009a5d33)
-- fix(experiment): auto-advance TTL/Pupil triggers in V2 preview (a57f926bc)
-- feat(admin): use shared AccountMenu in platform admin dashboard (ee5e85989)
-- fix(devices): recycle a stale Neon gaze inlet on "already connected" (1a69a33ea)
 
 ---
 
