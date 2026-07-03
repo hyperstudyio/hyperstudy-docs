@@ -28,6 +28,7 @@ module.exports = {
           label: 'Experiment Design',
           items: [
             'experimenters/experiment-design/overview',
+            'experimenters/experiment-design/previewing-experiments',
             {
               type: 'category',
               label: 'Participant Experience',
