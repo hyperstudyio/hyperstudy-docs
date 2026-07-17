@@ -116,6 +116,16 @@ For hardware-specific setup (CUDA builds, DGX Spark source build, model presets,
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.2.0
+
+**Released:** 2026-07-17
+
+## Changelog
+* 0e9794c7192409d9138b6edf6186ac415d7a3eb1 chore: rename repo to hyperstudyio/hyperstudy-agent; add changelog and docs release-notes sync
+
+---
+
+
 ### v0.1.3
 
 **Released:** 2026-07-15
