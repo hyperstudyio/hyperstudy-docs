@@ -251,6 +251,50 @@ hs.update_experiment("experiment-id", name="Updated Name")
 hs.delete_experiment("experiment-id")
 ```
 
+## AI Agents
+
+The SDK covers the full agent workflow: personas, agent-role authoring, agent-only deployments, and agent data. See the [AI Agents guide](/experimenters/ai-agents/) for the concepts.
+
+```python
+from hyperstudy import Persona, PromptLayer, Guardrails, Role, AgentConfig, Experiment
+
+# Personas (your agent library) — scopes: read:personas / write:personas
+persona = hs.create_persona(persona=Persona(
+    name="Curious Undergrad",
+    provider="anthropic",
+    model="claude-opus-4-8",
+    prompt=PromptLayer(persona="You are a curious undergraduate...",
+                       objective="Converse naturally with your partner."),
+    guardrails=Guardrails(max_turns=50, budget_usd=2.0),
+))
+
+# Bind the persona to an agent role and author an agent-ready experiment
+exp = hs.create_experiment(experiment=Experiment(
+    name="Agent pilot",
+    runtime="v2",  # required for agent-only deployments
+    roles={"partner": Role(mode="agent", persona_id=persona["id"])},
+    agent_config=AgentConfig(seed=42),
+))
+
+# Launch an agent-only deployment — scope: write:deployments
+dep = hs.create_deployment(exp["id"], config={
+    "type": "agent-only",
+    "agentDeployment": {"rooms": 10, "budgetUsd": 5.0},
+})
+
+# Monitor and control
+spend = hs.get_agent_spend(dep["id"])
+sessions = hs.get_deployment_sessions(dep["id"])
+hs.run_more(dep["id"], rooms=5, budget_usd=2.5)
+
+# Analyze — scope: read:events
+decisions = hs.get_agent_decisions(exp["id"])   # per-turn decision logs + run rows
+runs = hs.get_agent_runs(exp["id"])             # manifests: model, cost, seed
+detail = hs.get_agent_decision("room-id", "participantId_3")  # prompt + reasoning
+```
+
+Preflight failures on `create_deployment` (missing persona binding, missing provider key, unreachable custom endpoint) raise `ValidationError` with per-role reasons.
+
 ## Error Handling
 
 The SDK raises typed exceptions:
