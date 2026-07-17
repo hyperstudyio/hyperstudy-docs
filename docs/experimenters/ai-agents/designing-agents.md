@@ -16,7 +16,7 @@ Open the **Agents** section of the Experimenter Dashboard to see your library. F
 - **Import / Export** agents as JSON to move them between accounts or share them with collaborators
 - **Delete** agents you no longer need
 
-{/* screenshot: persona catalog table — static/img/agents/persona-catalog.png */}
+![The agent library, with per-agent edit, share, duplicate, export, and delete actions](/img/agents/persona-catalog.jpg)
 
 Agents are organization-level resources: you own the ones you create, and you can share them with specific people, groups, or your whole organization from the agent's **Sharing** tab.
 
@@ -26,25 +26,28 @@ Opening an agent launches the designer, which autosaves as you edit. It has five
 
 | Tab | What you configure |
 |-----|--------------------|
-| **Definition** | Name, description, and the structured prompt |
+| **Definition** | Name, description, memory persistence, and language |
 | **Cognition** | Optional per-turn reasoning abilities (experimental — see [Cognition](/experimenters/ai-agents/cognition)) |
 | **Offline** | Optional between-episode learning (experimental — see [Cognition](/experimenters/ai-agents/cognition)) |
 | **Model & Guardrails** | Provider, model, generation parameters, and safety limits |
 | **Sharing** | Who else can view or edit this agent |
 
-{/* screenshot: AgentDesigner Definition tab — static/img/agents/designer-definition.png */}
+![The agent designer's Definition tab](/img/agents/designer-definition.jpg)
 
 ## Writing the prompt
 
 The prompt is structured into named fields rather than one free-text block. Each field has a distinct job:
 
-- **Persona** — who the agent *is*: identity, personality, background. Written in second person ("You are a curious undergraduate who...").
-- **Objective** — what the agent is trying to accomplish in the experiment.
+- **Identity / persona** — who the agent *is*: identity, personality, background. Written in second person ("You are a curious undergraduate who..."). Fixed for the whole session — only you edit it.
+- **Objective (goals)** — what the agent is trying to accomplish in the experiment.
 - **Guidance** — *how* to decide: decision policies, style constraints, things to avoid.
-- **Examples** — concrete example behaviors or responses (a list; use sparingly, they anchor strongly).
-- **Additional instructions** — anything that doesn't fit above.
+- **Examples** — concrete example behaviors or responses (use sparingly, they anchor strongly).
 
-Keeping these separate matters because experiments can **add** role-specific objective and guidance on top of a persona (see [Agents in Experiments](/experimenters/ai-agents/agents-in-experiments)) — additions are appended to the persona's fields, so the persona's identity always stays intact.
+In the current designer, the identity and goals are edited on the **Cognition** tab — they appear as the agent's built-in memory (Identity and Goals cards alongside experiment Context), which is also where optional reasoning abilities plug in:
+
+![Editing the agent's identity on the Cognition tab](/img/agents/cognition-identity.jpg)
+
+Keeping these fields separate matters because experiments can **add** role-specific objective and guidance on top of a persona (see [Agents in Experiments](/experimenters/ai-agents/agents-in-experiments)) — additions are appended to the agent's own fields, so its identity always stays intact.
 
 :::tip
 Write the persona field to be experiment-agnostic ("You are impatient and skeptical of strangers") and put task specifics in the experiment's role overrides. That's what makes a persona reusable across studies.
@@ -71,7 +74,7 @@ Write the persona field to be experiment-agnostic ("You are impatient and skepti
 
 Deployments add one more layer: an experiment-wide USD budget that halts the launch of further rooms (see [Deploying & Monitoring](/experimenters/ai-agents/deploying-and-monitoring)).
 
-{/* screenshot: AgentDesigner Model & Guardrails tab — static/img/agents/designer-guardrails.png */}
+![Guardrails in the Model & Guardrails tab — blank fields mean the defaults apply](/img/agents/designer-guardrails.jpg)
 
 ## Memory and language
 

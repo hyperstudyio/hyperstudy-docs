@@ -22,7 +22,11 @@ Open **Data Management** for an experiment with agent runs:
 - The **Agent Decisions** tab lists per-turn decisions, grouped by run, with drill-down from a run manifest into its decisions and from a decision into its full detail (prompt, reasoning chain, belief snapshots).
 - Runs flagged as **orphaned** belong to rooms that ended abnormally — useful for spotting rooms killed by budgets or timeouts.
 
-{/* screenshot: Data Management agent decisions tab — static/img/agents/data-agent-decisions.png */}
+![Agent runs in Data Management — outcomes, cognition, model, and cost per run](/img/agents/data-agent-runs.jpg)
+
+Clicking through to a participant opens their Events / Reasoning / Variables views, with per-run manifests and CSV/JSON export:
+
+![A participant's reasoning view with the run manifest](/img/agents/data-agent-reasoning.jpg)
 
 ## Exporting
 

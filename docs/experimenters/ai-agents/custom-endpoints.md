@@ -72,7 +72,7 @@ If HyperStudy and your server are on the same local network (e.g., a lab deploym
 3. Optionally set a **Generate timeout** (10–300 seconds) if your hardware needs more than the 60-second default per request.
 4. Click **Test connection**.
 
-{/* screenshot: custom endpoint card with URL + key fields — static/img/agents/settings-custom-endpoint.png */}
+![The Custom Agent Endpoint card in Settings → API Keys](/img/agents/settings-custom-endpoint.jpg)
 
 Then, in your [agent's Model & Guardrails tab](/experimenters/ai-agents/designing-agents#model--guardrails), set the provider to **Custom** and enter the **model name** — the model field is required for custom endpoints.
 

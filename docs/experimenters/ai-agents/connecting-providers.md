@@ -14,7 +14,7 @@ Agents need an LLM provider to run. HyperStudy supports **Anthropic** (default),
 3. Paste your provider API key and save.
 4. Click **Test connection** to confirm the key works before you rely on it in a deployment.
 
-{/* screenshot: Settings → API Keys provider cards — static/img/agents/settings-api-keys.png */}
+![An LLM provider card in Settings → API Keys, with test connection and organization sharing](/img/agents/settings-api-keys.jpg)
 
 :::note
 These are keys for LLM providers (used to power agents), not HyperStudy's own [REST API keys](/experimenters/api-access/api-keys) — those are managed separately.

@@ -16,7 +16,7 @@ To make a role agent-driven:
 1. Set the role's mode to **Agent**.
 2. **Bind an agent** from your library using the picker. This is required — a role in agent mode with no agent bound fails validation at deployment.
 
-{/* screenshot: designer Agents tab with a persona bound — static/img/agents/designer-agents-tab.png */}
+![The experiment designer's Agents tab with an agent bound to a role](/img/agents/designer-agents-tab.jpg)
 
 :::note
 The Agents tab binds existing library agents to roles — it is not a second agent editor. To change an agent's identity, model, or guardrails, edit it in the [agent library](/experimenters/ai-agents/designing-agents). Changes apply everywhere the agent is used.
@@ -43,7 +43,7 @@ Two settings are controlled by the experiment (they override the agent's values)
 
 The **Assembled Prompt Preview** shows the system prompt an agent role will actually receive — the agent's fields plus your role overrides, in their final order.
 
-{/* screenshot: assembled prompt preview panel — static/img/agents/prompt-preview.png */}
+![The assembled prompt preview — agent fields plus study-specific overrides](/img/agents/prompt-preview.jpg)
 
 :::caution Known limitation
 The preview currently renders from the experiment's own configuration and may under-represent the bound agent's contribution for some roles. When in doubt, the authoritative composition is what runs at deployment: agent fields first, experiment overrides appended.
