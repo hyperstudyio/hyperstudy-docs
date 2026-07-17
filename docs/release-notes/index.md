@@ -6,6 +6,8 @@ sidebar_position: 5
 
 Stay up to date with the latest features, improvements, and bug fixes in HyperStudy.
 
+Looking for companion tools? [Python SDK release notes](/release-notes/python-sdk/v0.3.1) are listed in the sidebar, and [hyperstudy-agent CLI release notes](/developers/custom-agents#release-notes) live on the custom endpoints page.
+
 ## Latest Releases
 
 ## v0.6.85
@@ -177,7 +179,7 @@ Released: 2026-06-23
 - feat(data): show participant data counts on tabs before they're opened (ea3404ec0)
 - fix(counts): participant-filter room recordings subcollection count (f143e8a08)
 - fix(storage): pass autoPaginate: true to bucket.getFiles for complete listing (4a7fc2cef)
-- fix(recordings): primary-source rooms/{roomId}/recordings subcollection for room and participant scopes (a9379f1ee)
+- fix(recordings): primary-source rooms/&#123;roomId&#125;/recordings subcollection for room and participant scopes (a9379f1ee)
 - feat(data): wire participant data counts into tab visibility (0556f57fe)
 - test(data): per-query scope assertions for CountsProcessor token/participant paths (ce810cf5f)
 - feat(data): add GET /api/v3/data/counts/participant/:participantId endpoint (8e58e5719)

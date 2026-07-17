@@ -41,6 +41,12 @@ const GIGE_PLATFORMS: PlatformInfo[] = [
   { key: 'mac', label: 'macOS (Apple Silicon)', match: '.dmg' },
 ];
 
+const AGENT_CLI_PLATFORMS: PlatformInfo[] = [
+  { key: 'mac-arm', label: 'macOS (Apple Silicon)', match: 'darwin_arm64.tar.gz' },
+  { key: 'linux', label: 'Linux (x86_64)', match: 'linux_amd64.tar.gz' },
+  { key: 'linux-arm', label: 'Linux (ARM64)', match: 'linux_arm64.tar.gz' },
+];
+
 /** Pre-configured download component for HyperStudy Bridge */
 export function BridgeDownload(): JSX.Element {
   return (
@@ -59,6 +65,17 @@ export function GigEDownload(): JSX.Element {
       repo="hyperstudyio/hyperstudy-gige"
       platforms={GIGE_PLATFORMS}
       appName="GigE Virtual Camera"
+    />
+  );
+}
+
+/** Pre-configured download component for the hyperstudy-agent CLI */
+export function AgentCliDownload(): JSX.Element {
+  return (
+    <GitHubDownload
+      repo="hyperstudyio/hyperstudy-agent"
+      platforms={AGENT_CLI_PLATFORMS}
+      appName="hyperstudy-agent CLI"
     />
   );
 }

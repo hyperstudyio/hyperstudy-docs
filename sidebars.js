@@ -100,6 +100,23 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'AI Agents',
+          link: {
+            type: 'doc',
+            id: 'experimenters/ai-agents/index',
+          },
+          items: [
+            'experimenters/ai-agents/designing-agents',
+            'experimenters/ai-agents/connecting-providers',
+            'experimenters/ai-agents/custom-endpoints',
+            'experimenters/ai-agents/agents-in-experiments',
+            'experimenters/ai-agents/deploying-and-monitoring',
+            'experimenters/ai-agents/agent-data',
+            'experimenters/ai-agents/cognition',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Organizations',
           items: [
             'experimenters/organizations/index',
@@ -232,9 +249,23 @@ module.exports = {
       collapsed: false,
       items: [
         'release-notes/index',
+        'release-notes/v0.6',
+        'release-notes/v0.5',
         'release-notes/v0.4',
         'release-notes/v0.3',
         'release-notes/archived',
+        {
+          type: 'category',
+          label: 'Python SDK',
+          items: [
+            'release-notes/python-sdk/v0.3.1',
+            'release-notes/python-sdk/v0.3.0',
+            'release-notes/python-sdk/v0.2.3',
+            'release-notes/python-sdk/v0.2.2',
+            'release-notes/python-sdk/v0.2.1',
+            'release-notes/python-sdk/v0.2.0',
+          ],
+        },
       ],
     },
   ],
