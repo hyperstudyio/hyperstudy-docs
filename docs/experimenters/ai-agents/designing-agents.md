@@ -22,13 +22,12 @@ Agents are organization-level resources: you own the ones you create, and you ca
 
 ## The agent designer
 
-Opening an agent launches the designer, which autosaves as you edit. It has five tabs:
+Opening an agent launches the designer, which autosaves as you edit. It has four tabs:
 
 | Tab | What you configure |
 |-----|--------------------|
 | **Definition** | Name, description, memory persistence, and language |
-| **Cognition** | Optional per-turn reasoning abilities (experimental — see [Cognition](/experimenters/ai-agents/cognition)) |
-| **Offline** | Optional between-episode learning (experimental — see [Cognition](/experimenters/ai-agents/cognition)) |
+| **Cognition** | The agent's identity and goals, plus optional online (per-turn) and offline (between-episode) reasoning (experimental — see [Cognition](/experimenters/ai-agents/cognition)) |
 | **Model & Guardrails** | Provider, model, generation parameters, and safety limits |
 | **Sharing** | Who else can view or edit this agent |
 
@@ -43,7 +42,7 @@ The prompt is structured into named fields rather than one free-text block. Each
 - **Guidance** — *how* to decide: decision policies, style constraints, things to avoid.
 - **Examples** — concrete example behaviors or responses (use sparingly, they anchor strongly).
 
-In the current designer, the identity and goals are edited on the **Cognition** tab — they appear as the agent's built-in memory (Identity and Goals cards alongside experiment Context), which is also where optional reasoning abilities plug in:
+In the current designer, the identity and goals are edited on the **Cognition** tab — they are the first two entries in the canvas's **Stores** rail, alongside the agent's memory stores and optional reasoning abilities:
 
 ![Editing the agent's identity on the Cognition tab](/img/agents/cognition-identity.jpg)
 
@@ -79,7 +78,7 @@ Deployments add one more layer: an experiment-wide USD budget that halts the lau
 ## Memory and language
 
 - **Memory persistence** — by default, agents start fresh in every room (`none`). Cross-experiment persistence lets an agent carry memories between sessions (experimental, used with the [cognition system](/experimenters/ai-agents/cognition)).
-- **Seed memories** — optional starting memories, useful for giving an agent a backstory that its memory system can recall.
+- **Seed memories** — optional starting memories, useful for giving an agent a backstory that its memory system can recall. Edited as **Seeded events** on an episodic store's panel on the Cognition canvas.
 - **Language** — the language the agent should converse in.
 
 ## Next steps
