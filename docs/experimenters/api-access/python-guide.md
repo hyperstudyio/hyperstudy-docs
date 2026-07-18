@@ -83,6 +83,21 @@ ratings      = hs.get_ratings("experiment-id", kind="continuous")
 components   = hs.get_components("experiment-id")
 participants = hs.get_participants("experiment-id")
 rooms        = hs.get_rooms("experiment-id")
+eyetracking  = hs.get_eyetracking("experiment-id")
+```
+
+Two room/participant-scoped helpers round out the data surface:
+
+```python
+# Reconstructed shared-variable timeline for one room.
+# Returns {"writes", "timeline", "variable_names", "matrix_columns",
+#          "dropped_writes", "mode"} — dropped_writes should be empty;
+# entries there indicate writes that failed server cross-checks.
+variables = hs.get_variables("room-id")
+
+# Cheap per-data-type counts for one participant in one room —
+# check what exists before fetching it
+counts = hs.get_counts("participant-id", room_id="room-id")
 ```
 
 ### Filtering
@@ -241,6 +256,9 @@ exp = hs.get_experiment("experiment-id")
 # Get raw config
 config = hs.get_experiment_config("experiment-id")
 
+# Export as portable JSON (definition + media-asset manifest), re-importable
+export = hs.export_experiment("experiment-id")
+
 # Create a new experiment
 new_exp = hs.create_experiment(name="My New Study", description="...")
 
@@ -294,6 +312,17 @@ detail = hs.get_agent_decision("room-id", "participantId_3")  # prompt + reasoni
 ```
 
 Preflight failures on `create_deployment` (missing persona binding, missing provider key, unreachable custom endpoint) raise `ValidationError` with per-role reasons.
+
+Experiment writes enforce the agent-role contract: every role with `mode="agent"` must bind a `persona_id` that exists and that you can view, and the experiment must set `runtime="v2"` — violations fail with `ValidationError` (or `ForbiddenError` for a persona you can't access) at create/update time rather than at launch.
+
+For personas with a [cognition](/experimenters/ai-agents/cognition) config, the catalog endpoint lists the valid building blocks:
+
+```python
+catalog = hs.get_cognition_catalog()   # scope: read:personas
+catalog["abilities"]        # ability node kinds (scope, depth, timing, store bindings)
+catalog["recipes"]          # online starter graphs
+catalog["offlineRecipes"]   # offline starter graphs
+```
 
 ## Error Handling
 
