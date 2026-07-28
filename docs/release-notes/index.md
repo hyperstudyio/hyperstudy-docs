@@ -8,6 +8,24 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.1
+
+Released: 2026-07-28
+
+## What's Changed
+
+## Changes since last production release
+
+- test(emulator): update invitation tests for kept-token resend and idempotent re-accept (66f71fa52)
+- fix(devices): Kernel marker integrity — completion-navigation race and reconnect duplicates (4481c8e59)
+- fix(auth): invitation token stability, delivery/accept error surfacing, ToS gate and accept flow (46c4a99c8)
+- test(frontend): complete dataServiceV4 mocks in runner-mounting suites (427fff808)
+- fix(data): component instance pairing, completion lifecycle dedup, experiment.end anchors, participant-export anchor merge (6da5e902f)
+- fix(timing): review findings — timestamp authority, clock validation, anchor spoof/restart guards (57c6facae)
+- fix(timing): server-timeline event clocks on both runners, onset-anchor hardening, type-unified timestamps (47a6b74f6)
+
+---
+
 ## v0.7.0
 
 Released: 2026-07-18
