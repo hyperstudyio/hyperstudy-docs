@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.2
+
+Released: 2026-07-29
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(data): unify state-flatten semantics across V1 runtime and V3 EventProcessor (04869a4dd)
+- fix(v2): execute states in designer-authored order, not creation order (72184fa9b)
+
+---
+
 ## v0.7.1
 
 Released: 2026-07-28
