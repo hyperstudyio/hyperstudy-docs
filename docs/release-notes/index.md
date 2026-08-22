@@ -8,6 +8,47 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.4
+
+Released: 2026-08-22
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(prolific): unstamped sessions no longer match a named deployment; /join stamps deploymentId (35b833fb7)
+- fix(prolific,v2,completion): waiting-room mints the real TIMEOUT code; close the deferred completion gaps (55c82106f)
+- fix(runners,prolific,rating): harden the review-batch fixes (e61e05fe2)
+- fix(runners,completion): settle in-flight LiveKit on V2 boot failure; release V1 retry latch; fail questionnaire-disabled write visibly (f8becd229)
+- fix(prolific): close the live-status SUCCESS gap; validate deployment on token lookup (30110acb1)
+- docs: record the review fix batch in the completion-vocabulary handoff (f819f6040)
+- fix(rating,media): key RapidRate state by the configured label; keep timeout out of the reference history; drop pre-buffer diagnostics after settle (0db5778ae)
+- fix(v2,completion): tear down LiveKit on boot failure; unbury the slow-escape button (6c0cf7f2f)
+- fix(completion): V2 disconnect parity, V1 lost-reason default, questionnaire-disabled outcome (c30f5438e)
+- fix(prolific): guard SUCCESS minting by session phase; never re-mint an issued code (21a444ff2)
+- docs: detail the four carried-over review findings in the handoff (35bdf47bf)
+- docs: completion vocabulary handoff — state, verification and open items (6e09d9ae1)
+- fix(completion): one outcome vocabulary for both runners, backend and Prolific (33fba4a04)
+- feat(rapid-rate): drag to reorder dimensions in the designer (9dbec4178)
+- test(rapid-rate): pin that clicking None counts as interacting with that dimension (90cf336b5)
+- feat(rapid-rate): record that a block timed out, and which dimensions went unanswered (227a85db7)
+- fix(rapid-rate): make submit-without-interaction a configuration parameter (984b420d3)
+- fix(rapid-rate): stop dropping rating blocks when the participant rates nothing (19fab4111)
+- fix(prolific): distinguish TIMEOUT from ABANDONED, and stop V1 recording phantom SUCCESS (c416d5eb7)
+- fix(v1): stop the shared completion policy from skipping the questionnaire on success (673add8c3)
+- fix(ux): one waiting treatment and plain copy for the transitional states (0eee05374)
+- fix(v1): route abnormal ends to /completion; make questionnaire errors visible (6c160c3e6)
+- fix(media): put the HLS pre-buffer diagnostics in the message, not just the context object (e11a16214)
+- fix(media): describe the unmatched-video case accurately (43447f625)
+- fix(media,completion): make HLS pre-buffer failures legible; take the doomed session lookup off the render path (f39fe97e4)
+- fix(runners): tear down LiveKit on failed setup; stop dropping the final data flush (1748ce0f5)
+- fix(auth): stop fixed timers from reporting a slow session restore as signed out (05b6789a3)
+- fix(v1): connect LiveKit before the media preload; stop the HLS pre-buffer loader (d73f527a1)
+- fix(ci): let the Firestore rules deploy actually run (0318d5ac9)
+- ci(promote): dispatch Deploy Storybook after a release (7111b869b)
+
+---
+
 ## v0.7.3
 
 Released: 2026-08-19
@@ -89,24 +130,6 @@ Released: 2026-07-29
 
 - fix(data): unify state-flatten semantics across V1 runtime and V3 EventProcessor (04869a4dd)
 - fix(v2): execute states in designer-authored order, not creation order (72184fa9b)
-
----
-
-## v0.7.1
-
-Released: 2026-07-28
-
-## What's Changed
-
-## Changes since last production release
-
-- test(emulator): update invitation tests for kept-token resend and idempotent re-accept (66f71fa52)
-- fix(devices): Kernel marker integrity — completion-navigation race and reconnect duplicates (4481c8e59)
-- fix(auth): invitation token stability, delivery/accept error surfacing, ToS gate and accept flow (46c4a99c8)
-- test(frontend): complete dataServiceV4 mocks in runner-mounting suites (427fff808)
-- fix(data): component instance pairing, completion lifecycle dedup, experiment.end anchors, participant-export anchor merge (6da5e902f)
-- fix(timing): review findings — timestamp authority, clock validation, anchor spoof/restart guards (57c6facae)
-- fix(timing): server-timeline event clocks on both runners, onset-anchor hardening, type-unified timestamps (47a6b74f6)
 
 ---
 
