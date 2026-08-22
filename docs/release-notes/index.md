@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.5
+
+Released: 2026-08-22
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(tests): unblock the production gate — best-effort emit hardening and three stale pins (0d593fe9d)
+- docs: account provisioning and write-surface redesign plan (2a18e1e86)
+
+---
+
 ## v0.7.4
 
 Released: 2026-08-22
@@ -117,19 +130,6 @@ Released: 2026-08-19
 - fix(media): pass explicit _resourceType at video/image permission checks (f5b0a10b5)
 - fix(data): register uploaded audio in rooms/{roomId}/recordings so the v3 API lists it (9ad6bf9da)
 - fix(auth): stop identity-consistency reload from orphaning registrations; self-heal orphaned accounts (3d2167a0b)
-
----
-
-## v0.7.2
-
-Released: 2026-07-29
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(data): unify state-flatten semantics across V1 runtime and V3 EventProcessor (04869a4dd)
-- fix(v2): execute states in designer-authored order, not creation order (72184fa9b)
 
 ---
 
