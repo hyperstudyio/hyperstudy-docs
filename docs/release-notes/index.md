@@ -8,6 +8,48 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.6
+
+Released: 2026-08-25
+
+## What's Changed
+
+## Changes since last production release
+
+- ci: log gh version and prove the mergeStateStatus query before waiting (c9afb0852)
+- fix(ci): poll mergeStateStatus only; stop guessing at gh pr checks semantics (e10b59af6)
+- fix(ci): let branch protection, not gh's exit code, decide the promotion (5fa593007)
+- fix(ci): widen the check-registration window and assert branch protection agrees (a8079d5bb)
+- fix(ci): count registered checks instead of trusting gh's exit status (8d1416361)
+- fix(ci): make promotion PRs actually run CI, and stop releasing on a failed promote (2ea633f4d)
+- fix(rapidrate): draw the previous-None marker like the other reference markers (020f82709)
+- ci(prod): let branch protection gate production instead of re-running tests (a2fe9db69)
+- ci: make the promotion gate and the test summary fail closed (87a81463f)
+- ci(dev): drop the no-op test job that tripled dev deploy time (76af11ddd)
+- fix(auth): single-column, form-first registration pages (df5d83a0c)
+- test(emulator): realign four tests with the vocabulary and authz changes (b1d0fb29a)
+- fix(auth): present registration ToS as a modal dialog (786978dc5)
+- fix(authz): converge the last legacy role:admin evaluators onto platformRole (step 4 review) (9e9bc291a)
+- docs: Phase 1 step 4 complete (migration was a no-op) (62fc3e7b7)
+- refactor(authz): platformRole is the ONE source of platform-admin truth (Phase 1 step 4) (605f14cb3)
+- fix(review): step-3 review findings — session swap, recovery errors, abuse cap, safe defaults (a2e63eeb4)
+- docs: Phase 1 step 3 complete (1241eccad)
+- feat(provisioning): Prolific gateway through the door; frontend goes server-first (Phase 1 step 3b/3c) (9de5da655)
+- feat(provisioning): POST /register through the one door — server-side Auth creation (Phase 1 step 3a) (a9c39e867)
+- fix(provisioning): harden the one door per review — whitelist, transaction, non-destructive resume, healable claims (a533a8f7c)
+- docs: Phase 1 step 2 complete (d7c528dde)
+- feat(authz): resolveAuthContext — one evaluator, one read, one cache (Phase 1 step 2) (0be44f110)
+- feat(provisioning): the one-door account provisioning service (Phase 1 step 1) (213445452)
+- docs: Phase 1 decisions locked + build order (041759440)
+- fix(review): stop agent-role guard masking 500s; reuse hasAgentRole; repo hygiene (4036e51da)
+- docs: Phase 0 complete (c9c2ab166)
+- fix(security,auth): shared-data key guard, register W3 reorder, update-user-status whitelist, dead createAdmin (68c7b28ad)
+- docs: track Phase 0 progress on the provisioning branch (ab07c9dea)
+- fix(security): enforce agent-role authorization on every experiment write path (84e1e1fd7)
+- fix(security): whitelist the experimenter profile PUT body (58f63aa45)
+
+---
+
 ## v0.7.5
 
 Released: 2026-08-22
@@ -59,77 +101,6 @@ Released: 2026-08-22
 - fix(v1): connect LiveKit before the media preload; stop the HLS pre-buffer loader (d73f527a1)
 - fix(ci): let the Firestore rules deploy actually run (0318d5ac9)
 - ci(promote): dispatch Deploy Storybook after a release (7111b869b)
-
----
-
-## v0.7.3
-
-Released: 2026-08-19
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(storybook): export sparseRatingPauseActive from the experimentStore mock (80b33816f)
-- ci(deploy): widen pod-router rollout budget; make Sentry upload failures legible (5280e9eab)
-- fix(experiment): restore ContinuousRating under V2, close videochat capture leaks (679c9c08e)
-- fix(experiment): correct V2 video resume position, host-fatal deadlock, and videochat audio leak (d24ed5fc3)
-- fix(v1): anchor the manual advance in V1 too; surface control rejections cross-pod (6ae9206b0)
-- fix(v2): anchor observer advance-state to the state it was aimed at; log observer control actions (142e77f17)
-- fix(logging): redact experimenter preview session tokens too (a8d800091)
-- fix(logging): redact session and invitation tokens from request logs (ce64434fb)
-- docs: correct stale data-services section and record 2026-08-18 security lessons (fc7553345)
-- fix(invitations): list invitable org roles explicitly to avoid import-time coupling (99a691329)
-- Merge branch 'fix/register-selfheal-overwrite' into security-2026-08-18-integration (229ebc08f)
-- fix(auth): require proof of control before /register touches an existing account (00ef95ebc)
-- Merge branch 'fix/verify-role-self-promotion' into security-2026-08-18-integration (1a9161f33)
-- Merge branch 'fix/profile-update-privilege-escalation' into security-2026-08-18-integration (312b605fd)
-- fix(security): close group-membership escalation and guard the deployment designer (404529418)
-- fix(designer): whitelist writable field paths on the designer socket (930d2eb0d)
-- fix(auth): whitelist fields on profile updates — self-service privilege escalation (1ad8294df)
-- Merge branch 'fix/legacy-experiment-put-whitelist' into security-2026-08-18-integration (b75120097)
-- Merge branch 'ci/firestore-rules-automation' into security-2026-08-18-integration (19877184f)
-- Merge branch 'fix/firestore-rules-hardening' into security-2026-08-18-integration (135cfca9d)
-- fix(invitations): return 400 for invalid team invitation roles (aaf38997f)
-- security(firestore): fix review findings - deploy target, CI break, rooms guard, read bypasses (10c8ebca6)
-- ci(firestore): pin the production project and refuse test-project deploys (efb95f12c)
-- fix(api): restore runtime-read experiment fields, share the create whitelist, correct the audit trail (676ae6a18)
-- ci(firestore): automate rules testing, deployment and drift detection (eae872346)
-- Merge branch 'perf/dashboard-boot-waterfall' into perf-2026-08-18-integration (79000d6f9)
-- fix(auth): close three role self-promotion paths (da57f5521)
-- fix(dashboard): address review findings on the boot-waterfall branch (a1e141c3a)
-- security(firestore): deny client-SDK writes by default in security rules (661137d27)
-- fix(experimenter-groups): bound the profile-group recovery fan-out (7cd7cae99)
-- security(rules): make experiment documents backend-only for client SDK writes (e5961aec2)
-- perf(v3/experiments): sub-stage timings and remove redundant work from the list path (dc5db1dc6)
-- perf(experimenter): stop force-refreshing the ID token and parallelize dashboard boot fetches (36eaea73f)
-- perf(experimenter): start the experiments fetch at route mount, drop a redundant token refresh (0b169834d)
-- perf(dashboard): add uid-bound experiments prefetch to the experiment store (b355e89ea)
-- fix(cache): raise persistent-cache per-entry cap and log size drops (108bb7313)
-- fix(api): whitelist fields on legacy experiment PUT and reject Firestore field paths (e16291bc0)
-- Merge branch 'perf/experiments-table-load' into ux-perf-2026-08-17-integration (173f3c2c3)
-- fix(experiments): close review findings on the list load path (6038bd6b5)
-- fix(bridge): correct latch, mid-session signal and retry window from review (13d5e856d)
-- perf(experiments): cut round trips on the dashboard experiment list (90410e339)
-- fix(bridge): make missing-Bridge connection failures quiet and bounded (9c668b7df)
-- fix(dashboard): show a loading state instead of the empty state while experiments load (fd8eb37d9)
-- Merge branch 'fix/preview-watchdog-and-state-skip' into triage-smallbugs-integration (80cf36d55)
-- fix(v2-preview): bound every boot phase separately; attribute completions to the mount that produced them (773b5923d)
-- Merge branch 'fix/spectate-signing-and-audio-download' into triage-smallbugs-integration (514ef0ef8)
-- fix(media): restrict signing failures to access_denied; fix spectate attach race and recording downloads (9af74b941)
-- fix(v2): keep abandon per-participant once the experiment is over (339ff9264)
-- fix(prolific): address code review on the completion-integrity batch (bb15607e5)
-- fix(prolific): completion integrity for V2 runs that end abnormally (f4ced1534)
-- fix(admin): restore fileType parameter to handleDownloadRecording (3da46ed05)
-- fix(media): surface signing failures instead of raw-URL fallback; re-sign HLS URLs; audio download path (6f31dab92)
-- Merge branch 'fix/video-permission-resourcetype' into triage-2026-08-17-integration (6f45f5d89)
-- Merge branch 'fix/audio-recordings-subcollection' into triage-2026-08-17-integration (321f102c7)
-- fix(auth): harden profile self-heal against races, demotion lockout, and fail-open sibling routes (920cf75d5)
-- fix(data): harden audio recording-doc write and backfill per review (e0a175af8)
-- fix(media): address review findings on video/image permission changes (715733890)
-- fix(media): pass explicit _resourceType at video/image permission checks (f5b0a10b5)
-- fix(data): register uploaded audio in rooms/{roomId}/recordings so the v3 API lists it (9ad6bf9da)
-- fix(auth): stop identity-consistency reload from orphaning registrations; self-heal orphaned accounts (3d2167a0b)
 
 ---
 
