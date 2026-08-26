@@ -8,6 +8,27 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.7
+
+Released: 2026-08-26
+
+## What's Changed
+
+## Changes since last production release
+
+- test(v2): wait on the recording mocks instead of sleeping past them (c4c6bd398)
+- fix(monitor): remove the 10-minute "stuck" alert that fired on healthy participants (15c2ffeff)
+- fix(timing): put questionnaire events on the server timeline (70a04a4d2)
+- fix(completion): mint a Prolific code when force-completing a questionnaire (ba2e57c89)
+- chore: gitignore playwright run artifacts (adb358a90)
+- test(e2e): delete seven Playwright specs that had never passed (9a4f131e7)
+- test: delete 14 rotted test files that provided no coverage (f2cdc8e97)
+- test(ci): run the integration suite that ran in no CI job at all (9dd31f765)
+- perf(ci): shard the backend suite across three runners per Node version (04a3e869c)
+- perf(ci): shard the frontend suite across four runners (d3d8ab7d9)
+
+---
+
 ## v0.7.6
 
 Released: 2026-08-25
@@ -60,47 +81,6 @@ Released: 2026-08-22
 
 - fix(tests): unblock the production gate — best-effort emit hardening and three stale pins (0d593fe9d)
 - docs: account provisioning and write-surface redesign plan (2a18e1e86)
-
----
-
-## v0.7.4
-
-Released: 2026-08-22
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(prolific): unstamped sessions no longer match a named deployment; /join stamps deploymentId (35b833fb7)
-- fix(prolific,v2,completion): waiting-room mints the real TIMEOUT code; close the deferred completion gaps (55c82106f)
-- fix(runners,prolific,rating): harden the review-batch fixes (e61e05fe2)
-- fix(runners,completion): settle in-flight LiveKit on V2 boot failure; release V1 retry latch; fail questionnaire-disabled write visibly (f8becd229)
-- fix(prolific): close the live-status SUCCESS gap; validate deployment on token lookup (30110acb1)
-- docs: record the review fix batch in the completion-vocabulary handoff (f819f6040)
-- fix(rating,media): key RapidRate state by the configured label; keep timeout out of the reference history; drop pre-buffer diagnostics after settle (0db5778ae)
-- fix(v2,completion): tear down LiveKit on boot failure; unbury the slow-escape button (6c0cf7f2f)
-- fix(completion): V2 disconnect parity, V1 lost-reason default, questionnaire-disabled outcome (c30f5438e)
-- fix(prolific): guard SUCCESS minting by session phase; never re-mint an issued code (21a444ff2)
-- docs: detail the four carried-over review findings in the handoff (35bdf47bf)
-- docs: completion vocabulary handoff — state, verification and open items (6e09d9ae1)
-- fix(completion): one outcome vocabulary for both runners, backend and Prolific (33fba4a04)
-- feat(rapid-rate): drag to reorder dimensions in the designer (9dbec4178)
-- test(rapid-rate): pin that clicking None counts as interacting with that dimension (90cf336b5)
-- feat(rapid-rate): record that a block timed out, and which dimensions went unanswered (227a85db7)
-- fix(rapid-rate): make submit-without-interaction a configuration parameter (984b420d3)
-- fix(rapid-rate): stop dropping rating blocks when the participant rates nothing (19fab4111)
-- fix(prolific): distinguish TIMEOUT from ABANDONED, and stop V1 recording phantom SUCCESS (c416d5eb7)
-- fix(v1): stop the shared completion policy from skipping the questionnaire on success (673add8c3)
-- fix(ux): one waiting treatment and plain copy for the transitional states (0eee05374)
-- fix(v1): route abnormal ends to /completion; make questionnaire errors visible (6c160c3e6)
-- fix(media): put the HLS pre-buffer diagnostics in the message, not just the context object (e11a16214)
-- fix(media): describe the unmatched-video case accurately (43447f625)
-- fix(media,completion): make HLS pre-buffer failures legible; take the doomed session lookup off the render path (f39fe97e4)
-- fix(runners): tear down LiveKit on failed setup; stop dropping the final data flush (1748ce0f5)
-- fix(auth): stop fixed timers from reporting a slow session restore as signed out (05b6789a3)
-- fix(v1): connect LiveKit before the media preload; stop the HLS pre-buffer loader (d73f527a1)
-- fix(ci): let the Firestore rules deploy actually run (0318d5ac9)
-- ci(promote): dispatch Deploy Storybook after a release (7111b869b)
 
 ---
 
