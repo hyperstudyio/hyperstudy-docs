@@ -8,6 +8,26 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.8
+
+Released: 2026-08-29
+
+## What's Changed
+
+## Changes since last production release
+
+- refactor(logging): put backend diagnostics behind log levels; narrate the drain (b073d2676)
+- docs: record the 2026-08-28 Prolific batch analysis and the pod drain reference (3c8cc4b60)
+- fix(drain): stop routing rooms to a draining pod; harden the deploy guards (33b173dd8)
+- ci(deploy): render the backend manifest once instead of mutating it three times (8614e771d)
+- fix(prolific): correct recruitment target, drain pods, quiet logs, 120s default (9f7b0523c)
+- test(experiments): stop the SortableTable mock leaking a polling interval (966fa0a37)
+- feat(questionnaire): make the post-experiment questionnaire optionally required (1c0091c55)
+- docs(questionnaire): correct a comment describing a watchdog removed in June (188f18fde)
+- fix(completion): mint Prolific codes on expiry; report room outcomes honestly (2fad59226)
+
+---
+
 ## v0.7.7
 
 Released: 2026-08-26
@@ -68,19 +88,6 @@ Released: 2026-08-25
 - docs: track Phase 0 progress on the provisioning branch (ab07c9dea)
 - fix(security): enforce agent-role authorization on every experiment write path (84e1e1fd7)
 - fix(security): whitelist the experimenter profile PUT body (58f63aa45)
-
----
-
-## v0.7.5
-
-Released: 2026-08-22
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(tests): unblock the production gate — best-effort emit hardening and three stale pins (0d593fe9d)
-- docs: account provisioning and write-surface redesign plan (2a18e1e86)
 
 ---
 
