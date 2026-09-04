@@ -279,6 +279,36 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.8.27
+
+**Released:** 2026-09-04
+
+## What's Changed
+
+This release fixes the dropped-marker and cross-talk failures seen in multi-person (hyperscanning) sessions where two Pupil Labs Neon phones share a network.
+
+### New Features
+- **Find Neon phones by hardware id.** The device config modal can browse the network for Neon Companion phones and pin a station to one phone's hardware id. A pinned station resolves its phone over mDNS on every connect and refuses to connect to a different phone (`wrong_device`), so two stations can no longer drive the same phone through `neon.local`.
+- **Device identity in status.** Connect, status and send responses (and the broadcasts every client receives) carry the phone's hardware id, name, IP, battery and recording state, so HyperStudy can verify which hardware is behind each participant.
+- **Kernel auto-reconnect on send.** A marker sent to a Kernel Flow2 that dropped its connection reconnects it first using the last known configuration.
+
+### Bug Fixes
+- Recording start now waits for the phone to report the recording active before returning, so markers sent immediately after start are no longer lost.
+- The bridge refuses to stop or cancel a recording it did not start (`recording_not_owned`) and reports `phone_busy` when the phone is already recording; both checks fail closed when the phone's status cannot be read (pass `force` to override).
+- Markers sent to a recording other than the one the bridge started are flagged (`recording_mismatch`).
+- A Neon reporting null hardware fields (glasses unplugged) no longer fails to parse.
+- Overlapping WebSocket connections (a HyperStudy page reloading and reconnecting) can no longer overwrite or unregister each other's devices; the bridge app's own Disconnect and Reset follow the same rule and are broadcast to clients.
+- LSL: same-named Neon streams from different phones are grouped by host instead of collapsing into one entry; the same stream cannot be opened twice under two labels.
+
+### Technical
+- Per-device command queues: each device's commands run in arrival order on their own queue, so a slow device never delays another's markers; queues are bounded and drained safely on disconnect; a panicking handler no longer wedges a device.
+- Connect tickets order overlapping connects by start time; stale disconnects are refused.
+- CI: unsigned builds on pull requests, cargo-audit and npm audit gates, dependency license review; refreshed npm and cargo lockfiles.
+- Stable error codes on device errors (`DeviceError::code()`).
+
+---
+
+
 ### v0.8.26
 
 **Released:** 2026-03-21
