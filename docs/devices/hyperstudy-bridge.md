@@ -30,7 +30,7 @@ The Bridge runs locally on your research computer and creates a WebSocket server
 |--------|------|------------|--------|
 | [HyperStudy TTL](/devices/hyperstudy-ttl) | TTL Pulse Generator | USB Serial | Supported |
 | Kernel Flow2 | fNIRS | TCP Socket | Supported |
-| Pupil Labs Neon | Eye Tracker | WebSocket | Supported |
+| [Pupil Labs Neon](/devices/pupil-neon) | Eye Tracker | REST API + LSL (mDNS discovery) | Supported |
 | [EyeLink 1000 Plus](/devices/eyelink) | Eye Tracker | Ethernet (TCP) | Supported* |
 | Lab Streaming Layer | Various | LSL Protocol | Supported |
 
@@ -41,6 +41,10 @@ _*Requires the [SR Research EyeLink Developers Kit](/devices/eyelink#installing-
 Download the latest release for your platform:
 
 <BridgeDownload />
+
+### Updating
+
+Bridges from v0.8.22 check for updates on launch and install them in-app. Older installs must be updated by hand: download the current release and install it over the old one. Version 0.8.27 or later is required for the Neon phone pinning and recording safeguards described below.
 
 ### Post-Install Steps
 
@@ -106,8 +110,11 @@ Each device type has its own configuration panel in the Bridge GUI:
 - Event categories to forward
 
 **Pupil Labs Neon:**
-- Connection URL
+- **Find phones**: lists every Neon Companion phone on the network with its name, hardware id, IP, battery and recording state; **Use this phone** pins the Bridge to that phone's hardware id
+- Companion URL (optional): a fixed `ip:port` fallback for networks without multicast; a pinned phone is always resolved by id first
 - Gaze data streaming options
+
+See [Pupil Labs Neon](/devices/pupil-neon#connecting-to-the-right-phone) for why pinning matters when more than one phone is on the network.
 
 **EyeLink 1000 Plus:**
 - IP address of EyeLink Host PC (default: `100.1.1.1`)
@@ -128,6 +135,27 @@ Each device type has its own configuration panel in the Bridge GUI:
 3. **Connect Devices** by clicking "Connect All" or individual device buttons
 4. **Verify Status** - all required devices should show green status
 5. **Start Experiment** - the Bridge handles all communication automatically
+
+### Device Identity and Safeguards
+
+Since v0.8.27 the Bridge reports *which* hardware is behind each connection and refuses operations that would affect someone else's device:
+
+- **Identity in every status.** Connect, status and send responses — and the status broadcasts every connected client receives — carry the Neon phone's hardware id, name, IP, battery level and recording state. HyperStudy uses this in its pre-flight check.
+- **Pinned phones.** A Pupil connection can be pinned to a phone's hardware id; a different phone answering is refused (`wrong_device`) instead of silently used.
+- **Recording ownership.** The Bridge refuses to stop or cancel a Neon recording it did not start (`recording_not_owned`) and reports `phone_busy` when asked to start while the phone is already recording. Recording start waits until the phone confirms the recording is active.
+- **Independent device queues.** Each device's commands run in arrival order on their own queue, so a slow Kernel connect or a Neon status probe never delays a TTL pulse or another device's markers.
+- **Kernel auto-reconnect.** A marker sent to a Kernel Flow2 that lost its connection reconnects it first using the last known configuration, unless an explicit connect is already in progress.
+- **Reconnect-safe.** A HyperStudy page that reloads and reconnects cannot be undone by the old connection's late commands; the Bridge app's own Disconnect and Reset buttons follow the same rule and are broadcast to connected clients.
+
+**Error codes** returned in the `code` field of error responses:
+
+| Code | Meaning |
+|------|---------|
+| `wrong_device` | A phone other than the pinned one answered |
+| `device_not_found` | The pinned phone is not on the network |
+| `phone_busy` | The phone is already recording |
+| `recording_not_owned` | The active recording was not started by this Bridge |
+| `communication_error` | The device could not be reached or its status could not be read |
 
 ### Finding Your Bridge IP Address
 
@@ -233,6 +261,8 @@ ls -la /dev/tty.*
 2. Check device appears in system (System Information on macOS)
 3. Try unplugging and reconnecting the device
 4. Restart the Bridge application
+
+**Neon: wrong phone, phone busy, or markers failing:** see the [Pupil Labs Neon troubleshooting](/devices/pupil-neon#troubleshooting) section.
 
 ### Logging
 

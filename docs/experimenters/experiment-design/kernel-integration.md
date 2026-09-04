@@ -14,8 +14,9 @@ HyperStudy supports integration with Kernel Flow2 neural recording devices, enab
 - **Automatic Event Synchronization**: All experiment events, triggers, and responses are automatically forwarded to connected devices
 - **Simple Setup**: Just enter the bridge's IP address - no complex configuration needed
 - **Flexible Connection**: Choose whether device connection is optional or required for participants
-- **Multi-Subject Support**: Each participant connects to their own local bridge in multi-participant experiments
-- **Non-Blocking Design**: Device connection issues won't interrupt normal data collection
+- **Multi-Subject Support**: Each participant connects to their own local bridge in multi-participant experiments; the server refuses to start a session in which two participants report the same device
+- **Pre-flight Check**: Before a session starts, HyperStudy confirms the bridge still reports the Kernel Flow2 as connected, so a session can no longer run with the device silently disconnected
+- **Visible Failures**: Markers the bridge cannot deliver are reported on the participant's screen instead of failing silently
 
 ## Setting Up Kernel Integration
 
@@ -63,7 +64,7 @@ Before using Kernel Flow2 integration, the **HyperStudy Bridge** desktop applica
    - Check **Enable Kernel Flow2 Integration**
 
 2. **Configure Settings**
-   - **Make connection optional**: If checked, participants can skip Kernel setup if the device is unavailable
+   - **Make connection optional**: If checked, participants can skip Kernel setup if the device is unavailable. If unchecked, the pre-flight check keeps the participant on the setup screen until the bridge reports the Kernel Flow2 as connected.
    - All event types are automatically forwarded - no selection needed!
 
 3. **Save Your Experiment**
@@ -152,10 +153,10 @@ Each event sent to Kernel includes:
 
 ### Error Handling
 
-- Connection failures don't interrupt the experiment
-- Events are queued during temporary disconnections
-- Automatic reconnection attempts with exponential backoff
-- All device connection errors are logged but don't affect normal data collection
+- **Pre-flight check**: when a participant reports ready, HyperStudy asks the bridge for the Kernel's status and refuses to start (unless the connection is optional) if it is not connected. The bridge must be connected to the Flow2 in its own window before the session starts.
+- **Reconnect on send**: if the Flow2 connection drops during a session, the next marker reconnects it using the bridge's last known configuration before sending. Markers sent while the Flow2 is unreachable are **not queued**; they are reported as failed on the participant's screen and logged.
+- **Independent devices**: a problem with one device never delays markers to another; each device has its own command queue in the bridge.
+- HyperStudy's own data collection continues regardless of device errors.
 
 ### Data Storage
 

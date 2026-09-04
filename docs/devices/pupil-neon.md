@@ -21,7 +21,9 @@ HyperStudy Web App → HyperStudy Bridge → Pupil Labs Neon (REST API + LSL)
 
 - **Real-Time Gaze Streaming**: Live gaze position and pupil diameter at up to 200 Hz via LSL
 - **Event Annotations**: Timestamped event markers synchronized with the Neon's recording timeline
-- **Automatic Discovery**: Find Neon devices on the network via LSL without manual IP entry
+- **Phone Discovery by Hardware ID**: Find the Neon Companion phones on your network and pin a station to one phone, so two phones on the same network can never be mixed up
+- **Pre-flight Check**: Before a session starts, HyperStudy verifies that each participant's station is connected to the phone it was pinned to and that no two participants share a phone
+- **Marker Delivery Feedback**: Event markers that the phone does not accept are reported on screen instead of failing silently
 - **9-Point Calibration**: Screen-space calibration for accurate gaze mapping
 - **Recording Control**: Start/stop recordings on the Neon from within HyperStudy
 - **Battery Monitoring**: Real-time battery level displayed during setup
@@ -36,29 +38,39 @@ HyperStudy Web App → HyperStudy Bridge → Pupil Labs Neon (REST API + LSL)
 
 ### Software
 
-- **HyperStudy Bridge** v0.8.22 or later
-- **Pupil Labs Neon Companion app** (running on the Neon's companion device)
+- **HyperStudy Bridge** v0.8.27 or later (phone pinning and recording safeguards). Bridges from v0.8.22 update themselves in-app; older installs must be reinstalled by hand.
+- **Pupil Labs Neon Companion app** (running on the Neon's companion device). Give each phone a unique name in the Companion app settings (for example `Neon-A` and `Neon-B`) — every Companion phone is called "Neon Companion" out of the box, and identical names make the setup screens hard to read.
 
-## Connection Methods
+## Connecting to the Right Phone
 
-### Automatic Discovery (Recommended)
+Every Neon Companion phone advertises itself on the local network with its **hardware id** (a 16-character code such as `3a7a373396c1afc4`). HyperStudy and the Bridge use that id, not the phone's name or hostname, to decide which phone a station talks to.
 
-The Bridge uses Lab Streaming Layer (LSL) to discover Neon devices on the network automatically:
+### Find Phones (Recommended)
 
-1. Launch the Bridge and ensure the Pupil module is active
-2. In the HyperStudy experiment setup, click **Discover Devices**
-3. Available Neon devices appear in the list
-4. Select your device and click **Connect**
+1. Launch the Bridge on the station computer
+2. In the HyperStudy setup screen (or the Bridge's Pupil configuration dialog), click **Find phones**
+3. Every Companion phone on the network appears with its name, hardware id, IP address, battery level and whether it is currently recording
+4. Choose the phone for this station and click **Use this phone**
 
-### Manual IP Connection
+The station is now **pinned** to that phone's hardware id. On every later connect, HyperStudy resolves the pinned phone on the network by its id and connects to it wherever it is — a new IP address after a DHCP change does not matter.
 
-If automatic discovery doesn't find your device:
+If a *different* phone answers (for example because someone swapped phones between stations), the connection is refused with a **wrong device** error and the setup screen shows both the pinned and the answering phone. Click **Reconnect to pinned phone** after fixing the hardware, or **Unpin** to deliberately adopt the phone that answered.
 
-1. Find the Neon's IP address in the Companion app settings
-2. Enter the IP address in the setup dialog
-3. Click **Connect**
+### Manual Address (Fallback)
 
-The last connected IP is remembered for future sessions.
+If discovery cannot see the phone (for example on a network that blocks multicast), enter its IP address and port from the Companion app settings (such as `192.168.1.100:8080`). Avoid the `neon.local` hostname: when more than one Companion phone is on the network, `neon.local` can resolve to *either* of them.
+
+### Several Phones on One Network
+
+In multi-person (hyperscanning) studies each participant has their own phone and their own Bridge, usually on the same Wi-Fi. Before pinning was introduced, both stations could silently end up driving the same phone — recordings stopped mid-session, one participant's markers landed in the other's recording, and the second station saw "Already recording!".
+
+With the current versions this cannot happen unnoticed:
+
+- each station connects to the phone it is pinned to, and refuses any other phone
+- when participants report ready, the server compares the phones behind every station and refuses to start the session if two participants share one; the experimenter sees which stations collide and can override only deliberately
+- the Bridge refuses to stop or cancel a recording that it did not start itself
+
+Pin each station once (the pin is remembered per browser on that computer), then verify the phone name and id shown on the setup screen before each session.
 
 ## Configuration
 
@@ -127,6 +139,12 @@ HyperStudy automatically sends timestamped event markers to the Neon's recording
 
 These markers enable precise alignment of experiment events with the eye tracking data during analysis.
 
+### Recording Safeguards
+
+- **Start waits for the phone.** When HyperStudy starts a recording, the Bridge waits until the phone reports the recording as active (up to 3 seconds) before returning, so markers sent right after the start are never lost.
+- **Markers are checked against the recording.** Every marker carries the id of the recording it landed in. If that is not the recording HyperStudy started (someone started a recording from the phone, or the phone was swapped), the marker is flagged as a **recording mismatch** and shown as a failure on the participant's screen.
+- **Only the owner may stop.** The Bridge refuses to stop or cancel a recording it did not start (`recording_not_owned`) and reports `phone_busy` if asked to start while the phone is already recording. If the phone's status cannot be read at all, these checks fail closed rather than guessing. An experimenter can pass `force` from the Bridge to override.
+
 ## Usage
 
 ### Basic Workflow
@@ -134,7 +152,7 @@ These markers enable precise alignment of experiment events with the eye trackin
 1. **Power on** the Neon and ensure the Companion app is running
 2. **Verify network** — the Neon and Bridge machine must be on the same network
 3. **Launch HyperStudy Bridge** on the experiment machine
-4. **Connect** to the Neon (automatic discovery or manual IP)
+4. **Connect** to the Neon — pick the pinned phone (or use **Find phones** the first time)
 5. **Start recording** on the Neon (optional — can be automatic)
 6. **Run your experiment** — event annotations are sent automatically
 7. **Stop recording** and disconnect when finished
@@ -155,13 +173,15 @@ To show live gaze visualization during experiments:
 During experiment setup, participants see:
 
 1. **Bridge connection check** — verifies the Bridge is running
-2. **Device discovery** — finds Neon devices on the network
-3. **Connection** — connects to the selected device
+2. **Phone selection** — connects to the phone this station is pinned to, or offers **Find phones** the first time
+3. **Identity check** — shows the phone's name, hardware id and battery so the participant or experimenter can confirm it is the right one
 4. **Gaze stream test** — verifies gaze data is flowing
 5. **Calibration** (if required) — 9-point calibration with live preview
 6. **Live gaze preview** — confirms everything is working
 
 Participants can skip setup if allowed by the experimenter's configuration.
+
+When the participant reports ready, a **pre-flight check** runs automatically: it confirms the Bridge still reports the pinned phone (and the Kernel Flow2, if enabled) as connected, and the server confirms no other participant is using the same phone. A failed check keeps the participant on the setup screen with an explanation instead of starting a session that would record nothing.
 
 ## Troubleshooting
 
@@ -169,8 +189,36 @@ Participants can skip setup if allowed by the experimenter's configuration.
 
 - Verify the Neon and Bridge machine are on the same network
 - Check that the Companion app is running and connected
-- Try manual IP connection as a fallback
-- Restart the Bridge's LSL discovery
+- Click **Find phones** again — discovery listens for a few seconds and a phone that just woke up may have been missed
+- Try a manual IP address as a fallback (not `neon.local`)
+
+### A Different Phone Answered (Wrong Device)
+
+The station is pinned to one phone but another one responded — usually the phones were swapped between stations, or a manual `neon.local` address picked the wrong phone.
+
+- Check the phone name and hardware id shown on the setup screen against the label on the phone
+- Put the right phone back on this station and click **Reconnect to pinned phone**, or **Unpin** if this station should now use the phone that answered
+
+### Two Participants Share a Phone
+
+The session refuses to start and the experimenter sees which stations collide. One station is connected to the other participant's phone.
+
+- Fix the pin on the offending station (see above) and have that participant report ready again
+- The experimenter can override the check for a deliberate single-phone setup; the override is recorded with the session
+
+### Phone Is Already Recording (`phone_busy`)
+
+Someone started a recording from the Companion app, or a previous session did not stop its recording.
+
+- Stop the recording on the phone, then start the session again
+- The Bridge never stops a recording it did not start on its own; an experimenter can force it from the Bridge
+
+### Markers Reported as Failed
+
+The participant's screen shows failed markers when the phone rejects an event or the event landed in a recording HyperStudy did not start.
+
+- Check that the recording on the phone is the one started by HyperStudy (a recording started from the phone counts as a mismatch)
+- Check the phone's battery and network connection; markers are not queued, so a phone that is unreachable for a while loses the events sent during that time
 
 ### No Gaze Data
 

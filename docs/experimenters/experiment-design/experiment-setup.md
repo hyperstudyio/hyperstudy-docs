@@ -96,6 +96,16 @@ It is skipped for experiments that don't need devices (e.g., surveys, video view
 - **Allow extra time** (2-3 minutes) for device setup in your schedule
 - **Include device checks** in pilot testing
 
+## Research Device Pre-flight
+
+Experiments that use the [HyperStudy Bridge](/devices/hyperstudy-bridge) (Kernel Flow2, Pupil Labs Neon, TTL) get one more step when the participant reports ready: a **pre-flight check** of the research devices.
+
+- HyperStudy asks the bridge for each required device's status and refuses to report ready if one is missing, unless you marked that device optional
+- For a Pupil Labs Neon, the check also confirms the station is connected to the phone it was pinned to
+- The server compares the devices behind every participant and refuses to start a session in which two participants share one; you see which stations collide and can override deliberately, in which case the override is recorded with the session
+
+A failed check keeps the participant on the setup screen with an explanation. This replaces the earlier behaviour in which a session could start with a device silently disconnected or two stations driving the same phone.
+
 ## LiveKit Video Chat Connection
 
 For experiments with video chat, the system automatically connects to LiveKit after device setup completes. This typically takes 2-5 seconds.
