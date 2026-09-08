@@ -323,7 +323,13 @@ Each sparse rating interaction generates an event with:
     videoRelativeTime: 45000, // 45s from video start
     pauseTimestamp: 1705329025123,
     responseTime: 2300,
-    previousRating: null // or previous value if showPreviousRating enabled
+    previousRating: null, // or previous value if showPreviousRating enabled
+
+    // Was the response submitted, and what did the participant actually touch
+    timedOut: false,              // true: the window closed before Submit
+    endReason: undefined,         // timed-out standalone blocks only: 'state_advanced' or 'experiment_ended:<reason>'
+    interacted: true,             // false: the participant never touched the component
+    interactedDimensions: null    // Rapid Rate only: { dimensionLabel: true | false }
   }
 }
 ```
@@ -337,6 +343,18 @@ Each sparse rating interaction generates an event with:
 - **componentData**: The actual rating value and component-specific data
 - **responseTime**: Milliseconds taken to respond
 - **previousRating**: Previous rating for this state+video combination (if showPreviousRating enabled)
+- **timedOut**: `true` when the response window closed before the participant pressed Submit. The block is still recorded with whatever the participant had at that moment.
+- **interacted** / **interactedDimensions**: Whether the participant touched the component at all, and (Rapid Rate) which dimensions they touched.
+
+### Un-submitted Responses
+
+A block is recorded whether or not the participant pressed Submit. When the response window times out, the processed data (API and Data Management) reports:
+
+- `submitted: false` and `responseTime: null` — the response was never completed
+- `null` for every dimension the participant never touched (Rapid Rate), or for the whole value if they never touched the component (VAS), instead of the slider's initial position
+- The values the participant did set before the window closed
+
+A submitted block is reported exactly as given: pressing Submit with a slider still at its starting position counts as that answer. The `interacted` and `interactedDimensions` flags are exported alongside so you can filter those cases yourself.
 
 ### Data Access
 

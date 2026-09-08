@@ -151,10 +151,13 @@ Individual rating responses from VAS, Likert scales, and similar discrete-respon
 
 | Field | Description |
 |-------|-------------|
-| `value` | Rating value |
-| `responseTime` | Time taken to respond |
+| `value` | Rating value (a number, or one value per dimension for Rapid Rate) |
+| `submitted` | `false` when the response window closed before the participant pressed Submit |
+| `responseTime` | Time taken to respond; empty when the response was never submitted |
 | `componentId` | Which rating component |
 | `labels` | Scale labels (if applicable) |
+
+**Un-submitted responses.** A rating block is recorded even when the participant never pressed Submit (the response window timed out, or the experiment moved on). Such a row shows `Submitted: No`, its response time is empty, and any dimension the participant never touched is reported as empty (`N/A` in the table, `null` in exports) rather than as the slider's starting value. A dimension the participant moved before the window closed keeps its value. Submitted rows are always reported exactly as given, even if a slider was left at its starting position.
 
 ### Sync Metrics
 Video synchronization quality data (multi-participant experiments only):
