@@ -8,6 +8,20 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.10
+
+Released: 2026-09-13
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(devices): query the Bridge live for TTL in the pre-flight instead of trusting the status cache (a026f7885)
+- fix(ratings): record and export un-submitted RapidRate/VAS responses with null for untouched values (df5d10b38)
+- fix(pupil-setup): manual address placeholder no longer suggests neon.local (8f863fd88)
+
+---
+
 ## v0.7.9
 
 Released: 2026-09-04
@@ -41,27 +55,6 @@ Released: 2026-08-29
 - feat(questionnaire): make the post-experiment questionnaire optionally required (1c0091c55)
 - docs(questionnaire): correct a comment describing a watchdog removed in June (188f18fde)
 - fix(completion): mint Prolific codes on expiry; report room outcomes honestly (2fad59226)
-
----
-
-## v0.7.7
-
-Released: 2026-08-26
-
-## What's Changed
-
-## Changes since last production release
-
-- test(v2): wait on the recording mocks instead of sleeping past them (c4c6bd398)
-- fix(monitor): remove the 10-minute "stuck" alert that fired on healthy participants (15c2ffeff)
-- fix(timing): put questionnaire events on the server timeline (70a04a4d2)
-- fix(completion): mint a Prolific code when force-completing a questionnaire (ba2e57c89)
-- chore: gitignore playwright run artifacts (adb358a90)
-- test(e2e): delete seven Playwright specs that had never passed (9a4f131e7)
-- test: delete 14 rotted test files that provided no coverage (f2cdc8e97)
-- test(ci): run the integration suite that ran in no CI job at all (9dd31f765)
-- perf(ci): shard the backend suite across three runners per Node version (04a3e869c)
-- perf(ci): shard the frontend suite across four runners (d3d8ab7d9)
 
 ---
 
