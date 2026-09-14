@@ -8,6 +8,20 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.11
+
+Released: 2026-09-14
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(experiment): address review findings on the focus-component scroll work (034828fc8)
+- fix(experiment): one scroll region and pinned chrome for every focus component (16903454a)
+- ci(docs): escape angle brackets in synced release notes so MDX does not truncate lines (870a066eb)
+
+---
+
 ## v0.7.10
 
 Released: 2026-09-13
@@ -35,26 +49,6 @@ Released: 2026-09-04
 - feat(devices): server-side device conflict detection at client-ready; persist device identity (c0329e1a4)
 - feat(devices): station profile pins the Neon phone by hardware id; phone picker in setup (12da883d4)
 - feat(devices): pre-flight device check, visible marker failures, deterministic Neon selection (8ff53aa2a)
-
----
-
-## v0.7.8
-
-Released: 2026-08-29
-
-## What's Changed
-
-## Changes since last production release
-
-- refactor(logging): put backend diagnostics behind log levels; narrate the drain (b073d2676)
-- docs: record the 2026-08-28 Prolific batch analysis and the pod drain reference (3c8cc4b60)
-- fix(drain): stop routing rooms to a draining pod; harden the deploy guards (33b173dd8)
-- ci(deploy): render the backend manifest once instead of mutating it three times (8614e771d)
-- fix(prolific): correct recruitment target, drain pods, quiet logs, 120s default (9f7b0523c)
-- test(experiments): stop the SortableTable mock leaking a polling interval (966fa0a37)
-- feat(questionnaire): make the post-experiment questionnaire optionally required (1c0091c55)
-- docs(questionnaire): correct a comment describing a watchdog removed in June (188f18fde)
-- fix(completion): mint Prolific codes on expiry; report room outcomes honestly (2fad59226)
 
 ---
 
