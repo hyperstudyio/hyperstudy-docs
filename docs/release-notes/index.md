@@ -8,6 +8,21 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.12
+
+Released: 2026-09-15
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(storybook): make the render check able to fail, and address review findings (2bf7ac144)
+- refactor(svelte): remove the last Svelte 4 API and guard against its return (7345b7b9f)
+- fix(storybook): repair 25 broken stories and check every story renders (8bc2fdb0b)
+- fix(experiment): pin the countdown in the sparse-rating modal (52e7c397a)
+
+---
+
 ## v0.7.11
 
 Released: 2026-09-14
@@ -33,22 +48,6 @@ Released: 2026-09-13
 - fix(devices): query the Bridge live for TTL in the pre-flight instead of trusting the status cache (a026f7885)
 - fix(ratings): record and export un-submitted RapidRate/VAS responses with null for untouched values (df5d10b38)
 - fix(pupil-setup): manual address placeholder no longer suggests neon.local (8f863fd88)
-
----
-
-## v0.7.9
-
-Released: 2026-09-04
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(devices): check identity on paused rejoins, persist merged identity, tighten phone-name matching (71b4f931a)
-- fix(devices): make the V1 device-conflict path work; harden re-checks, persistence and identity refresh (dd695b177)
-- feat(devices): server-side device conflict detection at client-ready; persist device identity (c0329e1a4)
-- feat(devices): station profile pins the Neon phone by hardware id; phone picker in setup (12da883d4)
-- feat(devices): pre-flight device check, visible marker failures, deterministic Neon selection (8ff53aa2a)
 
 ---
 
