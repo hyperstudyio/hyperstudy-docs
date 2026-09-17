@@ -8,6 +8,22 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.13
+
+Released: 2026-09-17
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(ci): stop splicing commit subjects into the promotion shell script (6053d2d37)
+- fix(recording): restore V2 recordings from the LiveKit rejoin, not a protocol hook (b51bbd264)
+- Revert "fix(recording): give V2 the recording lifecycle it never had" (a749bc723)
+- fix(recording): give V2 the recording lifecycle it never had (b9199bc56)
+- fix(recording): stop starting a duplicate egress on every participant rejoin (6fa4766ff)
+
+---
+
 ## v0.7.12
 
 Released: 2026-09-15
@@ -34,20 +50,6 @@ Released: 2026-09-14
 - fix(experiment): address review findings on the focus-component scroll work (034828fc8)
 - fix(experiment): one scroll region and pinned chrome for every focus component (16903454a)
 - ci(docs): escape angle brackets in synced release notes so MDX does not truncate lines (870a066eb)
-
----
-
-## v0.7.10
-
-Released: 2026-09-13
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(devices): query the Bridge live for TTL in the pre-flight instead of trusting the status cache (a026f7885)
-- fix(ratings): record and export un-submitted RapidRate/VAS responses with null for untouched values (df5d10b38)
-- fix(pupil-setup): manual address placeholder no longer suggests neon.local (8f863fd88)
 
 ---
 
