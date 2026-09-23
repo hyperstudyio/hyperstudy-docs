@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.15
+
+Released: 2026-09-23
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(preview): rejoin remounted panes; unmount off-step screens; no-deadline pause UI (b055c40a7)
+- feat(preview): open on the first flow step; pause the run off the Run step (c758e0504)
+
+---
+
 ## v0.7.14
 
 Released: 2026-09-23
@@ -49,21 +62,6 @@ Released: 2026-09-17
 - Revert "fix(recording): give V2 the recording lifecycle it never had" (a749bc723)
 - fix(recording): give V2 the recording lifecycle it never had (b9199bc56)
 - fix(recording): stop starting a duplicate egress on every participant rejoin (6fa4766ff)
-
----
-
-## v0.7.12
-
-Released: 2026-09-15
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(storybook): make the render check able to fail, and address review findings (2bf7ac144)
-- refactor(svelte): remove the last Svelte 4 API and guard against its return (7345b7b9f)
-- fix(storybook): repair 25 broken stories and check every story renders (8bc2fdb0b)
-- fix(experiment): pin the countdown in the sparse-rating modal (52e7c397a)
 
 ---
 
