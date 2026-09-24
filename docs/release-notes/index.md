@@ -8,6 +8,28 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.16
+
+Released: 2026-09-24
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(duplicate): unbind unusable agent personas with a warning instead of refusing (e08b77469)
+- fix: agent-role checks on duplicate/import, full design on import, runtime validation, editor count (f877eb57e)
+- fix(k8s): drop ClientIP affinity on backend-service; run CronJobs in production only (7121ece71)
+- fix(deploy): hold production rollouts until no participant is in the flow (9f913b38f)
+- fix(designer): keep the socket open until closing flushes are acknowledged (d467a7cce)
+- fix(designer): show the new role's config after a role switch; validate runtime on create (9f8eb235d)
+- fix(designer): keep the runtime chosen at creation; save role edits to their own role (a7df1cb4f)
+- fix(designer): keep questionnaire prop sync alive after a debounced save (fa1a5e2bd)
+- fix(designer): flush the edit actually typed when an editor is torn down (442c9046c)
+- fix(designer): queued edits must not hang, reorder, or clobber others (d51641366)
+- fix(designer): stop silently dropping edits; show real save status (cce8a7cc8)
+
+---
+
 ## v0.7.15
 
 Released: 2026-09-23
@@ -46,22 +68,6 @@ Released: 2026-09-23
 - fix(preview): agents in preview rooms write nothing to Firestore (3b98c739d)
 - feat(agents): answer sparse-rating prompts (9666615ec)
 - fix(textinput): honor the configured textarea row count (a735d4bf0)
-
----
-
-## v0.7.13
-
-Released: 2026-09-17
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(ci): stop splicing commit subjects into the promotion shell script (6053d2d37)
-- fix(recording): restore V2 recordings from the LiveKit rejoin, not a protocol hook (b51bbd264)
-- Revert "fix(recording): give V2 the recording lifecycle it never had" (a749bc723)
-- fix(recording): give V2 the recording lifecycle it never had (b9199bc56)
-- fix(recording): stop starting a duplicate egress on every participant rejoin (6fa4766ff)
 
 ---
 
