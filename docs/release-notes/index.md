@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.18
+
+Released: 2026-09-27
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(recording): V2 client reports LiveKit reconnects; server checks the session with LiveKit (eefaa7146)
+- fix(recording): restore V2 webcam recording after a reconnect on any pod (210634472)
+
+---
+
 ## v0.7.17
 
 Released: 2026-09-24
@@ -40,19 +53,6 @@ Released: 2026-09-24
 - fix(designer): flush the edit actually typed when an editor is torn down (442c9046c)
 - fix(designer): queued edits must not hang, reorder, or clobber others (d51641366)
 - fix(designer): stop silently dropping edits; show real save status (cce8a7cc8)
-
----
-
-## v0.7.15
-
-Released: 2026-09-23
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(preview): rejoin remounted panes; unmount off-step screens; no-deadline pause UI (b055c40a7)
-- feat(preview): open on the first flow step; pause the run off the Run step (c758e0504)
 
 ---
 
