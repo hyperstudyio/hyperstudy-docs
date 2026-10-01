@@ -378,6 +378,56 @@ select {
   color: var(--ifm-color-primary);
 }
 
+/* Keep the seven navbar links on one line alongside the search box.
+   Below 997px Docusaurus collapses the navbar into the mobile menu.
+   The ranges below must not overlap: the CSS minifier reorders media
+   queries, so source order can't be relied on to resolve conflicts. */
+.navbar__item {
+  white-space: nowrap;
+}
+
+@media (min-width: 1300px) and (max-width: 1439.98px) {
+  .navbar__items:not(.navbar__items--right) .navbar__item {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .navbar__search-input {
+    width: 9rem;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1299.98px) {
+  .navbar__title {
+    display: none;
+  }
+
+  .navbar__items:not(.navbar__items--right) .navbar__item {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .navbar__search-input {
+    width: 7rem;
+  }
+}
+
+@media (min-width: 997px) and (max-width: 1099.98px) {
+  .navbar__title {
+    display: none;
+  }
+
+  .navbar__items:not(.navbar__items--right) .navbar__item {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 0.875rem;
+  }
+
+  .navbar__search-input {
+    width: 7rem;
+  }
+}
+
 /* Menu link active state */
 .menu__link--active:not(.menu__link--sublist) {
   background-color: rgba(75, 172, 84, 0.15);
