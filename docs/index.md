@@ -8,8 +8,6 @@ import LogoGraph from '@site/src/components/LogoGraph';
 
 # HyperStudy Documentation
 
-[![Coverage](https://codecov.io/gh/ljchang/hyperstudy/branch/main/graph/badge.svg?token=BW9935BUEY)](https://codecov.io/gh/ljchang/hyperstudy)
-
 ## Social Interaction Research Reimagined
 
 HyperStudy is a cutting-edge platform for conducting psychological and social interaction research. It provides everything you need to design, run, and analyze interactive experiments with synchronized media viewing and real-time participant interactions.
