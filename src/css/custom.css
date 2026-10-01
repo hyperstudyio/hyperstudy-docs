@@ -410,6 +410,11 @@ select {
   .navbar__search-input {
     width: 7rem;
   }
+
+  /* Too narrow for the ⌘K badge; the shortcut itself still works */
+  .navbar__search [class^='searchHintContainer'] {
+    display: none;
+  }
 }
 
 @media (min-width: 997px) and (max-width: 1099.98px) {
@@ -425,6 +430,11 @@ select {
 
   .navbar__search-input {
     width: 7rem;
+  }
+
+  /* Too narrow for the ⌘K badge; the shortcut itself still works */
+  .navbar__search [class^='searchHintContainer'] {
+    display: none;
   }
 }
 

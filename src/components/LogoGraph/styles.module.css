@@ -1,0 +1,149 @@
+/* Ported from the hero visual on hyperstudy.io (landing.svelte) */
+
+/* Nodes drift past the graph edges; clip them here so narrow screens
+   never get a horizontal scrollbar, with room left for the glow. */
+.wrapper {
+  overflow: hidden;
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+}
+
+.graph {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.node {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #4caf50, #2196f3);
+  box-shadow: 0 0 30px rgba(76, 175, 80, 0.4);
+  z-index: 2;
+  animation: node-movement 20s infinite alternate ease-in-out;
+}
+
+/* Node positions follow the HyperStudy logo coordinates */
+.n1 {
+  top: 55%;
+  left: 12%;
+}
+
+.n2 {
+  top: 75%;
+  left: 28%;
+  animation: node-movement-alt 25s infinite alternate-reverse ease-in-out;
+}
+
+.n3 {
+  top: 45%;
+  left: 42%;
+  animation: node-movement-circle 30s infinite linear;
+}
+
+.n4 {
+  top: 15%;
+  left: 62%;
+  animation: node-movement-bounce 22s infinite alternate ease-in-out;
+}
+
+.n5 {
+  top: 38%;
+  left: 78%;
+  animation: node-movement-alt 28s infinite alternate ease-in-out;
+}
+
+.n6 {
+  top: 75%;
+  left: 88%;
+  animation: node-movement-circle 24s infinite alternate-reverse ease-in-out;
+}
+
+/* Position, width and rotation are set from JS to track the nodes */
+.connection {
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    rgba(76, 175, 80, 0.6),
+    rgba(33, 150, 243, 0.6)
+  );
+  transform-origin: left center;
+  z-index: 1;
+}
+
+.thick {
+  height: 3px;
+  margin-top: -1.5px;
+  animation: pulse-line 3s infinite alternate;
+}
+
+.thin {
+  height: 1.5px;
+  margin-top: -0.75px;
+  animation: pulse-line-thin 3s infinite alternate;
+}
+
+@keyframes node-movement {
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(40px, 20px) scale(1.1); }
+  50% { transform: translate(20px, 60px) scale(0.95); }
+  75% { transform: translate(-30px, 30px) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes node-movement-alt {
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-40px, -20px) scale(1.15); }
+  50% { transform: translate(-20px, -50px) scale(0.9); }
+  75% { transform: translate(30px, -30px) scale(1.1); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes node-movement-circle {
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, 30px) scale(1.05); }
+  50% { transform: translate(0, 50px) scale(1.1); }
+  75% { transform: translate(-30px, 30px) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes node-movement-bounce {
+  0% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(-20px, -40px) scale(1.2); }
+  60% { transform: translate(10px, -30px) scale(0.9); }
+  80% { transform: translate(30px, -10px) scale(1.1); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes pulse-line {
+  0% { opacity: 0.3; height: 3px; }
+  100% { opacity: 0.7; height: 4px; }
+}
+
+@keyframes pulse-line-thin {
+  0% { opacity: 0.3; height: 1.5px; }
+  100% { opacity: 0.7; height: 2px; }
+}
+
+/* Smaller nodes and a shorter canvas on phones */
+@media (max-width: 576px) {
+  .graph {
+    height: 280px;
+  }
+
+  .node {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .node,
+  .connection {
+    animation: none;
+  }
+}
