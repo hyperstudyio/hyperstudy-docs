@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.19
+
+Released: 2026-10-05
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(experiment): Scanner Pulse Recorder no longer takes layout space (1ba6ae6c7)
+- fix(trigger): synchronized trigger releases only when every trigger has arrived (7d00d5da1)
+
+---
+
 ## v0.7.18
 
 Released: 2026-09-27
@@ -31,28 +44,6 @@ Released: 2026-09-24
 
 - fix(preview): show only enabled flow steps; align the header controls (4ca317789)
 - fix(sparse-rating): drop the black backing behind the modal countdown (1cde48c69)
-
----
-
-## v0.7.16
-
-Released: 2026-09-24
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(duplicate): unbind unusable agent personas with a warning instead of refusing (e08b77469)
-- fix: agent-role checks on duplicate/import, full design on import, runtime validation, editor count (f877eb57e)
-- fix(k8s): drop ClientIP affinity on backend-service; run CronJobs in production only (7121ece71)
-- fix(deploy): hold production rollouts until no participant is in the flow (9f913b38f)
-- fix(designer): keep the socket open until closing flushes are acknowledged (d467a7cce)
-- fix(designer): show the new role's config after a role switch; validate runtime on create (9f8eb235d)
-- fix(designer): keep the runtime chosen at creation; save role edits to their own role (a7df1cb4f)
-- fix(designer): keep questionnaire prop sync alive after a debounced save (fa1a5e2bd)
-- fix(designer): flush the edit actually typed when an editor is torn down (442c9046c)
-- fix(designer): queued edits must not hang, reorder, or clobber others (d51641366)
-- fix(designer): stop silently dropping edits; show real save status (cce8a7cc8)
 
 ---
 
