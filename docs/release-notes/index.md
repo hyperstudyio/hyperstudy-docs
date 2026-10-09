@@ -8,6 +8,22 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.20
+
+Released: 2026-10-09
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(designer): address code review of the collaborative-sync change (654afa674)
+- test(designer): duplicating a state keeps its global component visibility (f7bc1a0f4)
+- fix(designer): shared op applier refuses prototype keys itself (783f6aca8)
+- fix(designer): collaborative saves address states by id and stay in sync (7e759b66c)
+- fix(designer): global component toggles persist reliably and reach collaborators (098a13be0)
+
+---
+
 ## v0.7.19
 
 Released: 2026-10-05
@@ -31,19 +47,6 @@ Released: 2026-09-27
 
 - fix(recording): V2 client reports LiveKit reconnects; server checks the session with LiveKit (eefaa7146)
 - fix(recording): restore V2 webcam recording after a reconnect on any pod (210634472)
-
----
-
-## v0.7.17
-
-Released: 2026-09-24
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(preview): show only enabled flow steps; align the header controls (4ca317789)
-- fix(sparse-rating): drop the black backing behind the modal countdown (1cde48c69)
 
 ---
 
