@@ -8,6 +8,32 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.22
+
+Released: 2026-10-19
+
+## What's Changed
+
+## Changes since last production release
+
+- test(emulator): join with real sessions under the server-authoritative binding (1b48c3155)
+- test(emulator): let the emulator hosts come from the environment (340279dde)
+- test(waiting-room): replace inert done-callback socket tests with real ones (88517cae6)
+- docs: promotion to production is manual only (2f9d4f1a9)
+- docs: record that deployments of a study share the lobby and waiting room (a63e5ab74)
+- fix(security): attribute live chat to LiveKit's authenticated sender (edb440efd)
+- docs: note session-token readability and live chat sender as follow-ups (51373ac21)
+- fix(security): address review of the session-bound joins (cd3aa3806)
+- fix(waiting-room): write a match's room and session assignments atomically (989b072da)
+- fix(security): actually verify LiveKit webhook signatures (23891a466)
+- fix(security): remove the REST join endpoint (3ef9b268c)
+- fix(security): only a caller's own session may join the waiting room (70b91ead3)
+- fix(security): issue LiveKit tokens from the caller's session, not the request (fa05d192b)
+- fix(security): hold V1 joins and abandons to the caller's own session (1af22d7c7)
+- fix(security): hold V2 joins to the session's assigned room, role and experiment (c4ebd8ed8)
+
+---
+
 ## v0.7.21
 
 Released: 2026-10-18
@@ -99,19 +125,6 @@ Released: 2026-10-09
 - fix(designer): shared op applier refuses prototype keys itself (783f6aca8)
 - fix(designer): collaborative saves address states by id and stay in sync (7e759b66c)
 - fix(designer): global component toggles persist reliably and reach collaborators (098a13be0)
-
----
-
-## v0.7.19
-
-Released: 2026-10-05
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(experiment): Scanner Pulse Recorder no longer takes layout space (1ba6ae6c7)
-- fix(trigger): synchronized trigger releases only when every trigger has arrived (7d00d5da1)
 
 ---
 
