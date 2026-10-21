@@ -32,6 +32,31 @@ An experiment can add **role-specific prompt content** on top of the bound agent
 
 Overrides are **append-only**: they are added after the agent's own prompt fields, never replacing them. The agent's identity (its persona field) can't be overridden by an experiment — that's deliberate, so an agent behaves consistently everywhere it's used. If you need a genuinely different character, duplicate the agent and edit the copy.
 
+## Instructions for one state
+
+You can also give agents instructions for a single state of the experiment. Open the state in the state editor and fill in **Agent guidance (this phase)**. The text is added on top of the agent's own prompt and the role overrides, only while that state is on screen.
+
+![Agent guidance (this phase) in the state editor](/img/agents/voice/state-agent-guidance.jpg)
+
+The field follows the state's focus component configuration:
+
+- When every role sees the same component, there is one **All agents** field, used by every agent in the state.
+- When the component is configured per role, there is one field per agent role.
+
+The section appears only on experiments that use the V2 runtime and have at least one agent role.
+
+## Where agent instructions come from
+
+Instructions reach an agent from three levels. Each level adds to the one above it and never replaces it:
+
+| Level | Where it is edited | Scope |
+|-------|--------------------|-------|
+| **Agent** | Identity, objective and guidance in the [Agent Designer](/experimenters/ai-agents/designing-agents#writing-the-prompt) | Every experiment that uses the agent |
+| **Experiment** | The role's **Objective** and **Guidance** on the experiment's **Agents** tab ([Role overrides](#role-overrides)) | This role in this experiment |
+| **State** | **Agent guidance (this phase)** in the state editor ([above](#instructions-for-one-state)) | One state |
+
+A text agent receives the agent's fields with the role overrides appended to each, followed by the current state's guidance. A [voice agent](/experimenters/ai-agents/voice-agents#how-the-agents-instructions-are-built) receives the same layers, with a description of the spoken setting and its speaking style in between.
+
 ## Pacing and seed
 
 Two settings are controlled by the experiment (they override the agent's values):
@@ -59,6 +84,7 @@ When you deploy, every agent role is validated before any room launches. All fai
 | Agent not found | The bound agent was deleted (broken reference) | Re-bind to an existing agent |
 | No provider key | The agent's provider has no usable API key for you or your organization | Add one in [Settings → API Keys](/experimenters/ai-agents/connecting-providers) |
 | Custom endpoint unreachable | The agent uses a custom endpoint that didn't answer the probe | Confirm your [endpoint is serving](/developers/custom-agents) and the tunnel URL is current |
+| `voice: ...` | A voice agent's requirements are not met (for example, more than one human, no video chat, or an untested voice engine) | See [Voice Agents](/experimenters/ai-agents/voice-agents#what-blocks-a-deployment) |
 
 ## Mixed sessions
 

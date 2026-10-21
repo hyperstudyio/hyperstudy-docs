@@ -15,6 +15,8 @@ Agents produce two layers of data: everything a human participant would produce,
 
 **Run manifests.** Each agent's run gets a manifest recording the model and provider used, token and cost totals, the random seed, the agent (persona) ID, and the platform code version — everything needed to reproduce or audit a run.
 
+**Voice conversations.** A [voice agent](/experimenters/ai-agents/voice-agents)'s conversation is recorded as `voice.*` events: every speech turn by the agent and the participant, and what the voice engine was told. See [Voice Agents: Data](/experimenters/ai-agents/voice-agents#data).
+
 ## Viewing agent data
 
 Open **Data Management** for an experiment with agent runs:

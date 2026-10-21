@@ -22,16 +22,19 @@ Agents are organization-level resources: you own the ones you create, and you ca
 
 ## The agent designer
 
-Opening an agent launches the designer, which autosaves as you edit. It has four tabs:
+Opening an agent launches the designer, which autosaves as you edit. It has five tabs:
 
 | Tab | What you configure |
 |-----|--------------------|
-| **Definition** | Name, description, memory persistence, and language |
+| **Definition** | Name, display name, avatar, description, and memory persistence |
 | **Cognition** | The agent's identity and goals, plus optional online (per-turn) and offline (between-episode) reasoning (experimental — see [Cognition](/experimenters/ai-agents/cognition)) |
 | **Model & Guardrails** | Provider, model, generation parameters, and safety limits |
+| **Voice** | Whether the agent talks in the video chat, and its voice (see [Voice Agents](/experimenters/ai-agents/voice-agents)) |
 | **Sharing** | Who else can view or edit this agent |
 
 ![The agent designer's Definition tab](/img/agents/designer-definition.jpg)
+
+The **Display name** is the name other participants see in chat and video; when it is empty they see the agent's name. The **Avatar** is the picture other participants see on the agent's video tile. See [Avatars](/experimenters/ai-agents/voice-agents#avatars).
 
 ## Writing the prompt
 
@@ -75,13 +78,13 @@ Deployments add one more layer: an experiment-wide USD budget that halts the lau
 
 ![Guardrails in the Model & Guardrails tab — blank fields mean the defaults apply](/img/agents/designer-guardrails.jpg)
 
-## Memory and language
+## Memory
 
 - **Memory persistence** — by default, agents start fresh in every room (`none`). Cross-experiment persistence lets an agent carry memories between sessions (experimental, used with the [cognition system](/experimenters/ai-agents/cognition)).
 - **Seed memories** — optional starting memories, useful for giving an agent a backstory that its memory system can recall. Edited as **Seeded events** on an episodic store's panel on the Cognition canvas.
-- **Language** — the language the agent should converse in.
 
 ## Next steps
 
 - [Connect a provider](/experimenters/ai-agents/connecting-providers) so your agent has a model to run on
 - [Add the agent to an experiment](/experimenters/ai-agents/agents-in-experiments)
+- [Give the agent a voice](/experimenters/ai-agents/voice-agents)

@@ -112,7 +112,7 @@ The rail beside the offline canvas configures the loop as a whole:
 - **Budget per run** — max LLM calls and max tokens
 - **Drives** — optional self-improvement urgency and mistake sensitivity, which scale how aggressively replay prioritizes failures
 
-Offline cognition pairs with **cross-experiment memory persistence** ([Designing Agents](/experimenters/ai-agents/designing-agents#memory-and-language)) so what an agent learns can carry into its next session.
+Offline cognition pairs with **cross-experiment memory persistence** ([Designing Agents](/experimenters/ai-agents/designing-agents#memory)) so what an agent learns can carry into its next session.
 
 :::note Rebuilding older agents
 Agents whose reasoning configuration predates the canvas (or uses the retired single-graph format) no longer run their old config — the designer shows a rebuild notice, and your first edit on the canvas replaces the old graph.

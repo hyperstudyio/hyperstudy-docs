@@ -11,6 +11,7 @@ HyperStudy can run **AI agents as experiment participants**. Agents are powered 
 
 - **Participate in real experiments**: agents perceive the current experiment state (instructions, stimuli, chat messages, co-participant activity), make decisions, and respond to components — ratings, multiple choice, text input, and chat.
 - **Play any role**: any role in a multi-participant experiment can be assigned to an agent instead of a human.
+- **Talk**: a [voice agent](/experimenters/ai-agents/voice-agents) joins the video chat and holds a spoken conversation with a participant in real time.
 - **Run at scale**: agent-only deployments launch batches of rooms with budget controls, live monitoring, and per-room stop/retry.
 - **Produce analyzable data**: every agent turn is logged as a decision record (prompt, reasoning, chosen action), and every run gets a manifest with the model, token/cost totals, and random seed for reproducibility. Agents also emit the same event and component records as human participants, so your existing analysis pipelines work unchanged.
 
@@ -30,8 +31,9 @@ HyperStudy can run **AI agents as experiment participants**. Agents are powered 
 1. **[Design an agent](/experimenters/ai-agents/designing-agents)** — create a persona in your library with a structured prompt and model settings.
 2. **[Connect a provider](/experimenters/ai-agents/connecting-providers)** — add an API key for Anthropic, OpenAI, or Gemini, or [serve your own model](/developers/custom-agents) with the `hyperstudy-agent` CLI.
 3. **[Add agents to an experiment](/experimenters/ai-agents/agents-in-experiments)** — bind personas to roles in the experiment designer.
-4. **[Deploy and monitor](/experimenters/ai-agents/deploying-and-monitoring)** — launch agent-only or mixed deployments and watch agents think in real time.
-5. **[Analyze the data](/experimenters/ai-agents/agent-data)** — inspect decisions and runs in Data Management, or pull them with the Python SDK.
+4. **[Give an agent a voice](/experimenters/ai-agents/voice-agents)** (optional) — let the agent talk with a participant in the video chat.
+5. **[Deploy and monitor](/experimenters/ai-agents/deploying-and-monitoring)** — launch agent-only or mixed deployments and watch agents think in real time.
+6. **[Analyze the data](/experimenters/ai-agents/agent-data)** — inspect decisions and runs in Data Management, or pull them with the Python SDK.
 
 ## Requirements
 

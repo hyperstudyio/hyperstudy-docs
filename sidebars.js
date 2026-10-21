@@ -110,6 +110,7 @@ module.exports = {
             'experimenters/ai-agents/connecting-providers',
             'experimenters/ai-agents/custom-endpoints',
             'experimenters/ai-agents/agents-in-experiments',
+            'experimenters/ai-agents/voice-agents',
             'experimenters/ai-agents/deploying-and-monitoring',
             'experimenters/ai-agents/agent-data',
             'experimenters/ai-agents/cognition',

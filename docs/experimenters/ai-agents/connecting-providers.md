@@ -20,6 +20,8 @@ Agents need an LLM provider to run. HyperStudy supports **Anthropic** (default),
 These are keys for LLM providers (used to power agents), not HyperStudy's own [REST API keys](/experimenters/api-access/api-keys) — those are managed separately.
 :::
 
+[Voice agents](/experimenters/ai-agents/voice-agents) always need an **OpenAI** key, whatever provider the agent's text model uses, because the voice engine is OpenAI Realtime.
+
 ## Personal vs. organization-shared keys
 
 - **Personal keys** are used by deployments you launch.
