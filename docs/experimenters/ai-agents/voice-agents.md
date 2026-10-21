@@ -217,7 +217,7 @@ Guardrails can only act on what a voice agent said after it has been said. Nothi
 
 ## Engine conformance
 
-HyperStudy only starts a voice agent on an engine and model that have a stored, passing report from its voice engine conformance suite, at the current version of the suite. The suite checks, with recorded speech, that the engine detects turns, stops when interrupted, answers questions silently, accepts images, and more. Running it is an administrator or developer task; the [agent adapter specification](https://docs.hyperstudy.io/developers/agent-adapters) describes it in full.
+HyperStudy only starts a voice agent on an engine and model that have a stored, passing report from its voice engine conformance suite, at the current version of the suite. The suite checks, with recorded speech, that the engine detects turns, stops when interrupted, answers questions silently, accepts images, and more. Running it is an administrator or developer task; the [agent adapter specification](/developers/agent-adapters/conformance) describes it in full.
 
 If you change the **Model** on the Voice tab to one that has not been tested, or the suite is updated, deployment is blocked until the suite has been run again and has passed.
 
