@@ -8,6 +8,22 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.25
+
+Released: 2026-10-22
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(engine): agent roles do not hold a SYNCHRONIZED trigger state (6df1540cf)
+- fix(preview): agent previews take edit access; end the run on leave; show spawn failures (c474f78a1)
+- feat(preview): agent-only previews, and an agent pane reasoning toggle (9fb6ad61c)
+- fix(spectate): ask the owning pod to activate only once subscribed (28d87fcda)
+- feat(preview): agent roles get an agent pane showing what the agent is given (6e6c665c2)
+
+---
+
 ## v0.7.24
 
 Released: 2026-10-22
@@ -158,32 +174,6 @@ Released: 2026-10-21
 - fix(runner-v2): never use a participant's email as their display name (ec1d9b329)
 - feat(agents): persona display name shown to other participants (f731f0def)
 - docs: voice agents design (HyperStudy Realtime Profile, voice bridge, engines) (37eddcc8c)
-
----
-
-## v0.7.22
-
-Released: 2026-10-19
-
-## What's Changed
-
-## Changes since last production release
-
-- test(emulator): join with real sessions under the server-authoritative binding (1b48c3155)
-- test(emulator): let the emulator hosts come from the environment (340279dde)
-- test(waiting-room): replace inert done-callback socket tests with real ones (88517cae6)
-- docs: promotion to production is manual only (2f9d4f1a9)
-- docs: record that deployments of a study share the lobby and waiting room (a63e5ab74)
-- fix(security): attribute live chat to LiveKit's authenticated sender (edb440efd)
-- docs: note session-token readability and live chat sender as follow-ups (51373ac21)
-- fix(security): address review of the session-bound joins (cd3aa3806)
-- fix(waiting-room): write a match's room and session assignments atomically (989b072da)
-- fix(security): actually verify LiveKit webhook signatures (23891a466)
-- fix(security): remove the REST join endpoint (3ef9b268c)
-- fix(security): only a caller's own session may join the waiting room (70b91ead3)
-- fix(security): issue LiveKit tokens from the caller's session, not the request (fa05d192b)
-- fix(security): hold V1 joins and abandons to the caller's own session (1af22d7c7)
-- fix(security): hold V2 joins to the session's assigned room, role and experiment (c4ebd8ed8)
 
 ---
 
