@@ -7,8 +7,8 @@ sidebar_position: 4
 
 # Voice engine conformance suite
 
-:::info Spec version 0.2.0 (draft)
-Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.2.0/agent-spec.json).
+:::info Spec version 0.2.1 (draft)
+Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.2.1/agent-spec.json).
 :::
 
 Before HyperStudy starts a voice agent on an engine, that engine and model

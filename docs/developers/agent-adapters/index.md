@@ -7,8 +7,8 @@ sidebar_position: 1
 
 # Agent Adapter Spec
 
-:::info Spec version 0.2.0 (draft)
-Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.2.0/agent-spec.json).
+:::info Spec version 0.2.1 (draft)
+Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.2.1/agent-spec.json).
 :::
 
 HyperStudy runs experiments in which some participants are AI agents. An
@@ -289,7 +289,7 @@ Every change is listed in the [changelog](./changelog.md).
 The full contract is also published as JSON, one file per version, for code
 generation and diffing:
 
-- This version: [/agent-spec/0.2.0/agent-spec.json](pathname:///agent-spec/0.2.0/agent-spec.json)
+- This version: [/agent-spec/0.2.1/agent-spec.json](pathname:///agent-spec/0.2.1/agent-spec.json)
 - Latest: [/agent-spec/latest/agent-spec.json](pathname:///agent-spec/latest/agent-spec.json)
 
 The voice [conformance suite](./conformance.md) has its own version, which a

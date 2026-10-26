@@ -7,9 +7,17 @@ sidebar_position: 5
 
 # Changelog
 
-:::info Spec version 0.2.0 (draft)
-Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.2.0/agent-spec.json).
+:::info Spec version 0.2.1 (draft)
+Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.2.1/agent-spec.json).
 :::
+
+## 0.2.1 (2026-10-26)
+
+- A RapidRate shown as a screen's own question (not only inside a rating
+  pause) is now answerable: `answerableComponents.screen` includes
+  `rapidrate`. Text agents answer it with `submit_response` and voice engines
+  with `answer_dimensions`, a 0–100 score for every dimension keyed by its
+  label, exactly as in a rating pause.
 
 ## 0.2.0 (2026-10-21)
 

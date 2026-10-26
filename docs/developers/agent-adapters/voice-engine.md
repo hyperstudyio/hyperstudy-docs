@@ -7,8 +7,8 @@ sidebar_position: 3
 
 # Voice engine: the HyperStudy Realtime Profile (HRP)
 
-:::info Spec version 0.2.0 (draft)
-Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.2.0/agent-spec.json).
+:::info Spec version 0.2.1 (draft)
+Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.2.1/agent-spec.json).
 :::
 
 A voice agent speaks and listens in the study's video chat. HyperStudy keeps
