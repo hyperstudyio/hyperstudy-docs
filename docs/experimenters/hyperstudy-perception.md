@@ -43,3 +43,28 @@ its layers.
 ## Release Notes
 
 <!-- RELEASE_NOTES_START -->
+
+### v0.1.0
+
+**Released:** 2026-10-26
+
+#### What's Changed
+* Publish to PyPI, cut releases from a tag, MIT licence by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/1
+* RunPod image: under hyperstudyio, and built on branch pushes only by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/2
+
+#### New Contributors
+* @ljchang made their first contribution in https://github.com/hyperstudyio/hyperstudy-perception/pull/1
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-perception/commits/v0.1.0
+
+#### Install
+
+```sh
+uv tool install hyperstudy-perception     # or: pip install hyperstudy-perception
+perception doctor
+```
+
+The HyperStudy Annotator app installs and updates it on its own.
+
+
+---
