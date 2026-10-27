@@ -8,6 +8,20 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.28
+
+Released: 2026-10-27
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(voice): credit each engine response to its request by id (34b41827a)
+- fix(voice): a stopped reply stays silent, and a waiting question keeps its place (aeee4acea)
+- fix(voice): never lose a question to the engine's own reply at a screen change (0d810e9e8)
+
+---
+
 ## v0.7.26
 
 Released: 2026-10-23
@@ -35,29 +49,6 @@ Released: 2026-10-22
 - feat(preview): agent-only previews, and an agent pane reasoning toggle (9fb6ad61c)
 - fix(spectate): ask the owning pod to activate only once subscribed (28d87fcda)
 - feat(preview): agent roles get an agent pane showing what the agent is given (6e6c665c2)
-
----
-
-## v0.7.24
-
-Released: 2026-10-22
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(permissions): one rule for managing sharing; new experiments' data starts with owner and org admins (09d3bfd8c)
-- test(deployments): update emulator tests to the owner-and-org-admin default (91b1da948)
-- fix(permissions): experimenters always act in their organization; deployments default to owner and org admins (cf227cca4)
-- fix(data-access): cache data-access answers per session; recognise platform admins (ece5b5377)
-- fix(permissions): session, participant and recording data follow the data permission (a0ee56846)
-- fix(deployments): deployments use the shared permission checks (d7e2b95db)
-- chore: restore performance baseline rewritten by a local test run (62569bf9f)
-- fix(permissions): every share check gets the resource id and type (4c38bcfa1)
-- fix(permissions): shares work for duplicate, update and variables; name external users (ef3282989)
-- fix(org-settings): API key sharing icons render through Icon.svelte (493493a59)
-- ci(promote): dispatch the agent adapter spec sync after each release (91b7d3118)
-- feat(org-settings): share agent provider keys from the organization settings panel (a78f32613)
 
 ---
 
