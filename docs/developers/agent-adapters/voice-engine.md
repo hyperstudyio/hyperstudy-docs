@@ -7,8 +7,8 @@ sidebar_position: 3
 
 # Voice engine: the HyperStudy Realtime Profile (HRP)
 
-:::info Spec version 0.2.1 (draft)
-Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.2.1/agent-spec.json).
+:::info Spec version 0.3.0 (draft)
+Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.3.0/agent-spec.json).
 :::
 
 A voice agent speaks and listens in the study's video chat. HyperStudy keeps
@@ -66,6 +66,28 @@ HyperStudy records when each participant turn was said from the engine's
 off, these count from the start of the session's input audio. Once it is
 switched back on, they must count from that moment: the first audio appended
 after the switch is at 0. No audio is appended while turn detection is off.
+
+## One response at a time
+
+The engine generates one response at a time, as the OpenAI Realtime API
+does. HyperStudy asks for a response only when none is under way, and names
+every `response.create` with an id, sent both as its `event_id` and as
+`response.metadata.hs_request`. The engine must:
+
+- echo the request's `metadata` on the `response.created` (and
+  `response.done`) of the response it creates for it. A response the engine
+  starts on its own, when a participant's turn ends, carries no
+  `hs_request`. This is how HyperStudy tells which request each response
+  answers.
+- refuse a `response.create` that arrives while a response is under way with
+  an `error` whose code is `conversation_already_has_active_response` and
+  whose `event_id` is the refused request's. The engine's own reply can start
+  just before the request reaches it (the participant finished speaking as
+  the screen changed). HyperStudy sends the request again once that reply
+  has ended.
+
+When the participant can no longer be heard, a reply the engine started on
+its own is cancelled as soon as HyperStudy sees it: nobody would hear it.
 
 ## Events HyperStudy sends
 
@@ -261,15 +283,19 @@ Cut the agent's reply at what the participant actually heard, after an interrupt
 
 ### `response.create`
 
-Ask for a reply without a spoken turn (for example to typed chat), or a silent answer to an on-screen question (see Answering questions).
+Ask for a reply without a spoken turn (for example to typed chat), or a silent answer to an on-screen question (see Answering questions). Every request is named by an id, as its event_id and as metadata.hs_request (see One response at a time).
 
 ```json
 {
   "type": "response.create",
+  "event_id": "hs_request_7",
   "response": {
     "output_modalities": [
       "audio"
-    ]
+    ],
+    "metadata": {
+      "hs_request": "hs_request_7"
+    }
   }
 }
 ```
@@ -528,6 +554,7 @@ response that must call the tool for that question:
 ```json
 {
   "type": "response.create",
+  "event_id": "hs_request_8",
   "response": {
     "output_modalities": [
       "text"
@@ -535,6 +562,9 @@ response that must call the tool for that question:
     "tool_choice": {
       "type": "function",
       "name": "answer_scale"
+    },
+    "metadata": {
+      "hs_request": "hs_request_8"
     }
   }
 }
@@ -543,4 +573,5 @@ response that must call the tool for that question:
 The participant never hears the agent answer. HyperStudy checks the answer
 against the question. A refused answer goes back to the engine as an error
 output and is asked for again, silently, a limited number of times. An
-accepted answer is not followed by any speech.
+answer the engine cancels (the participant started speaking) is asked for
+again once they finish. An accepted answer is not followed by any speech.

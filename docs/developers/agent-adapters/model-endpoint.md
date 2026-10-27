@@ -7,8 +7,8 @@ sidebar_position: 2
 
 # Model endpoint (text agents)
 
-:::info Spec version 0.2.1 (draft)
-Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.2.1/agent-spec.json).
+:::info Spec version 0.3.0 (draft)
+Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.3.0/agent-spec.json).
 :::
 
 A model endpoint is an OpenAI-compatible Chat Completions server that

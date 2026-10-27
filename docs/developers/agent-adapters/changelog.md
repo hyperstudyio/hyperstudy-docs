@@ -7,9 +7,22 @@ sidebar_position: 5
 
 # Changelog
 
-:::info Spec version 0.2.1 (draft)
-Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.2.1/agent-spec.json).
+:::info Spec version 0.3.0 (draft)
+Generated from the HyperStudy source. Machine-readable: [agent-spec.json](pathname:///agent-spec/0.3.0/agent-spec.json).
 :::
+
+## 0.3.0 (2026-10-27)
+
+- Every `response.create` HyperStudy sends is named by a request id, as its
+  `event_id` and as `response.metadata.hs_request`. An engine must echo the
+  request's `metadata` on the response it creates, and must refuse a request
+  that arrives while a response is under way with a
+  `conversation_already_has_active_response` error carrying that request's
+  `event_id` (see "One response at a time" on the voice engine page).
+  HyperStudy credits each response to the request that produced it by that
+  id, and sends a refused request again after the reply that displaced it.
+- An answer to an on-screen question that the engine cancels (the
+  participant started speaking) is asked for again once they finish.
 
 ## 0.2.1 (2026-10-26)
 

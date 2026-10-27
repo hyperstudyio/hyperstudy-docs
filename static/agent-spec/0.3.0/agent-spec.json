@@ -1,0 +1,794 @@
+{
+  "specVersion": "0.3.0",
+  "status": "draft",
+  "answerableComponents": {
+    "screen": [
+      "multiplechoice",
+      "likertscale",
+      "vasrating",
+      "ranking",
+      "textinput",
+      "rapidrate"
+    ],
+    "ratingPause": [
+      "multiplechoice",
+      "likertscale",
+      "vasrating",
+      "ranking",
+      "textinput",
+      "rapidrate",
+      "audiorecording"
+    ]
+  },
+  "answers": [
+    {
+      "componentType": "multiplechoice",
+      "shownOn": "screen or rating pause",
+      "exampleConfig": {
+        "question": "Which drink do you prefer?",
+        "choices": [
+          "Coffee",
+          "Tea"
+        ]
+      },
+      "valueSchema": {
+        "type": "string",
+        "description": "The exact text of the selected choice."
+      },
+      "voiceTool": "answer_choice"
+    },
+    {
+      "componentType": "multiplechoice",
+      "shownOn": "screen or rating pause",
+      "exampleConfig": {
+        "question": "Which colours do you like?",
+        "choices": [
+          "Red",
+          "Green",
+          "Blue"
+        ],
+        "allowMultiple": true
+      },
+      "valueSchema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The exact text(s) of the selected choice(s)."
+      },
+      "voiceTool": "answer_choices"
+    },
+    {
+      "componentType": "likertscale",
+      "shownOn": "screen or rating pause",
+      "exampleConfig": {
+        "question": "I enjoyed the conversation.",
+        "scale": 7
+      },
+      "valueSchema": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 7,
+        "description": "Selected scale point, 1 to 7."
+      },
+      "voiceTool": "answer_scale"
+    },
+    {
+      "componentType": "vasrating",
+      "shownOn": "screen or rating pause",
+      "exampleConfig": {
+        "question": "How warm was your partner?",
+        "minValue": 0,
+        "maxValue": 100
+      },
+      "valueSchema": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100,
+        "description": "Rating between 0 and 100."
+      },
+      "voiceTool": "answer_scale"
+    },
+    {
+      "componentType": "ranking",
+      "shownOn": "screen or rating pause",
+      "exampleConfig": {
+        "question": "Rank these activities.",
+        "options": [
+          "Reading",
+          "Hiking",
+          "Cooking"
+        ]
+      },
+      "valueSchema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "All item texts in ranked order."
+      },
+      "voiceTool": "answer_ranking"
+    },
+    {
+      "componentType": "textinput",
+      "shownOn": "screen or rating pause",
+      "exampleConfig": {
+        "question": "Describe your partner in one sentence."
+      },
+      "valueSchema": {
+        "type": "string",
+        "description": "Free-text answer."
+      },
+      "voiceTool": "answer_text"
+    },
+    {
+      "componentType": "rapidrate",
+      "shownOn": "rating pause",
+      "exampleConfig": {
+        "prompt": "How do you feel right now?",
+        "dimensions": [
+          {
+            "label": "Calm"
+          },
+          {
+            "label": "Happy"
+          }
+        ]
+      },
+      "valueSchema": {
+        "type": "object",
+        "properties": {
+          "Calm": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "Happy": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "Calm",
+          "Happy"
+        ],
+        "additionalProperties": false,
+        "description": "A 0-100 score for every dimension, keyed by its label."
+      },
+      "voiceTool": "answer_dimensions"
+    },
+    {
+      "componentType": "audiorecording",
+      "shownOn": "rating pause",
+      "exampleConfig": {
+        "prompt": "Say what just happened."
+      },
+      "valueSchema": {
+        "type": "string",
+        "description": "The exact words you would say aloud."
+      },
+      "voiceTool": "answer_text"
+    }
+  ],
+  "modelEndpoint": {
+    "api": "OpenAI Chat Completions, with function tool calling",
+    "baseUrl": "A public https URL ending in the API root, e.g. https://agent.example.org/v1. Private, loopback and LAN addresses are refused.",
+    "authentication": "Authorization: Bearer <api key>",
+    "requests": [
+      "GET {baseUrl}/models",
+      "POST {baseUrl}/chat/completions"
+    ],
+    "toolChoice": "auto",
+    "retries": 0,
+    "requestTimeoutMs": {
+      "default": 60000,
+      "min": 10000,
+      "max": 300000
+    },
+    "connectionTest": [
+      {
+        "request": "GET {baseUrl}/models",
+        "timeoutMs": 10000,
+        "passes": "Any response except a server error. The first model id, if listed, is used as the model name."
+      },
+      {
+        "request": "POST {baseUrl}/chat/completions",
+        "timeoutMs": 30000,
+        "passes": "A 1-token completion returns 200 with a choices array. 401 or 403 means the key was refused."
+      }
+    ],
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "send_chat",
+          "description": "Send a chat message to the other participant(s) in the experiment.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The message text to send."
+              }
+            },
+            "required": [
+              "message"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "wait",
+          "description": "Take no action this turn. Use when nothing is required of you right now.",
+          "parameters": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "submit_response",
+          "description": "Submit your response to the current \"vasrating\" component.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100,
+                "description": "Rating between 0 and 100."
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    ],
+    "toolsNote": "send_chat is offered only when the study has text chat; submit_response only while a question is on screen, with the value schema of that question (see Answer schemas)."
+  },
+  "voiceEngine": {
+    "profile": "HyperStudy Realtime Profile (HRP)",
+    "basis": "A pinned subset of the OpenAI Realtime API (GA), over WebSocket.",
+    "supportedProviders": [
+      "openai"
+    ],
+    "connection": {
+      "url": "wss://api.openai.com/v1/realtime?model=gpt-realtime-2.1",
+      "headers": {
+        "Authorization": "Bearer <api key>",
+        "OpenAI-Safety-Identifier": "hs-<opaque id>"
+      }
+    },
+    "audio": {
+      "encoding": "PCM16, little-endian, mono",
+      "sampleRateHz": 24000,
+      "formatField": {
+        "type": "audio/pcm",
+        "rate": 24000
+      },
+      "maxAudioDeltaMs": 2000
+    },
+    "clientEvents": [
+      {
+        "type": "session.update",
+        "purpose": "Configure the session at start: instructions, voice, the declared tools, audio format and turn detection.",
+        "example": {
+          "type": "session.update",
+          "session": {
+            "type": "realtime",
+            "output_modalities": [
+              "audio"
+            ],
+            "instructions": "<the persona and study instructions>",
+            "tools": [
+              {
+                "type": "function",
+                "name": "answer_choice",
+                "description": "Answer the on-screen multiple-choice question with one choice, using its exact text.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "choice": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "choice"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            ],
+            "tool_choice": "auto",
+            "audio": {
+              "input": {
+                "format": {
+                  "type": "audio/pcm",
+                  "rate": 24000
+                },
+                "transcription": null,
+                "turn_detection": {
+                  "type": "server_vad",
+                  "silence_duration_ms": 500,
+                  "create_response": true,
+                  "interrupt_response": true
+                }
+              },
+              "output": {
+                "format": {
+                  "type": "audio/pcm",
+                  "rate": 24000
+                },
+                "voice": "marin",
+                "speed": 1
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "session.update",
+        "purpose": "Change only the instructions when the study enters a part with its own agent guidance. Every other session setting is kept.",
+        "example": {
+          "type": "session.update",
+          "session": {
+            "type": "realtime",
+            "instructions": "<the persona and study instructions, with guidance for this part>"
+          }
+        }
+      },
+      {
+        "type": "session.update",
+        "purpose": "Switch turn detection off when the participant can no longer be heard (the screen stops showing the video chat), and back on when they can. Switching it off must end the engine's turn in progress, so their next speech is a new turn.",
+        "example": {
+          "type": "session.update",
+          "session": {
+            "type": "realtime",
+            "audio": {
+              "input": {
+                "format": {
+                  "type": "audio/pcm",
+                  "rate": 24000
+                },
+                "transcription": null,
+                "turn_detection": null
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "input_audio_buffer.commit",
+        "purpose": "Keep what the participant said before they were cut off as their turn: sent with turn detection off, it commits that same turn and must not start a reply.",
+        "example": {
+          "type": "input_audio_buffer.commit"
+        }
+      },
+      {
+        "type": "input_audio_buffer.append",
+        "purpose": "Stream the participant's microphone audio, only while the study shows the video chat.",
+        "example": {
+          "type": "input_audio_buffer.append",
+          "audio": "<base64 PCM16>"
+        }
+      },
+      {
+        "type": "conversation.item.create",
+        "purpose": "Tell the engine what is happening in the study: a [context] item (see Context items).",
+        "example": {
+          "type": "conversation.item.create",
+          "item": {
+            "type": "message",
+            "role": "user",
+            "content": [
+              {
+                "type": "input_text",
+                "text": "[context] {\"event\":\"screen\",\"type\":\"showtext\",\"text\":\"Please introduce yourselves.\"}"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "conversation.item.create",
+        "purpose": "A screen with images: each image the participant sees is attached to the screen's [context] item as an input_image data URL, once per session.",
+        "example": {
+          "type": "conversation.item.create",
+          "item": {
+            "type": "message",
+            "role": "user",
+            "content": [
+              {
+                "type": "input_text",
+                "text": "[context] {\"event\":\"screen\",\"type\":\"showimage\",\"text\":\"Look at this face.\",\"images\":[\"attached: the image (a smiling face)\"]}"
+              },
+              {
+                "type": "input_image",
+                "image_url": "data:image/png;base64,<base64 bytes>"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "conversation.item.create",
+        "purpose": "Answer a function call: a JSON result, or {\"error\": \"<reason>\"} when the call was refused.",
+        "example": {
+          "type": "conversation.item.create",
+          "item": {
+            "type": "function_call_output",
+            "call_id": "<call_id>",
+            "output": "{\"accepted\":true}"
+          }
+        }
+      },
+      {
+        "type": "conversation.item.truncate",
+        "purpose": "Cut the agent's reply at what the participant actually heard, after an interruption.",
+        "example": {
+          "type": "conversation.item.truncate",
+          "item_id": "<item_id>",
+          "content_index": 0,
+          "audio_end_ms": 1840
+        }
+      },
+      {
+        "type": "response.create",
+        "purpose": "Ask for a reply without a spoken turn (for example to typed chat), or a silent answer to an on-screen question (see Answering questions). Every request is named by an id, as its event_id and as metadata.hs_request (see One response at a time).",
+        "example": {
+          "type": "response.create",
+          "event_id": "hs_request_7",
+          "response": {
+            "output_modalities": [
+              "audio"
+            ],
+            "metadata": {
+              "hs_request": "hs_request_7"
+            }
+          }
+        }
+      },
+      {
+        "type": "response.cancel",
+        "purpose": "Stop the reply in progress.",
+        "example": {
+          "type": "response.cancel",
+          "response_id": "<response_id>"
+        }
+      }
+    ],
+    "serverEvents": {
+      "required": {
+        "session.created": [
+          "session"
+        ],
+        "session.updated": [
+          "session"
+        ],
+        "input_audio_buffer.speech_started": [
+          "audio_start_ms",
+          "item_id"
+        ],
+        "input_audio_buffer.speech_stopped": [
+          "audio_end_ms",
+          "item_id"
+        ],
+        "input_audio_buffer.committed": [
+          "item_id"
+        ],
+        "conversation.item.added": [
+          "item"
+        ],
+        "conversation.item.done": [
+          "item"
+        ],
+        "conversation.item.truncated": [
+          "item_id",
+          "audio_end_ms"
+        ],
+        "response.created": [
+          "response"
+        ],
+        "response.done": [
+          "response"
+        ],
+        "response.output_audio.delta": [
+          "response_id",
+          "item_id",
+          "delta"
+        ],
+        "response.output_audio.done": [
+          "response_id",
+          "item_id"
+        ],
+        "response.output_audio_transcript.delta": [
+          "response_id",
+          "item_id",
+          "delta"
+        ],
+        "response.output_audio_transcript.done": [
+          "response_id",
+          "item_id",
+          "transcript"
+        ],
+        "response.function_call_arguments.done": [
+          "response_id",
+          "call_id",
+          "name",
+          "arguments"
+        ],
+        "conversation.item.input_audio_transcription.completed": [
+          "item_id",
+          "transcript"
+        ],
+        "conversation.item.input_audio_transcription.failed": [
+          "item_id",
+          "error"
+        ],
+        "error": [
+          "error"
+        ]
+      },
+      "ignored": [
+        "rate_limits.updated",
+        "response.output_item.added",
+        "response.output_item.done",
+        "response.content_part.added",
+        "response.content_part.done",
+        "response.function_call_arguments.delta",
+        "response.output_text.delta",
+        "response.output_text.done",
+        "conversation.item.input_audio_transcription.delta",
+        "conversation.item.input_audio_transcription.segment",
+        "input_audio_buffer.cleared",
+        "input_audio_buffer.timeout_triggered",
+        "output_audio_buffer.started",
+        "output_audio_buffer.stopped",
+        "output_audio_buffer.cleared"
+      ]
+    },
+    "contextItems": [
+      "[context] {\"event\":\"participants\",\"others\":[{\"name\":\"Alex\",\"role\":\"A\"}]}",
+      "[context] {\"event\":\"screen\",\"type\":\"showtext\",\"text\":\"Please introduce yourselves.\"}",
+      "[context] {\"event\":\"screen\",\"type\":\"vasrating\",\"text\":\"How trustworthy is this face?\",\"images\":[\"attached: the image (Face 3)\"]}",
+      "[context] {\"event\":\"typed\",\"speaker\":\"Alex\",\"said\":\"hello?\"}",
+      "[context] {\"event\":\"question\",\"tool\":\"answer_scale\",\"question\":\"Question: How warm was your partner?\\nThis is a visual analog rating scale from 0 to 100.\\nRespond with a number between 0 and 100.\",\"duringVideo\":false}",
+      "[context] {\"event\":\"timer\",\"secondsLeft\":30}",
+      "[context] {\"event\":\"experimenter_message\",\"text\":\"Please answer honestly.\"}",
+      "[context] {\"event\":\"revealed\",\"name\":\"Alex\",\"role\":\"A\",\"answer\":70}",
+      "[context] {\"event\":\"paused\",\"waitingFor\":[\"Alex (A)\"]}",
+      "[context] {\"event\":\"resumed\"}"
+    ],
+    "tools": [
+      {
+        "name": "send_chat",
+        "description": "Type a message in the text chat that the other participant can see.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "The message to type."
+            }
+          },
+          "required": [
+            "message"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "answer_choice",
+        "description": "Answer the on-screen multiple-choice question with one choice, using its exact text.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "answer_choices",
+        "description": "Answer the on-screen multiple-choice question that allows several choices, using their exact texts.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "choices": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "choices"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "answer_scale",
+        "description": "Answer the on-screen rating scale with a number in its range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "answer_ranking",
+        "description": "Answer the on-screen ranking with every item text, in your order.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "order": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "order"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "answer_text",
+        "description": "Answer the on-screen question that asks for text (or for words you would say aloud).",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "answer_dimensions",
+        "description": "Answer the on-screen multi-dimension rating with a score for every dimension, keyed by its label.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "scores": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "scores"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ],
+    "questionRequest": {
+      "type": "response.create",
+      "event_id": "hs_request_8",
+      "response": {
+        "output_modalities": [
+          "text"
+        ],
+        "tool_choice": {
+          "type": "function",
+          "name": "answer_scale"
+        },
+        "metadata": {
+          "hs_request": "hs_request_8"
+        }
+      }
+    },
+    "functionOutputs": {
+      "accepted": {
+        "accepted": true
+      },
+      "refused": {
+        "error": "<why the answer was refused>"
+      }
+    }
+  },
+  "conformance": {
+    "suiteVersion": 6,
+    "turnDetections": [
+      {
+        "type": "server_vad",
+        "silence_duration_ms": 500
+      },
+      {
+        "type": "semantic_vad",
+        "eagerness": "auto"
+      }
+    ],
+    "thresholds": {
+      "maxOnsetDelayMs": 1000,
+      "maxResponseStartMs": 5000,
+      "maxCancelToDoneMs": 1500,
+      "eventTimeoutMs": 15000,
+      "noReplyWindowMs": 1500,
+      "truncateAckTimeoutMs": 3000
+    },
+    "checks": [
+      {
+        "id": "handshake",
+        "description": "The engine acknowledges the session update with PCM16 at 24 kHz in both directions.",
+        "perTurnDetection": false
+      },
+      {
+        "id": "engine_turn",
+        "description": "With engine turn detection, speech fires speech_started at its onset, the turn is committed, and the engine gives a complete spoken answer with a transcript and usage.",
+        "perTurnDetection": true
+      },
+      {
+        "id": "barge_in",
+        "description": "Speech while the engine is talking fires speech_started, the engine cancels its own response on that edge, and no audio follows. A truncate at the position the platform reports is then acknowledged and graded.",
+        "perTurnDetection": true
+      },
+      {
+        "id": "listening_pause",
+        "description": "Switching turn detection off mid-speech and committing keeps what was said as that same turn, with no reply. With turn detection back on, the next speech starts a new turn, timed from the moment turn detection was switched back on.",
+        "perTurnDetection": true
+      },
+      {
+        "id": "listening_pause_silent",
+        "description": "Switching turn detection off while no one is speaking and back on again: the next speech is timed from the moment turn detection was switched back on.",
+        "perTurnDetection": true
+      },
+      {
+        "id": "cancel",
+        "description": "response.cancel ends the response promptly, and no audio for it arrives afterwards.",
+        "perTurnDetection": false
+      },
+      {
+        "id": "function_call",
+        "description": "The engine calls a declared tool, accepts the function output, and finishes a follow-up response.",
+        "perTurnDetection": false
+      },
+      {
+        "id": "silent_tool",
+        "description": "A response requested with text output only and a forced tool calls exactly that tool once and produces no audio.",
+        "perTurnDetection": false
+      },
+      {
+        "id": "image_context",
+        "description": "An image attached to a context item as an input_image data URL is accepted and seen: asked silently which colour fills it, the engine answers red.",
+        "perTurnDetection": false
+      },
+      {
+        "id": "turn_detection_fields",
+        "description": "Every requested turn-detection setting comes back unchanged in session.updated.",
+        "perTurnDetection": true
+      }
+    ]
+  }
+}

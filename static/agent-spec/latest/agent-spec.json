@@ -1,5 +1,5 @@
 {
-  "specVersion": "0.2.1",
+  "specVersion": "0.3.0",
   "status": "draft",
   "answerableComponents": {
     "screen": [
@@ -444,13 +444,17 @@
       },
       {
         "type": "response.create",
-        "purpose": "Ask for a reply without a spoken turn (for example to typed chat), or a silent answer to an on-screen question (see Answering questions).",
+        "purpose": "Ask for a reply without a spoken turn (for example to typed chat), or a silent answer to an on-screen question (see Answering questions). Every request is named by an id, as its event_id and as metadata.hs_request (see One response at a time).",
         "example": {
           "type": "response.create",
+          "event_id": "hs_request_7",
           "response": {
             "output_modalities": [
               "audio"
-            ]
+            ],
+            "metadata": {
+              "hs_request": "hs_request_7"
+            }
           }
         }
       },
@@ -691,6 +695,7 @@
     ],
     "questionRequest": {
       "type": "response.create",
+      "event_id": "hs_request_8",
       "response": {
         "output_modalities": [
           "text"
@@ -698,6 +703,9 @@
         "tool_choice": {
           "type": "function",
           "name": "answer_scale"
+        },
+        "metadata": {
+          "hs_request": "hs_request_8"
         }
       }
     },
