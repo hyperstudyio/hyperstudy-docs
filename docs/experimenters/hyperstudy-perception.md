@@ -44,6 +44,29 @@ its layers.
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.1.1
+
+**Released:** 2026-10-27
+
+#### What's Changed
+* keys check, cloud check, hosts probe and ssh overrides; nodes' choices in models list by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/3
+* Release 0.1.1 by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/4
+
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-perception/compare/v0.1.0...v0.1.1
+
+#### Install
+
+```sh
+uv tool install hyperstudy-perception     # or: pip install hyperstudy-perception
+perception doctor
+```
+
+The HyperStudy Annotator app installs and updates it on its own.
+
+
+---
+
 ### v0.1.0
 
 **Released:** 2026-10-26
