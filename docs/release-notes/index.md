@@ -8,6 +8,19 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.30
+
+Released: 2026-10-28
+
+## What's Changed
+
+## Changes since last production release
+
+- feat(voice): a dropped voice engine pauses the study and reconnects instead of ending it (fee306af2)
+- fix(webhooks): record each LiveKit webhook once, and verify signatures everywhere (04a028f81)
+
+---
+
 ## v0.7.29
 
 Released: 2026-10-28
@@ -33,20 +46,6 @@ Released: 2026-10-27
 - fix(voice): credit each engine response to its request by id (34b41827a)
 - fix(voice): a stopped reply stays silent, and a waiting question keeps its place (aeee4acea)
 - fix(voice): never lose a question to the engine's own reply at a screen change (0d810e9e8)
-
----
-
-## v0.7.26
-
-Released: 2026-10-23
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(k8s): hpa-floor review fixes — pull secret, manual raises, no apply gap (c087d331d)
-- feat(k8s): keep the backend HPA from removing a pod that is running experiments (86941745d)
-- fix(k8s): keep a draining backend pod resolvable so participants can reconnect (8ba8ea9b4)
 
 ---
 
