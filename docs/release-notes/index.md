@@ -8,6 +8,20 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.29
+
+Released: 2026-10-28
+
+## What's Changed
+
+## Changes since last production release
+
+- docs(plan): state randomization and random variables for the V2 runner (557bb7e71)
+- test(designer): split the run-order edit-sequence test into seed batches (a891348e0)
+- fix(designer): keep state and group run order intact across edits (6061466e3)
+
+---
+
 ## v0.7.28
 
 Released: 2026-10-27
@@ -33,22 +47,6 @@ Released: 2026-10-23
 - fix(k8s): hpa-floor review fixes — pull secret, manual raises, no apply gap (c087d331d)
 - feat(k8s): keep the backend HPA from removing a pod that is running experiments (86941745d)
 - fix(k8s): keep a draining backend pod resolvable so participants can reconnect (8ba8ea9b4)
-
----
-
-## v0.7.25
-
-Released: 2026-10-22
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(engine): agent roles do not hold a SYNCHRONIZED trigger state (6df1540cf)
-- fix(preview): agent previews take edit access; end the run on leave; show spawn failures (c474f78a1)
-- feat(preview): agent-only previews, and an agent pane reasoning toggle (9fb6ad61c)
-- fix(spectate): ask the owning pod to activate only once subscribed (28d87fcda)
-- feat(preview): agent roles get an agent pane showing what the agent is given (6e6c665c2)
 
 ---
 
