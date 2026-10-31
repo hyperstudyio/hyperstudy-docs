@@ -44,6 +44,29 @@ its layers.
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.1.3
+
+**Released:** 2026-10-31
+
+#### What's Changed
+* Fixes from the full runs on the lab: SAM 3's prepare gets its token; an off-list prosody tag no longer fails the step by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/50
+* Release 0.1.3 by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/52
+
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-perception/compare/v0.1.2...v0.1.3
+
+#### Install
+
+```sh
+uv tool install hyperstudy-perception     # or: pip install hyperstudy-perception
+perception doctor
+```
+
+The HyperStudy Annotator app installs and updates it on its own.
+
+
+---
+
 ### v0.1.2
 
 **Released:** 2026-10-30
