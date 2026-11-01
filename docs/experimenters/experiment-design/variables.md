@@ -7,8 +7,6 @@ sidebar_position: 3
 
 Variables are a powerful feature in the HyperStudy platform that allow you to store, manipulate, and use data throughout your experiment. This guide explains how to effectively use variables to create dynamic and responsive experiments.
 
-![Variables tab with predefined variables](/img/experimenters/experiment-variables.png)
-
 ## What are Variables?
 
 Variables are named containers that store values which can change during an experiment. They allow you to:
@@ -19,9 +17,6 @@ Variables are named containers that store values which can change during an expe
 - Store configuration settings
 - Record timing and performance metrics
 - Share information between states
-
-![Variables Panel](/img/experimenters/experiment-design/variables-panel.png)
-_The variables panel showing defined variables and their configuration_
 
 ## Defining Variables
 
