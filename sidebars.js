@@ -44,6 +44,7 @@ module.exports = {
             'experimenters/experiment-design/experiment-states',
             'experimenters/experiment-design/post-experiment-questionnaires',
             'experimenters/experiment-design/variables',
+            'experimenters/experiment-design/randomization',
             'experimenters/experiment-design/stimulus-mappings',
             'experimenters/experiment-design/stimulus-display',
             'experimenters/experiment-design/roles',
