@@ -44,6 +44,31 @@ its layers.
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.1.5
+
+**Released:** 2026-11-01
+
+#### What's Changed
+* The full graph names the objects in the captions call (run-anywhere 4b, B) by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/51
+* A caption cut off at max_tokens is said so, not parsed by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/56
+* A pod run whose coordinator is gone is canceled, imported and its pod deleted by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/55
+* Release 0.1.5 by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/57
+
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-perception/compare/v0.1.4...v0.1.5
+
+#### Install
+
+```sh
+uv tool install hyperstudy-perception     # or: pip install hyperstudy-perception
+perception doctor
+```
+
+The HyperStudy Annotator app installs and updates it on its own.
+
+
+---
+
 ### v0.1.4
 
 **Released:** 2026-11-01
