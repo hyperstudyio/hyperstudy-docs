@@ -44,6 +44,29 @@ its layers.
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.1.4
+
+**Released:** 2026-11-01
+
+#### What's Changed
+* A whole run on a RunPod pod made for it (run-anywhere phase 10) by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/53
+* Release 0.1.4 by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/54
+
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-perception/compare/v0.1.3...v0.1.4
+
+#### Install
+
+```sh
+uv tool install hyperstudy-perception     # or: pip install hyperstudy-perception
+perception doctor
+```
+
+The HyperStudy Annotator app installs and updates it on its own.
+
+
+---
+
 ### v0.1.3
 
 **Released:** 2026-10-31
