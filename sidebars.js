@@ -253,6 +253,24 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Annotator',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'annotator/index',
+      },
+      items: [
+        'annotator/extract',
+        'annotator/compute',
+        'annotator/annotating',
+        'annotator/keyboard',
+        'annotator/settings',
+        'experimenters/hyperstudy-perception',
+        'annotator/release-notes',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Release Notes',
       collapsed: false,
       items: [

@@ -6,7 +6,7 @@ const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
 interface PlatformInfo {
   key: string;
   label: string;
-  match: string; // substring to match in asset filename
+  match: string; // how the asset's filename ends (an updater's .sig ends differently)
 }
 
 interface AssetInfo {
@@ -41,6 +41,12 @@ const GIGE_PLATFORMS: PlatformInfo[] = [
   { key: 'mac', label: 'macOS (Apple Silicon)', match: '.dmg' },
 ];
 
+const ANNOTATOR_PLATFORMS: PlatformInfo[] = [
+  { key: 'mac-arm', label: 'macOS (Apple Silicon)', match: 'aarch64-apple-darwin.dmg' },
+  { key: 'linux', label: 'Linux (Debian, Ubuntu)', match: 'x86_64-unknown-linux-gnu.deb' },
+  { key: 'linux-appimage', label: 'Linux (AppImage)', match: 'x86_64-unknown-linux-gnu.AppImage' },
+];
+
 const AGENT_CLI_PLATFORMS: PlatformInfo[] = [
   { key: 'mac-arm', label: 'macOS (Apple Silicon)', match: 'darwin_arm64.tar.gz' },
   { key: 'linux', label: 'Linux (x86_64)', match: 'linux_amd64.tar.gz' },
@@ -65,6 +71,17 @@ export function GigEDownload(): JSX.Element {
       repo="hyperstudyio/hyperstudy-gige"
       platforms={GIGE_PLATFORMS}
       appName="GigE Virtual Camera"
+    />
+  );
+}
+
+/** Pre-configured download component for HyperStudy Annotator */
+export function AnnotatorDownload(): JSX.Element {
+  return (
+    <GitHubDownload
+      repo="hyperstudyio/hyperstudy-annotator"
+      platforms={ANNOTATOR_PLATFORMS}
+      appName="HyperStudy Annotator"
     />
   );
 }
@@ -138,7 +155,7 @@ function parseRelease(json: any, platforms: PlatformInfo[]): ReleaseData | null 
   const assets: AssetInfo[] = [];
   for (const platform of platforms) {
     const match = json.assets.find(
-      (a: any) => a.name?.includes(platform.match),
+      (a: any) => a.name?.endsWith(platform.match),
     );
     if (match) {
       assets.push({

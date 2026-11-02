@@ -123,6 +123,12 @@ const config = {
             label: 'Devices',
           },
           {
+            type: 'doc',
+            docId: 'annotator/index',
+            position: 'left',
+            label: 'Annotator',
+          },
+          {
             to: '/api-reference',
             position: 'left',
             label: 'API Reference',
