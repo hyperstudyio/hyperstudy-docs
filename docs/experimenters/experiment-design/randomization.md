@@ -17,7 +17,7 @@ Clusters and random variables need the V2 runner, which new experiments use. The
 
 In the experiment's settings, on the **General** tab, open **Randomization** and check **Randomize state order**. The clusters and **Sample an order** appear under it, and each state and group row in the state list gets a cluster tag.
 
-![Randomize state order checked in General settings, with a Trials cluster, a Ratings cluster set to Same order in every group, and a sampled order](/img/experimenters/experiment-design/randomization-clusters.png)
+![The Randomization section of General settings with Randomize state order checked, a Trials cluster, a Ratings cluster set to Same order in every group, and a sampled order](/img/experimenters/experiment-design/randomization-clusters.png)
 
 Unchecking it hides them and every room runs the states in the order listed. Your clusters and tags are kept, so checking it again brings them back as they were. They are still checked when you save: an edit that would break a hidden cluster (removing a state from a group whose cluster uses **Same order in every group**, say) is refused, and the message tells you to turn the setting on to fix the cluster.
 
