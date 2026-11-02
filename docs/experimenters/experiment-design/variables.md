@@ -20,7 +20,7 @@ Variables are named containers that store values which can change during an expe
 
 ## Defining Variables
 
-Define your experiment's variables in the designer's **Variables** tab. What the tab shows depends on the experiment's runner. New experiments use the V2 runner; experiments created before November 2026 keep the runner they had, shown under **Runtime (advanced)** in the experiment's settings.
+Define your experiment's variables in the designer's **Variables** tab. What the tab shows depends on the experiment's runner. New experiments use the V2 runner; experiments created before November 2026 keep the runner they had, shown under **Advanced** → **Runtime (advanced)** on the **General** tab of the experiment's settings.
 
 ### On the V2 runner
 

@@ -76,7 +76,7 @@ Pin each station once (the pin is remembered per browser on that computer), then
 
 ### Experiment Designer Settings
 
-In the Experiment Designer, navigate to **Device Integration** → **Pupil Labs Neon**:
+In the Experiment Designer, open the experiment's settings, then on the **General** tab open **Devices** → **Pupil Labs Neon**:
 
 | Setting | Default | Description |
 |---------|---------|-------------|

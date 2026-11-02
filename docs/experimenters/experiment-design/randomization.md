@@ -15,7 +15,7 @@ Clusters and random variables need the V2 runner, which new experiments use. The
 
 ## Turning it on
 
-In the experiment's settings, on the **General** tab, check **Randomize state order**. The clusters and **Sample an order** appear under it, and each state and group row in the state list gets a cluster tag.
+In the experiment's settings, on the **General** tab, open **Randomization** and check **Randomize state order**. The clusters and **Sample an order** appear under it, and each state and group row in the state list gets a cluster tag.
 
 ![Randomize state order checked in General settings, with a Trials cluster, a Ratings cluster set to Same order in every group, and a sampled order](/img/experimenters/experiment-design/randomization-clusters.png)
 
@@ -73,7 +73,7 @@ Trial 6 (group)
 Debrief
 ```
 
-1. In the experiment's settings, on the **General** tab, check **Randomize state order**. Click **Add cluster** and name it `Trials`. Leave the rule on **Shuffle**.
+1. In the experiment's settings, on the **General** tab, open **Randomization** and check **Randomize state order**. Click **Add cluster** and name it `Trials`. Leave the rule on **Shuffle**.
 2. Set the cluster tag of the six trial groups to `Trials`. Leave Instructions, Break and Debrief on **No cluster**.
 3. Click **Sample an order**. The six trials appear in a random order in the six trial positions, with the Break still fourth and the instructions and debrief in place.
 
