@@ -11,9 +11,10 @@ transcript, face tracks grouped into people, and captions for each shot. You rev
 
 ## In the HyperStudy Annotator
 
-The annotator installs the pipeline itself, along with its own copy of Python, the first time it opens. It updates the
-pipeline when it starts. You do not need to install anything else. To process a video, choose **Run pipeline…**, pick a
-video, turn on the features you want, and start the run. When the run finishes, its bundle opens in the library.
+The [HyperStudy Annotator](/annotator) installs the pipeline itself, along with its own copy of Python, the first
+time it opens, and updates it when it starts. You do not need to install anything else. To process a video, choose
+**Extract**, pick a video, turn on the features you want, and choose **Start run**. When the run finishes, its bundle
+opens in the Annotator. See [Extract a video](/annotator/extract).
 
 The first launch downloads Python, each step's packages and the model weights. That is a few gigabytes, and it happens
 once.
