@@ -7,8 +7,6 @@ sidebar_position: 3
 
 Variables are a powerful feature in the HyperStudy platform that allow you to store, manipulate, and use data throughout your experiment. This guide explains how to effectively use variables to create dynamic and responsive experiments.
 
-![Variables tab with predefined variables](/img/experimenters/experiment-variables.png)
-
 ## What are Variables?
 
 Variables are named containers that store values which can change during an experiment. They allow you to:
@@ -20,38 +18,65 @@ Variables are named containers that store values which can change during an expe
 - Record timing and performance metrics
 - Share information between states
 
-![Variables Panel](/img/experimenters/experiment-design/variables-panel.png)
-_The variables panel showing defined variables and their configuration_
+## Defining Variables
 
-## Variable Types
+Define your experiment's variables in the designer's **Variables** tab. What the tab shows depends on the experiment's runner. New experiments use the V2 runner; experiments created before November 2026 keep the runner they had, shown under **Advanced** → **Runtime (advanced)** on the **General** tab of the experiment's settings.
 
-The platform supports several variable types:
+### On the V2 runner
 
-| Type | Description | Example |
-|------|-------------|---------|
-| `string` | Text values | `"Hello, world"` |
-| `number` | Numeric values | `42`, `3.14` |
-| `boolean` | True/false values | `true`, `false` |
-| `array` | Ordered lists of values | `[1, 2, 3]`, `["red", "green", "blue"]` |
-| `object` | Collections of key-value pairs | `{ "name": "John", "age": 30 }` |
+The V2 Variables tab lists every variable the experiment defines, in four sections:
 
-Choose the appropriate type based on the kind of data you need to store.
+| Section | What it holds |
+|---------|---------------|
+| **Constants** | A fixed value every room starts with, such as an endowment or a condition label. |
+| **Random variables** | Values drawn when a room starts, for example a jittered fixation duration. See [Randomizing Order and Durations](./randomization.md). |
+| **Computed variables** | Values worked out from other variables while the room runs. |
+| **Output variables** | Values set by components when a participant answers them. |
 
-## Creating Variables
+![The V2 Variables tab with two constants, a random variable used as a fixation duration, and the output variables section](/img/experimenters/experiment-design/v2-variables-tab.png)
 
-### Defining Experiment Variables
+Every variable shows where it is used, for example `Used: duration of "Fixation" · shown in "Intro" · read by total`, or **Not used yet**. Deleting a variable that something uses asks first.
 
-To create variables that are available throughout your experiment:
+Variables are part of the experiment itself, so duplicating, exporting and importing an experiment keeps them.
 
-1. In the Experiment Designer, go to the "Variables" tab
-2. Click "Add Variable"
-3. Enter the variable properties:
-   - **Name**: A unique identifier (use camelCase by convention)
-   - **Type**: The data type (string, number, boolean, array, object)
-   - **Initial Value**: Starting value when the experiment begins
-   - **Description**: Purpose of the variable (for documentation)
-4. Click "Save" to create the variable
+#### Constants
 
+Click **Add constant**, then set its **Name**, **Type** and **Value**:
+
+| Type | Example value | Notes |
+|------|---------------|-------|
+| **Number** | `10`, `-2.5` | |
+| **Text** | `Player A`, `007` | Kept exactly as typed, even when it looks like a number. |
+| **True / false** | `true` | Picked from a menu. |
+| **List or object** | `[1, 2, 3]`, `{"low": 1, "high": 5}` | Written as JSON. |
+
+Changing a constant's type keeps its value when it reads as the new type (the text `5` becomes the number `5`), and otherwise starts from that type's empty value.
+
+#### Random variables
+
+A random variable draws its values when the room starts, and everyone in the room shares them. Pick a distribution (**Uniform**, **Normal**, **Exponential** or **List of values**) and how often it is drawn (**New value for each state** or **One value per room**). The summary under it shows its average. [Randomizing Order and Durations](./randomization.md#random-durations-jittering-a-fixation) covers using one as a state's duration.
+
+#### Computed variables
+
+A computed variable is an expression over other variables, such as `received = investment * multiplier`, recomputed whenever the variables it reads change. The Variables tab lists them but can't edit them yet; they come from imported experiment files or the API. If an expression reads a name that no variable or component output defines, the tab warns about it.
+
+#### Output variables
+
+You don't define output variables here. A component sets one when you give it an **Output variable** in its settings, and the tab lists each one with the components that set it. A constant or random variable with the same name as an output variable is replaced by the component's value once the component is answered, and the tab warns about it.
+
+#### Names
+
+A name starts with a letter or underscore and continues with letters, digits and underscores, up to 64 characters. Two variables can't share a name, whatever their kinds. Names ending in `_version`, `_normalized` or `_percent` are reserved.
+
+#### Edits that can't be saved
+
+When an edit would make a variable invalid (text in a Number constant, invalid JSON, a name another variable has, or a minimum above the maximum), the designer doesn't save it. The edit stays in its field with the problem underneath, so you can correct it, or click **Discard change** to go back to the saved value. If a collaborator's change makes the edit valid (they rename the variable that had the name you wanted, say), the problem goes away and **Save change** saves it.
+
+### On the legacy runner
+
+The legacy Variables tab lists **Predefined Variables** in a table with their value and where they came from: **Manual Variables** you define, and **Component Variables** registered from the components that store data. Under the table, **Create Predefined Variable** takes a name and a value (`50`, `'Hello'`, `true`, or a JSON object).
+
+Legacy variables are kept outside the experiment, so duplicating copies them but exporting does not. When you switch a legacy experiment to the V2 runner, its predefined variables are copied into the V2 Variables tab as constants, and the designer tells you if any couldn't be copied. An experiment with V2 variables can't be switched back to the legacy runner.
 
 ### Variable Naming Conventions
 
@@ -60,18 +85,6 @@ Use clear, descriptive names for your variables:
 - Use camelCase (e.g., `responseTime`, `participantAge`)
 - Be specific (e.g., `videoWatchDuration` rather than just `time`)
 - Use prefixes for related variables (e.g., `surveyQ1`, `surveyQ2`)
-- Avoid special characters except underscores
-
-### Scope and Visibility
-
-Variables have different scopes:
-
-- **Experiment Variables**: Available throughout the entire experiment
-- **State Variables**: Local to a specific state (prefixed with state name)
-- **Participant Variables**: Specific to individual participants
-- **Global Variables**: Shared across all participants in a session
-
-The visibility depends on how you define and access the variables.
 
 ## Using Variables
 
@@ -280,25 +293,9 @@ participantData.completionTime = getCurrentTime();
 
 Objects are useful for grouping related data.
 
-### Random Value Generation
+### Random Values
 
-Generate random values for experiments:
-
-```
-// Random integer between min and max (inclusive)
-randomNumber = randomInt(1, 10);
-
-// Random decimal between 0 and 1
-randomValue = Math.random();
-
-// Random item from an array
-randomStimulus = randomChoice(stimuliList);
-
-// Random true/false value
-randomBoolean = Math.random() < 0.5;
-```
-
-Random values are useful for stimulus selection and counterbalancing.
+For values that everyone in a room must share, such as a jittered duration or a condition drawn for the room, use a [random variable](./randomization.md). The template functions `random()` and `sample()`, and stimulus mappings drawn per participant, draw separately in each participant's browser, so participants in the same room can get different values.
 
 ## Debugging Variables
 
@@ -347,6 +344,7 @@ This helps catch typos and missing variable definitions before running your expe
 
 Now that you understand variables, explore these related topics:
 
+- [Randomizing Order and Durations](./randomization.md)
 - [Managing Participant Roles](./roles.md)
 - [Conditional Flow Control](./experiment-states.md)
 - [Data Collection](../../developers/data-api/data-collection-v2.md)

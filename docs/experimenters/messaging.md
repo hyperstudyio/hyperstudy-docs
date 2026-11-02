@@ -23,9 +23,10 @@ Messages are delivered during active experiments. Keep them short and supportive
 By default, participants cannot message the experimenter. To enable this:
 
 1. Open your experiment in the **Experiment Editor**
-2. Navigate to the **Settings** section (in the experiment metadata)
-3. Check **Allow participants to message the experimenter**
-4. Save the experiment
+2. In the experiment's settings, on the **General** tab, open the **Messaging** section
+3. Check **Participants can message the experimenter**. The change saves automatically.
+
+The **Messaging** section also sets the size and color of the banner messages you send. You can send those whether or not participants can message you.
 
 When enabled, participants will see a floating **Help** button during the experiment. When disabled, participants have no way to initiate contact.
 

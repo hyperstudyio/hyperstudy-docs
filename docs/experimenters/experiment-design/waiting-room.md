@@ -181,8 +181,8 @@ The waiting room shows:
 
 Configure how long participants wait before timing out:
 
-- Default: No timeout (participants can wait indefinitely)
-- Can be configured per experiment in recruitment settings
+- Default: 5 minutes
+- Set it per experiment in the experiment's settings, on the **General** tab under **Waiting room** (**Maximum Wait Time**), next to the **Start Countdown Time** (default 10 seconds) participants get once they are matched
 
 ## Real-time Status Updates
 
@@ -252,7 +252,7 @@ Configure waiting room behavior in the Experiment Designer:
 1. **Required Participants**: Set the total number needed
 2. **Matching Strategy**: Choose how participants are matched
 3. **Role Distribution**: Define roles and counts
-4. **Timeout Settings**: Configure maximum wait times
+4. **Timeout Settings**: Configure maximum wait times (General settings → **Waiting room**)
 
 ## Best Practices
 

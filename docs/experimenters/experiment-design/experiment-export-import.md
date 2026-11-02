@@ -27,7 +27,8 @@ When you export an experiment, the system includes:
 - Experiment metadata (title, description, settings)
 - State definitions and transitions
 - Component configurations
-- Variable definitions
+- Variable definitions on the V2 runner: constants, random variables and computed variables (the legacy runner's predefined variables are not included)
+- Randomization clusters
 - Role assignments
 
 **Media References:**

@@ -46,7 +46,7 @@ Key-value mappings are perfect when you know exactly which stimulus should appea
 
 1. Enter a mapping name (e.g., `imageChoices`)
 2. Select **"Key-Value"** as the type
-3. Click **"Add Mapping"**
+3. Click **"Add mapping"**
 4. For each entry:
    - Click **"+ Add Entry"**
    - Enter the key (the value that will be matched, e.g., `"Option A"`)
@@ -66,7 +66,7 @@ Category mappings let you define a pool of stimuli and sample from them using di
 
 1. Enter a mapping name (e.g., `happyFaces`)
 2. Select **"Category"** as the type
-3. Click **"Add Mapping"**
+3. Click **"Add mapping"**
 4. Choose a sampling strategy:
    - **Random (with replacement)**: Any item can be selected multiple times
    - **Random (without replacement)**: Each item selected only once until pool resets
@@ -92,7 +92,7 @@ Key-Category mappings combine the best of both worlds: a variable value selects 
    - **Random (without replacement)**: Each item selected only once until pool resets
    - **Sequential**: Items selected in order
 4. Choose a **Draw Scope** (see [Draw Scope](#draw-scope) below)
-5. Click **"Add Mapping"**
+5. Click **"Add mapping"**
 6. Add categories by clicking **"+ Add Category"**:
    - Enter a category name (this must match the variable value that will select it — e.g., `"Happy"`)
    - Select a folder from your media library — all files in that folder become the category's item pool
@@ -125,6 +125,8 @@ Draw Scope controls whether participants in the same room share sampling state o
 
 :::note
 Draw Scope only affects `without_replacement` and `sequential` strategies. With `random` (with replacement), items can repeat regardless of scope.
+
+Mappings draw in each participant's browser. For a value that every participant and agent in a room must share, such as one condition or duration for the whole room, use a [random variable](./randomization.md) instead.
 :::
 
 ### Naming Rules
@@ -143,6 +145,8 @@ You can edit mapping names and entry keys after creation:
 - **Double-click** on a mapping name or key to edit it inline
 - Press **Enter** or click away to save
 - Press **Escape** to cancel
+
+To delete a mapping, click the **✕** at the right of its header and confirm. Components that still use the mapping will no longer find its media.
 
 ## Using Stimulus Mappings in Components
 
@@ -294,7 +298,7 @@ In the Stimulus Mappings section:
 1. Enter the name `emotionImages`
 2. Select **"Key-Category"** as the type
 3. Set the strategy to **"Random (without replacement)"** (so participants see different images each trial)
-4. Click **"Add Mapping"**
+4. Click **"Add mapping"**
 5. Add three categories:
    - **"Happy"** → select the `Happy/` folder
    - **"Sad"** → select the `Sad/` folder

@@ -212,7 +212,8 @@ The most-used top-level fields:
 | `name` | `name` | `str` | ✓ | Experiment name. |
 | `description` | `description` | `str` | | Free-text description. |
 | `required_participants` | `requiredParticipants` | `int >= 1` | | Number of participants needed to start. |
-| `randomize_states` | `randomizeStates` | `bool` | | Randomize state order per participant. |
+| `runtime` | `runtime` | `str` | | `"v2"` or `"legacy"`. New experiments default to `"v2"`. |
+| `randomize_states` | `randomizeStates` | `bool` | | Randomize state order. The legacy runner shuffles each participant's order; the V2 runner draws one order per room from its [clusters](../experiment-design/randomization.md), and keeps the clusters unused while this is `False`. |
 | `states` | `states` | `list[State]` | | Ordered list of states. |
 | `roles` | `roles` | `dict[str, Role]` | | Role definitions (multi-participant). |
 | `global_components` | `globalComponents` | `dict[str, dict]` | | Persistent components running throughout. |

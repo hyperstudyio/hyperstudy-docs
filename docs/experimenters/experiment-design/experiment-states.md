@@ -148,7 +148,7 @@ Phase 4: Conclusion
 
 ## State Transitions
 
-States in HyperStudy progress **sequentially** in the order you define them. Participants move from State 1 → State 2 → State 3, and so on. There is no branching or conditional logic - the flow is always linear.
+States in HyperStudy progress **sequentially** in the order you define them. Participants move from State 1 → State 2 → State 3, and so on. There is no branching or conditional logic - the flow is always linear. On the V2 runner you can shuffle the order of states and groups for each room; see [Randomizing Order and Durations](./randomization.md).
 
 ### Transition Types
 
@@ -166,7 +166,7 @@ State automatically advances after a specified duration.
 
 **Configuration:**
 - **Transition Type**: "Timer - Auto-advance after duration"
-- **Duration**: Time in milliseconds before advancing
+- **Duration**: Time in milliseconds before advancing. On the V2 runner, **Duration** is either **Fixed** or **Drawn from a random variable**, for example a fixation jittered between 2 and 6 seconds. See [Randomizing Order and Durations](./randomization.md#random-durations-jittering-a-fixation).
 - Component continues to display during countdown
 - Participants cannot skip ahead
 
@@ -225,7 +225,7 @@ If you don't set a transition type, participants **manually control** when to ad
 ### Important Notes
 
 :::warning Sequential Flow Only
-States always progress in the order defined (1 → 2 → 3...). You cannot:
+States always progress in the order defined (1 → 2 → 3...), or in the shuffled order a room draws when you use [randomization](./randomization.md). You cannot:
 - Skip states based on responses
 - Branch to different paths
 - Loop back to previous states
@@ -246,12 +246,12 @@ You can use different transition types for different states:
 When editing a state:
 
 1. **Open State Editor** - Click on state in States panel
-2. **Find Transition Section** - Below component configuration
+2. **Open the Transition tab** - Next to the Configuration tab
 3. **Select Transition Type**:
    - `(blank)` - Manual advancement (button)
    - `TIMED` - Auto-advance after duration
    - `SYNCHRONIZED` - Advance on component completion
-4. **Set Duration** - Only for TIMED transitions (in milliseconds)
+4. **Set Duration** - Only for TIMED transitions: a fixed number of milliseconds, or on the V2 runner a [random variable](./randomization.md#random-durations-jittering-a-fixation)
 
 ## Pre-Experiment Configuration
 

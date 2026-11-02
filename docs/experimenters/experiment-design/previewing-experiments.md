@@ -58,7 +58,8 @@ The control bar drives the whole preview at once — every pane responds togethe
 | **State selector** (dropdown) | Jump directly to any state in the experiment. |
 | **Prev** | Step back to the previous state. |
 | **Next** | Advance all panes to the next state. |
-| **Restart** | Reset the preview to the first state and start over. |
+| **Restart** | Reset the preview to the first state and start over. If the experiment [randomizes](./randomization.md) its order or durations, Restart draws them again. |
+| **Order** and **Replay order** | Shown when the experiment randomizes anything. **Order** shows the start of the seed the preview drew; **Replay order** restarts with the same order and durations. |
 | **End preview** | Close the preview and release its resources. |
 
 Use **Next** and **Prev** to walk the experiment one state at a time, the **state selector** to jump straight to a state you want to inspect, and **Restart** to re-run a flow from the top without relaunching.

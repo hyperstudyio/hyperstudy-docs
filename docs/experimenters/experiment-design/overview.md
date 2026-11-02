@@ -108,6 +108,7 @@ Variables store data throughout the experiment. You can:
 - Use variables to control state transitions
 - Set variable values based on participant actions
 - Use variables in text content with expressions like `{variableName}`
+- Draw random values, such as jittered durations, that everyone in a room shares (V2 runner; see [Randomizing Order and Durations](./randomization.md))
 
 Variables make your experiments dynamic and responsive to participant behavior.
 

@@ -149,13 +149,12 @@ Disconnect timeout only applies to **multi-participant experiments**. Single-par
 
 ### Configuration
 
-Disconnect timeout is **disabled by default**. To enable it, configure these settings:
+Set these in the experiment's settings, on the **General** tab under **Disconnects**:
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| `enabled` | `false` | Enable/disable the feature |
-| `durationMs` | `60000` | Timeout duration in milliseconds |
-| `action` | `"complete"` | What happens when timeout expires |
+| **Disconnect Timeout** | 120 seconds (minimum 30) | How long to wait for a disconnected participant before ending the experiment |
+| **Auto-Reconnect Delay** | 5 seconds | Countdown before a returning participant is reconnected automatically |
 
 **Recommended timeout values:**
 
