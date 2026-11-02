@@ -46,6 +46,8 @@ through it:
 3. **Create token**, with Read access.
 4. Paste it, and **Save**.
 
+![Settings > Models: the four Hugging Face access steps, each gated model with Ask for access, and the steps' models below](/img/annotator/settings-models.png)
+
 When every model is granted, the section folds to one line. **Show steps** opens it again.
 
 ## Compute

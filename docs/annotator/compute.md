@@ -15,6 +15,8 @@ send steps, or a whole run, to other machines:
 You set these up in **Settings > Compute**. Extract offers a machine only once its **Test** passes, and leaves out
 one whose Test fails, saying why.
 
+![Settings > Compute: this computer, a lab server with Test, Clear cache and Remove, and RunPod and AWS under Cloud GPU](/img/annotator/settings-compute.png)
+
 **Settings > Compute** also describes **This computer**: its processor, memory and GPU, and which steps can run on
 it.
 
@@ -66,6 +68,8 @@ the Mac from idling to sleep while such a run goes, but closing the lid still sl
 **Run on**, at the top of Extract, sends the whole run to a lab server or to RunPod. The run goes on there if this
 computer sleeps or the app is closed. The app checks on it and imports it when it ends, and lists it under **Runs on
 other machines** until then (see [Extract a video](./extract.md#runs-on-other-machines)).
+
+![Extract with Run on set to RunPod: every step runs on RunPod, the heading says up to $0.84, and the footer says what RunPod receives and what the pod reserves](/img/annotator/extract-runpod.png)
 
 What the run sends: the server or pod receives the video and everything each step makes. Extract says so above
 **Start run**.

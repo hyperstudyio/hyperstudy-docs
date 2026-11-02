@@ -18,6 +18,8 @@ as a **bundle** and opens in the Annotator.
    costs.
 4. Choose **Start run**.
 
+![Extract with a video chosen: four features with where each runs, the time each takes and the cost of shot captions, and Start run](/img/annotator/extract.png)
+
 Features that keep everything on your computer and cost nothing start on. Features that send data off it, such as
 shot captions written by Claude, or that cost money start off. Turning one on is your consent to send what it needs.
 A feature that another needs is turned on and locked, with **Needed by …** under it.

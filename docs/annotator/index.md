@@ -21,6 +21,10 @@ The app has three pages, on the rail at the left:
 
 A run keeps going while you work on another page.
 
+![The Annotator page: a video of two people in a café with their faces and the objects on the table outlined, and below it the timeline of shots, captions, transcript, people and objects](/img/annotator/annotator.png)
+
+The screenshots in these pages show a short drawn video made for them, and what the pipeline would find in it.
+
 ## Download
 
 <AnnotatorDownload />

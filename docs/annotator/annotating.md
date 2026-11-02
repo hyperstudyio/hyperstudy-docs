@@ -44,6 +44,8 @@ does not have are greyed out.
 
 ## The timeline
 
+![The Annotator with the timeline: rows for shots, captions, the waveform, the transcript, each person and each object](/img/annotator/annotator.png)
+
 The timeline has a row for shots, one for each shot's caption, and groups of rows below them:
 
 | Group | Rows |
@@ -79,6 +81,8 @@ one model heard. An **orange underline** means the speaker is uncertain.
 Select anything, on the video or the timeline, and the **Inspect** tab shows what is known about it and what you can
 change. Every change is saved as you make it. **⌘Z** (Ctrl+Z on Linux) undoes the last one.
 
+![Inspect showing an utterance, "Deal.", with Who is speaking? listing two faces and their scores; the faces are numbered on the video](/img/annotator/who-is-speaking.png)
+
 - **Shots**: edit the caption.
 - **Utterances**: edit the transcript, and say **Who is speaking?** by choosing one of the faces on screen (each with
   a score), an off-screen voice, a known person off camera, **Several**, **Unsure** or **Not speech**. You can also
@@ -94,6 +98,8 @@ change. Every change is saved as you make it. **⌘Z** (Ctrl+Z on Linux) undoes 
 Something you have left out shows **Put back** in Inspect.
 
 **The Review tab** lists what most needs a person to check:
+
+![The Review tab: two utterances whose speaker is uncertain, a possible duplicate person with Compare, and a sound only one model heard](/img/annotator/review.png)
 
 - **Who is speaking**: utterances whose speaker is uncertain, by shot. Press **j** to go to the next one and **k**
   for the one before.
@@ -125,6 +131,8 @@ Once annotations use a type, its kind and the categories in use are fixed, and i
 - **Drag** across a type's row to mark a stretch of time.
 - Or press **A** to annotate what is selected (a shot, utterance or track) or, with nothing selected, the shot under
   the playhead. You can also press **[** at the start and **]** at the end while the video plays.
+
+![A Tone annotation type on the timeline, with one annotation per shot, and the selected one in Inspect with its value, friendly, tense or playful](/img/annotator/annotations.png)
 
 **A** and **[ ]** use the type you last added, edited or used: it has a filled dot.
 
