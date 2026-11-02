@@ -10,12 +10,24 @@ On the V2 runner you can shuffle the order of trials and of the states inside a 
 Every room draws its order and durations once, from a recorded seed. **Everyone in a room, people and AI agents alike, sees the same order and the same durations**, and the data records exactly what each room ran.
 
 :::info V2 runner only
-Randomization needs the V2 runner, which new experiments use. The legacy runner ignores clusters and random variables, and keeps its own **Randomize state order for each participant** setting in the experiment's settings. See [Legacy runner](#legacy-runner) below.
+Clusters and random variables need the V2 runner, which new experiments use. The legacy runner ignores them and shuffles each participant's order instead. See [Legacy runner](#legacy-runner) below.
 :::
+
+## Turning it on
+
+In the experiment's settings, on the **General** tab, check **Randomize state order**. The clusters and **Sample an order** appear under it, and each state and group row in the state list gets a cluster tag.
+
+![Randomize state order checked in General settings, with a Trials cluster, a Ratings cluster set to Same order in every group, and a sampled order](/img/experimenters/experiment-design/randomization-clusters.png)
+
+Unchecking it hides them and every room runs the states in the order listed. Your clusters and tags are kept, so checking it again brings them back as they were. They are still checked when you save: an edit that would break a hidden cluster (removing a state from a group whose cluster uses **Same order in every group**, say) is refused, and the message tells you to turn the setting on to fix the cluster.
+
+Random durations don't depend on this setting: a state whose duration is drawn from a [random variable](#random-durations-jittering-a-fixation) draws it either way.
 
 ## Clusters: what gets shuffled
 
-You randomize by putting states or groups in a **cluster**. The **Randomization** section below the experiment's states lists the clusters, and each state and group row has a cluster tag where you pick one (or **No cluster**).
+You randomize by putting states or groups in a **cluster**. Add clusters under **Randomize state order**, then pick one in a state's or group's cluster tag (or **No cluster**). A tag is outlined in its cluster's colour.
+
+![The state list with Trial 1 tagged Trials and its Rating and Confidence states tagged Ratings](/img/experimenters/experiment-design/randomization-cluster-tags.png)
 
 The rules:
 
@@ -33,7 +45,6 @@ Each cluster has a rule:
 
 A cluster with only one member at a level has nothing to trade places with. The panel warns about it.
 
-![The Randomization section with a Trials cluster set to Shuffle, and a sampled order](/img/experimenters/experiment-design/randomization-clusters.png)
 
 ### The same cluster inside several groups
 
@@ -62,7 +73,7 @@ Trial 6 (group)
 Debrief
 ```
 
-1. In **Randomization**, click **Add cluster** and name it `Trials`. Leave the rule on **Shuffle**.
+1. In the experiment's settings, on the **General** tab, check **Randomize state order**. Click **Add cluster** and name it `Trials`. Leave the rule on **Shuffle**.
 2. Set the cluster tag of the six trial groups to `Trials`. Leave Instructions, Break and Debrief on **No cluster**.
 3. Click **Sample an order**. The six trials appear in a random order in the six trial positions, with the Break still fourth and the instructions and debrief in place.
 
@@ -128,7 +139,7 @@ Use a random variable when everyone in a room must see the same value.
 
 On the legacy runner:
 
-- the experiment's settings have **Randomize state order for each participant**, with lock buttons on states to keep them in place;
-- clusters and random variables are ignored. If a legacy experiment has clusters, the Randomization section says so.
+- the same setting reads **Randomize state order for each participant**. Each participant gets their own shuffled order, and lock buttons on states keep them in place;
+- clusters and random variables are ignored. If a legacy experiment has clusters, the setting says so and offers **Remove them**.
 
 Random variables, like all of the Variables tab's V2 variables, can only be saved on a V2 experiment.
