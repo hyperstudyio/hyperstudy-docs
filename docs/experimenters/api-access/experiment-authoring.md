@@ -152,8 +152,8 @@ Use camelCase keys for these pass-through fields — they go to the backend unch
 
 Two layers of validation:
 
-1. **Client-side (Pydantic)** at construction time — typos in field names, missing required fields, wrong types raise `pydantic.ValidationError` immediately.
-2. **Server-side** via `validate_experiment()` — dry-run against the same validator the backend uses for `create_experiment`.
+1. **Client-side (Pydantic)** at construction time — missing required fields and wrong types raise `pydantic.ValidationError` immediately. Field names are not checked here: an unknown field passes through to the server.
+2. **Server-side** via `validate_experiment()` — runs the checks `create_experiment` runs, without creating anything. A definition it calls valid is one create accepts; one it calls invalid is one create refuses, with the same messages. The server refuses any key that is not an experiment field, such as a misspelt one, rather than dropping it.
 
 ```python
 from hyperstudy import HyperStudy, Experiment, State, show_text
@@ -170,7 +170,8 @@ except ValidationError as e:
 # Catches structural issues the schema can't model.
 exp = Experiment(name="Check me", states=[State(id="s1", focus_component=show_text("Hi"))])
 result = hs.validate_experiment(exp)
-print(result)  # → {"valid": True} or {"valid": False, "errors": [...]}
+print(result)  # → {"valid": True, "errors": [], "warnings": []}
+               #   or {"valid": False, "errors": ["State 0 uses unsupported component type: ..."], "warnings": [...]}
 ```
 
 Use `validate_experiment` in a CI pipeline to catch breaking schema changes before you publish.
@@ -228,7 +229,7 @@ The most-used top-level fields:
 | `instructions_content` | `instructionsContent` | `str` | | Single-page instructions HTML body. |
 | `instructions_pages` | `instructionsPages` | `list[InstructionsPage]` | | Multi-page instructions (alternative to title/content). |
 | `post_experiment_questionnaire` | `postExperimentQuestionnaire` | `PostExperimentQuestionnaire` | | Post-task survey. |
-| `variables` | `variables` | `dict` | | Experiment variables for dynamic content. |
+| `variable_definitions` | `variableDefinitions` | `list[VariableDefinition]` | | Constants, random and computed variables (V2 runner). See [Variables](../experiment-design/variables.md). The older `variables` field was never stored and is refused. |
 
 For the authoritative schema (including per-component config shapes), see the [interactive API Reference](/api-reference) and search for `Experiment`.
 
@@ -244,7 +245,11 @@ You passed an unrecognized component type. Check `ComponentType` for the support
 
 **`{"valid": false, "errors": [...]}` from `validate_experiment`**
 
-The structure passed Pydantic but failed the backend's per-component validation — most often a required `config` key missing for a specific component type. The error list names the offending path; cross-reference the [API Reference](/api-reference) for that component's config schema.
+The definition passed Pydantic but the server would refuse it — most often a required `config` key missing for a specific component type, a misspelt field, or an agent role without a persona. `errors` is a list of messages, each naming the field or state at fault; cross-reference the [API Reference](/api-reference) for that component's config schema.
+
+**`ValidationError: ... "xyz" is not a writable experiment field`**
+
+The body has a key that is not an experiment field, usually a misspelling (`requiredParticipant` for `required_participants`) or a field only the server sets, such as `ownerId`. The server refuses it instead of silently dropping it. A config fetched with `get_experiment_config` can still be sent back whole to `update_experiment`: its server-owned fields come back unchanged and are left as they are.
 
 **`TypeError: create_experiment requires a 'name' ...`**
 
