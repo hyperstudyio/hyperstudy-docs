@@ -44,6 +44,30 @@ its layers.
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.1.6
+
+**Released:** 2026-11-02
+
+#### What's Changed
+* graph validate says the step each node runs by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/58
+* A prune removes a run's folders before its rows by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/60
+* Release 0.1.6 by @ljchang in https://github.com/hyperstudyio/hyperstudy-perception/pull/59
+
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-perception/compare/v0.1.5...v0.1.6
+
+#### Install
+
+```sh
+uv tool install hyperstudy-perception     # or: pip install hyperstudy-perception
+perception doctor
+```
+
+The HyperStudy Annotator app installs and updates it on its own.
+
+
+---
+
 ### v0.1.5
 
 **Released:** 2026-11-01
