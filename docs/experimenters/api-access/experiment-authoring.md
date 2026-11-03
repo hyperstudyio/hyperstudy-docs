@@ -249,7 +249,7 @@ The definition passed Pydantic but the server would refuse it — most often a r
 
 **`ValidationError: ... "xyz" is not a writable experiment field`**
 
-The body has a key that is not an experiment field, usually a misspelling (`requiredParticipant` for `required_participants`) or a field only the server sets, such as `ownerId`. The server refuses it instead of silently dropping it. A config fetched with `get_experiment_config` can still be sent back whole to `update_experiment`: its server-owned fields come back unchanged and are left as they are.
+The body has a key that is not an experiment field, usually a misspelling (`requiredParticipant` for `required_participants`) or a field only the server sets, such as `ownerId`. The server refuses it instead of silently dropping it. A config fetched with `get_experiment_config` can still be sent back whole to `update_experiment`: server-owned fields that never change (`id`, `ownerId`, `createdAt`, ...) are accepted when they match what is stored, and the fields the server rewrites on every save (`updatedAt`, `version`, `updatedBy`, `nameLower`) are ignored, so a config fetched before later saves still goes back. Changing a server-owned field, such as `ownerId`, is refused.
 
 **`TypeError: create_experiment requires a 'name' ...`**
 
