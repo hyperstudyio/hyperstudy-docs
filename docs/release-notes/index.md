@@ -8,6 +8,24 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.33
+
+Released: 2026-11-03
+
+## What's Changed
+
+## Changes since last production release
+
+- fix(api-v3): a fetched config sent back after later saves is accepted (1573f3c94)
+- fix(api-keys): create-experiment examples send states, not components (3f6afe74c)
+- refactor(experiments): remove the retired GET /api/experiments/v3 list (5eb66ef60)
+- fix(dashboard): show experiments created or changed elsewhere (9ab63f1c1)
+- fix(api-v3): one set of checks for experiment create, update and validate (bcfce34ed)
+- fix(api-v3): refuse organization-less API keys; deployments fail closed (7d76a47e2)
+- docs(plan): randomization step 7 done; record the Randomize state order gate (ffa728bfe)
+
+---
+
 ## v0.7.32
 
 Released: 2026-11-02
@@ -86,19 +104,6 @@ Released: 2026-10-29
 - fix(designer): questionnaire editors stop resending their stale copies (ff676b61c)
 - fix(designer): select states by id; Delete, Duplicate and Group act on what is shown (8b4ba1e39)
 - fix(designer): config panel saves only what was edited, on the current config (7397d1ddc)
-
----
-
-## v0.7.30
-
-Released: 2026-10-28
-
-## What's Changed
-
-## Changes since last production release
-
-- feat(voice): a dropped voice engine pauses the study and reconnects instead of ending it (fee306af2)
-- fix(webhooks): record each LiveKit webhook once, and verify signatures everywhere (04a028f81)
 
 ---
 
