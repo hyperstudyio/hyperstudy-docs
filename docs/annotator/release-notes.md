@@ -11,6 +11,21 @@ offer to install it. The perception pipeline the app runs has its own
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.0.5
+
+**Released:** 2026-11-05
+
+#### Fixes
+
+- Use the Hugging Face token saved in Settings during pipeline setup and gated-model downloads. A token that passes the access check now reaches setup without needing `launchctl setenv HF_TOKEN`.
+- Read saved keys again on each setup attempt, so replacing a token and clicking **Try again** uses the replacement without restarting the app.
+- Recover on **Try again** after unlocking a keychain that was locked when the app started.
+- Add OpenAI key storage in Settings for delivery captions. Hugging Face, Anthropic, RunPod, and OpenAI keys are covered by credential propagation regression tests.
+- Round the RunPod spending cap up to cover the reservation shown before starting a run.
+
+
+---
+
 ### v0.0.4
 
 **Released:** 2026-11-02
