@@ -9,19 +9,25 @@ sidebar_position: 6
 
 ## Models
 
+**Anthropic** comes first. Scene descriptions (the shot captions), on-screen text and objects all come from Claude,
+so without an Anthropic key a run leaves them out. The pipeline has no separate OCR step: Claude reads the on-screen
+text off the frames while it writes each shot's caption.
+
 **The steps' models** lists what each step of the pipeline runs: its models, with links and licences, whether it
 runs on your computers or calls an API, and how much it downloads (once). Some steps have choices, such as which
 Claude model writes the shot captions. What you choose here is the default; Extract can change it for one run.
 
-Each step that needs a key has the key's row under it.
+Each step that needs a key has the key's row under it, except the Anthropic key, which is set at the top: a step
+that uses it says **Uses the Anthropic key**, or **Needs the Anthropic key** until you add it.
 
 ### Keys
 
-The app keeps three keys, in this computer's keychain:
+The app keeps four keys, in this computer's keychain:
 
 | Key | What it is for | Where to get one |
 |---|---|---|
-| Anthropic | Shot captions written by Claude | [console.anthropic.com](https://console.anthropic.com/settings/keys) |
+| Anthropic | Scene descriptions (shot captions), on-screen text and objects, all from Claude | [console.anthropic.com](https://console.anthropic.com/settings/keys) |
+| OpenAI | Descriptions of the delivery written by GPT audio | [platform.openai.com](https://platform.openai.com/api-keys) |
 | Hugging Face | Downloading gated models, and higher download limits | [huggingface.co](https://huggingface.co/settings/tokens) |
 | RunPod | Cloud GPU pods | [console.runpod.io](https://console.runpod.io/user/settings) |
 

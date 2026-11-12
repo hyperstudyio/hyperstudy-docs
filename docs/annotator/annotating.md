@@ -31,9 +31,11 @@ fingerprint, and remembers it for every bundle of that video.
 
 ## Playing
 
-- **Play** (Space) plays the whole video from the playhead.
-- **Clip** (Shift+Space) plays just what is selected, such as an utterance, a shot or a face track, from its start
-  to its end. **Loop** (L) repeats it. Loop is on at the start.
+- **Play** (Space) plays the clip, if one is selected, and otherwise the whole video from the playhead. The clip is
+  shaded green on the timeline and shown beside Play; its **×** (or Esc) lets it go, and Play plays the video again.
+- **Clip** (Shift+Space) plays what is selected, such as an utterance, a shot or a face track, from its start to its
+  end. **Loop** (L) repeats a clip. Loop is on at the start.
+- The speaker button mutes the video, and the slider beside it sets the volume. Both are remembered.
 - **Speed** plays at 0.5× to 2×.
 - Clicking the video plays or pauses it. Clicking a face or object box on the video selects it.
 
@@ -50,21 +52,30 @@ The timeline has a row for shots, one for each shot's caption, and groups of row
 
 | Group | Rows |
 |---|---|
-| **Audio & speech** | the waveform, and the transcript |
+| **Audio & speech** | the waveform, the transcript, and each of its words where it is spoken |
 | **Prosody** | pitch, emotion in the voice (arousal and valence), and descriptions of the delivery |
 | **People** | a row per person, with when they are on screen and, thicker, when they speak; a row per off-screen voice; and **Unsure / other** |
-| **Objects** | a row per object |
+| **Objects** | a row per object (needs the Anthropic key) |
 | **Gestures** | hand over mouth, touching face, pointing, raised hand |
 | **Social** | looks at, mutual gaze, joint attention, facing |
 | **Sounds** | sound events such as music or laughter |
-| **On-screen text** | text that appears in the video |
+| **On-screen text** | text that appears in the video, read by Claude with the shot captions (needs the Anthropic key) |
 | **Annotations** | a row for each annotation type you add |
 
 A group or row appears only if the pipeline made that layer for this video.
 
-- **Click** a bar to select it and play it as a looping clip. Click it again to stop.
-- **Click** empty space to move the playhead. **Drag** across empty space to loop that stretch. **Drag** on the
-  ruler to scrub.
+- **Click** a bar to select it. It becomes the clip, paused at its start: press Space to play it.
+- **Click** empty space to move the playhead. **Drag** across empty space to make that stretch the clip. **Drag** on
+  the ruler to scrub.
+- **Change the clip**: ⇧-click anywhere to move its nearer end there, or ⇧-click a bar to stretch the clip over it;
+  ⇧-drag to drag that end. ⌘-drag (Ctrl-drag on Linux) anywhere moves the whole clip. The clip's band on the ruler can be dragged too, by
+  its middle or its ends. Ends snap to shot cuts, utterances and annotations; hold ⌥ to place them freely. While
+  paused, the video shows the frame at the end you are moving.
+- **Words**: click a word on the Words row to make it the clip. Double-click it to correct it: **Enter** saves,
+  **Esc** cancels, **Tab** saves and moves to the next word. Typing two words splits it, and clearing it deletes it.
+  The utterance's transcript changes with it.
+- **Colours**: click the dot beside a person's or object's name, on the timeline or in Inspect, to choose its colour.
+  The choice is yours alone, kept with your layout.
 - **Zoom** with the slider, by pinching, or with Ctrl and the scroll wheel.
 - **Layers** turns whole groups on and off. Click a group's name to fold it, and drag its grip to reorder the groups.
   The ⓘ beside a group lists the models behind it, with their licences.
@@ -78,21 +89,24 @@ one model heard. An **orange underline** means the speaker is uncertain.
 
 ## Correcting
 
-Select anything, on the video or the timeline, and the **Inspect** tab shows what is known about it and what you can
-change. Every change is saved as you make it. **⌘Z** (Ctrl+Z on Linux) undoes the last one.
+Select anything, on the video or the timeline, and the **Inspect** tab shows what you can change about it first.
+What the models measured, such as a face's emotions or an utterance's prosody, is under **Details**, folded until you
+open it; it stays open for the next item once you do. Every change is saved as you make it. **⌘Z** (Ctrl+Z on Linux) undoes the last one.
 
 ![Inspect showing an utterance, "Deal.", with Who is speaking? listing two faces and their scores; the faces are numbered on the video](/img/annotator/who-is-speaking.png)
 
 - **Shots**: edit the caption.
-- **Utterances**: edit the transcript, and say **Who is speaking?** by choosing one of the faces on screen (each with
-  a score), an off-screen voice, a known person off camera, **Several**, **Unsure** or **Not speech**. You can also
-  drag an utterance's bar onto another person's row. **Back to prediction** undoes your choice. With **After
-  choosing, go to the next uncertain utterance**, you can work through a scene without the mouse.
-- **Face tracks**: say **Who is this?**: one of the people, **Unknown**, **Not a person**, or **New person…**. This
-  changes that one track; **Edit … instead** changes the person.
-- **People**: double-click a name, here or on the timeline, to rename it. **Same person as** merges two people found
-  separately. **Not a person** removes a false face.
-- **Objects**: say which object a track is, or merge two objects with **Same object as**.
+- **Utterances**: edit the transcript, and say who is speaking by choosing one of the faces on screen (the keys 1–9
+  choose them too). The predicted speaker has a dashed outline. **Other…** has an off-screen voice, a known person off
+  camera, **Several**, **Unsure** and **Not speech**. You can also drag an utterance's bar onto another person's row.
+  **Back to the prediction** undoes your choice. With **After choosing, go to the next uncertain utterance**, in the
+  Review tab, you can work through a scene without the mouse.
+- **Face tracks**: choose who this face is: one of the people, **Unknown**, **Not a person**, or **New person…**.
+  This changes that one track; **Open** the person to change the person.
+- **People**: double-click a name, here or on the timeline, to rename it. **Same person as…** merges two people found
+  separately. **Not a person** removes a false face. The person's appearances are shown as faces: click one to open
+  that track.
+- **Objects**: say which object a track is, or merge two objects with **Same object as…**.
 - **Sounds**: **Real** or **Not there**.
 
 Something you have left out shows **Put back** in Inspect.

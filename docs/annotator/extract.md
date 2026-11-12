@@ -22,6 +22,8 @@ as a **bundle** and opens in the Annotator.
 
 Features that keep everything on your computer and cost nothing start on. Features that send data off it, such as
 shot captions written by Claude, or that cost money start off. Turning one on is your consent to send what it needs.
+Shot captions also bring the on-screen text, and Objects needs Claude too: leave them off, or run without an Anthropic
+key, and the bundle has no scene descriptions, on-screen text or objects.
 A feature that another needs is turned on and locked, with **Needed by …** under it.
 
 Click a feature's name to see what it **Makes**, the models it **Uses** and their licences, what it **Downloads
@@ -31,8 +33,9 @@ captions. Their defaults come from [Settings > Models](./settings.md#models); a 
 ### What a row can say
 
 - **Already done**: an earlier run made this, and it is reused.
-- **Needs the Anthropic key: add it in Settings**: the step needs a key you have not added. The same goes for the
-  Hugging Face and RunPod keys.
+- **Needs the Anthropic key: add it in Settings**: the step needs a key you have not added, whether it is on or off.
+  The same goes for the Hugging Face and RunPod keys.
+- **Scene descriptions and on-screen text**, under Shot captions: what it makes besides the captions.
 - **Turn on … first: it sends data off this machine**: this feature needs one that sends data, which is off.
 - **Cannot run here**: this computer cannot run the step, for example without an NVIDIA GPU. Its reason is
   shown. A lab server or RunPod may be able to run it.
