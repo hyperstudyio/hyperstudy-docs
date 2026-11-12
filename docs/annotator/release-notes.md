@@ -11,6 +11,42 @@ offer to install it. The perception pipeline the app runs has its own
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.0.6
+
+**Released:** 2026-11-12
+
+#### Playing and clips
+
+- Clicking a segment selects it as the clip and waits, paused at its start. Press **Space** (or **Play**) to play it; it loops. The clip is shown beside Play, and **×** or **Esc** lets it go.
+- Volume and mute controls in the transport, remembered between sessions.
+- Change the clip from anywhere on the timeline: **⇧-click** moves its nearer end there (⇧-click a segment to stretch the clip over it), **⇧-drag** drags that end, and **⌘-drag** moves the whole clip. The clip's band on the ruler can be dragged by its middle or its ends. While paused, the video shows the frame at the end you are moving.
+- **⌘←/→** grows the clip by 0.1 s on that side (1 s with ⇧), and **⌥⌘←/→** shrinks it. On Linux, use Ctrl and Alt.
+- Clips can be made over a group's title row (Audio &amp; speech, Prosody, and so on) like any other row.
+
+#### Words on the timeline
+
+- A new **Words** row shows each word of the transcript where it is spoken. Click a word to make it the clip. Double-click it to correct it: **Enter** saves, **Esc** cancels, and **Tab** saves and moves to the next word.
+- A correction is still saved as the utterance's text, so corrections files are unchanged, and edits made in Inspect line up on the timeline too.
+
+#### Inspect
+
+- Each panel starts with what you can change: who a face is, who is speaking, whether two people are the same. What the models measured is under **Details**, closed until you open it.
+- The predicted speaker is marked with a dashed outline. Speakers can be chosen with the keys 1–9, and everyone else is under **Other…**.
+- A person's appearances are shown as faces, so a wrong one stands out.
+- **After choosing, go to the next uncertain utterance** is now on the Review tab, and applies there.
+
+#### Colours
+
+- Click the dot beside a person's or object's name, on the timeline or in Inspect, to choose its colour. The choice is yours alone and is kept with your layout.
+
+#### The Anthropic key
+
+- **Settings → Models** now says what the Anthropic key is for: scene descriptions (shot captions), on-screen text and objects all come from Claude, and runs without the key leave them out. There is no separate OCR step. Steps that use the key say so and link to it.
+- **Extract** says when a feature needs a key you have not added, whether the feature is on or off.
+
+
+---
+
 ### v0.0.5
 
 **Released:** 2026-11-05
