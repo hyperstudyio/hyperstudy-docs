@@ -309,6 +309,58 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.9.1
+
+**Released:** 2026-11-17
+
+## 🎉 HyperStudy Bridge v0.9.1
+
+^[[1m# Changelog for v0.9.1^[[0m
+
+**Changes since v0.9.0**
+
+## 📝 Other Changes
+- Hyperstudy Device Bridge 0.9.1: credentials in the OS store, FRENZ markers via the study recording, security fixes (#116) (440614b)
+
+## 📊 Statistics
+- **Commits**: 1
+- **Contributors**: 1
+- **Files changed**:  113 files changed, 3774 insertions(+), 16408 deletions(-)
+
+---
+
+**Full Changelog**: https://github.com/hyperstudyio/hyperstudy-bridge/compare/v0.9.0...v0.9.1
+
+---
+
+## 📦 Installation
+
+### macOS
+- **Apple Silicon (M1/M2/M3)**: Download `HyperStudy-Bridge-v0.9.1-aarch64-apple-darwin.dmg`
+- **Intel Macs**: Download `HyperStudy-Bridge-v0.9.1-x86_64-apple-darwin.dmg`
+
+Open the DMG and drag HyperStudy Bridge to your Applications folder.
+
+All macOS builds are signed and notarized by Apple.
+
+### Windows
+- Download `HyperStudy-Bridge-v0.9.1-x86_64-windows.msi`
+
+> **Note**: Windows may show a SmartScreen warning on first run.
+> Click "More info" → "Run anyway" to proceed.
+
+### Linux
+- Download `HyperStudy-Bridge-v0.9.1-x86_64-linux.AppImage`
+
+Make executable and run:
+\`\`\`bash
+chmod +x HyperStudy-Bridge-*.AppImage
+./HyperStudy-Bridge-*.AppImage
+\`\`\`
+
+---
+
+
 ### v0.8.27
 
 **Released:** 2026-09-04
