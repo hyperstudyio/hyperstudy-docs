@@ -8,6 +8,31 @@ Stay up to date with the latest features, improvements, and bug fixes in HyperSt
 
 ## Latest Releases
 
+## v0.7.37
+
+Released: 2026-11-17
+
+## What's Changed
+
+## Changes since last production release
+
+- chore(migration): 013 re-correct V2 event timestamps skewed by queued clock-sync pings (153022422)
+- fix(v2): clock-sync pings no longer wait behind join-experiment (061078320)
+- refactor(devices): stop sending FRENZ LSL markers; the study recording saves them (aceeeb841)
+- ci(claude-review): deny every place a token is readable; check the comment (0053b4f72)
+- ci(claude-review): give the reviewer no shell (6b7cd08b3)
+- ci(claude-review): strict tool list, release-aware prompt, review fixes (68efb52e8)
+- ci(claude-review): keep the token out of the checkout and skip fork PRs (04dc82695)
+- ci: review pull requests with Claude Code (09b83b1f7)
+- fix(experiment-settings): show TTL and Neon options inside their device cards (5bd945a84)
+- fix(participant): draggable windows float above the header; text chat on top (aded22c13)
+- fix(participant): keep the header and Leave Experiment above every participant overlay (ee4852431)
+- fix(device-setup): never trap a participant in setup; V2 survives a dropped socket (7febf0d23)
+- fix(experiment-settings): stop offering EyeLink while Bridge support is unfinished (ff00b65a4)
+- fix(data): list and serve device recordings from every environment (4ae40df8f)
+
+---
+
 ## v0.7.36
 
 Released: 2026-11-13
@@ -63,19 +88,6 @@ Released: 2026-11-04
 - fix(data-access): legacy audio recordings follow the session they belong to (30ad0602f)
 - fix(data-access): a room in the query no longer stands in for a whole experiment (914ef0548)
 - fix(data-access): organization members see experiment data again; deployment shares open their sessions in Data Management (001575820)
-
----
-
-## v0.7.34
-
-Released: 2026-11-03
-
-## What's Changed
-
-## Changes since last production release
-
-- fix(prolific): separate rate limits and outages from refusals; keep secrets out of Sentry bodies (03585c6ec)
-- fix(prolific): keep API keys out of logs and show Prolific's refusals to researchers (f6f0f9733)
 
 ---
 
