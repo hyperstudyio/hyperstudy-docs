@@ -309,6 +309,27 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.9.2
+
+**Released:** 2026-11-19
+
+## What's Changed
+
+### New Features
+- Neon event markers are moved onto the phone's clock before they are sent. The Companion app files markers on the phone's own clock, which can be off by hundreds of milliseconds (one lab phone ran about 0.5 s fast). Bridge measures the phone with Pupil Labs' Time Echo and corrects each marker, so markers line up with gaze in the phone's recording and in Pupil Cloud (#120).
+- Study recordings save every raw clock exchange: this computer's wall clock against its LSL clock, HyperStudy's browser↔server pings, and each Neon phone's Time Echo. HyperStudy uses them to fit clock offset and drift after the session (#119).
+
+### Bug Fixes
+- Study recordings start in about 0.1 s instead of about 1.1 s, so participants no longer wait after device setup (#121).
+- Neon gaze connects after a fresh Bridge start, the phone finder is easier to read, and connection errors say what to do (#118).
+- Upload errors keep their underlying cause (#118).
+
+### Technical
+- New `clock_samples` table in study recordings; the recording format version is unchanged, so older HyperStudy versions still accept the files.
+
+---
+
+
 ### v0.9.1
 
 **Released:** 2026-11-17
