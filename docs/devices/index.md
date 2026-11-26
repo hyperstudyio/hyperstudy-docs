@@ -49,6 +49,19 @@ The central hub for connecting research hardware to HyperStudy experiments. The 
 
 ---
 
+### FRENZ Brainband
+
+A soft EEG headband with forehead and side electrodes, a pulse sensor and a motion sensor, connected through the Bridge.
+
+**Key Features:**
+- Raw EEG, pulse and motion published over LSL
+- Eye, brow muscle, heart, head and EEG power signals computed live (openfrenz)
+- A live view, and a graph editor for building your own signals
+
+[View FRENZ Brainband Documentation →](/devices/frenz)
+
+---
+
 ### HyperStudy TTL
 
 An RP2040-based TTL pulse generator for sending precisely-timed electrical signals to external equipment. Uses optocoupler isolation to protect both the computer and connected devices.

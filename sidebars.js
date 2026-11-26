@@ -249,6 +249,7 @@ module.exports = {
         'devices/hyperstudy-gige',
         'devices/eyelink',
         'devices/pupil-neon',
+        'devices/frenz',
         'devices/usb-triggers',
       ],
     },

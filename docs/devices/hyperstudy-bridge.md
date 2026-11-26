@@ -32,6 +32,7 @@ The Bridge runs locally on your research computer and creates a WebSocket server
 | Kernel Flow2 | fNIRS | TCP Socket | Supported |
 | [Pupil Labs Neon](/devices/pupil-neon) | Eye Tracker | REST API + LSL (mDNS discovery) | Supported |
 | [EyeLink 1000 Plus](/devices/eyelink) | Eye Tracker | Ethernet (TCP) | Supported* |
+| [FRENZ Brainband](/devices/frenz) | EEG headband | Bluetooth (openfrenz) or Earable SDK, published over LSL | Supported |
 | Lab Streaming Layer | Various | LSL Protocol | Supported |
 
 _*Requires the [SR Research EyeLink Developers Kit](/devices/eyelink#installing-the-eyelink-developers-kit) installed on the Bridge machine._
