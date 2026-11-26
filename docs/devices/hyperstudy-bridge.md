@@ -309,6 +309,28 @@ npm run tauri build
 
 <!-- RELEASE_NOTES_START -->
 
+### v0.9.3
+
+**Released:** 2026-11-26
+
+## What's Changed
+
+### New Features
+- **Pipeline editor for openfrenz models** (FRENZ card → Pipelines, with the openfrenz connection). Build pipelines as a graph of streams and blocks; openfrenz checks every change and says what is wrong. Try a pipeline on the band without publishing it, then save, use, export or import it.
+- **Settings offer names instead of asking for them.** Channels, statistics and measure pairs are picked from what each block's input actually has; channel mixes are written as formulas, e.g. `(forehead_left + forehead_right) / 2 - comb_left`.
+- **From the live view:** open any model's pipeline (✎ Pipeline), or start a new signal (+ New signal). Use starts it on the band at once, published over LSL and drawn live.
+- **Edited built-ins.** Built-in models are never changed: editing one makes a copy that runs in its place, on the same stream, and is kept in the configuration. ↺ Revert puts the original back; the copy stays saved until deleted.
+- Recipes to start from (theta/alpha ratio, blinks, forehead muscle, heart rate with head angle), Tidy layout (down or across), and a signal quality block.
+
+### Bug Fixes
+- The FRENZ card's buttons no longer run off the card, and the card names the openfrenz connection correctly (Bluetooth + LSL).
+
+### Technical
+- openfrenz updated: pipelines built from a config in memory, and the `average` block's `prefix` setting.
+
+---
+
+
 ### v0.9.2
 
 **Released:** 2026-11-19
